@@ -8,7 +8,9 @@ To make things as easy as possible we will gradually publish new challenges that
 
 Once the primer has finished, no new challenges will be published and all your earned Desmos Points will be converted into `Desmos Token` ("`DT`"), the native staking token of the Desmos Chain, based on a conversion scale that we will publish very soon. 
 
-You can complete the challenges in any order you prefer, but please note that you will only get Desmos Points when you have completed the challenges by the given deadlines
+You can complete the challenges in any order you prefer, but please note that you will only get Desmos Points when you have completed the challenges by the given deadlines.
+
+In case of dispute, Desmos’ team reserves the right of the final decision.
 
 ## Registering for the Primer
 In order to participate to the Primer you need to have an active GitHub account to help us identify you uniquely. If you do not have one yet, you can register for free here: [Join GitHub](https://github.com/join).
