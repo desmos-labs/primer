@@ -10,7 +10,7 @@ In order to complete the challenges of the first phase, you will have to satisfy
 2. Having Git installed.  
    If you do not have it yet, you can get it here: [Git Downloads](https://git-scm.com/downloads). 
    
-3. Having Git setup with GitHub 
+3. Having Git setup with GitHub.  
    If you have not done it yet, you can connect Git with GitHub following these procedure: [Set up Git](https://help.github.com/en/github/getting-started-with-github/set-up-git).
    
 ## Setup 
