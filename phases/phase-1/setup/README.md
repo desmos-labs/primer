@@ -77,7 +77,7 @@ desmoscli query block 1
 
 The output should be 
 
-```
+```json
 {"block_meta":{"block_id":{"hash":"CC24512EEE121FA27FA44A2CC9EE3CD27A41E5FD0F018DD7E1DCC83E6C2E52F0","parts":{"total":"1","hash":"F009ABF3312DEF71052DC7348368329D131C1BC26EA566ED969E01321DB5D773"}},"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1000","height":"1","time":"2019-12-11T04:42:14.03384Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"6435B4DF8C20D126978E030E946096066ED46050"}},"block":{"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1000","height":"1","time":"2019-12-11T04:42:14.03384Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"6435B4DF8C20D126978E030E946096066ED46050"},"data":{"txs":null},"evidence":{"evidence":null},"last_commit":{"block_id":{"hash":"","parts":{"total":"0","hash":""}},"precommits":null}}}
 ```
 
@@ -94,7 +94,7 @@ desmoscli keys add <your-name>
 
 After typing a password and the confirmation, the result should look like the following: 
 
-```shell
+```yml
 - name: jack
   type: local
   address: desmos1uht7hsl88wr002ses4qf5k24nshdyxukv3r2p8
@@ -120,7 +120,7 @@ Inside our testnets the tokens will be:
 * Daric (namely `udaric`) as the staking token
 * Potic (namely `upotic`) as the fee token
 
-To fully active your account, what you need to do is go to our [faucet page](https://faucet.desmos.network) and request come `upotic` inserting your address. If you forgot it you can get it by running 
+To fully active your account, what you need to do is to go to our [faucet page](https://faucet.desmos.network) and request some `upotic` inserting your address. If you forgot it you can get it by running 
 
 ```shell
 desmoscli keys show <your-key-name> --address

@@ -24,7 +24,7 @@ desmoscli tx posts create "<Message>" true --from <your-key-name> --yes
 
 You will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 
 
-```
+```yml
 height: 0
 txhash: 89243E31ED012CC0AE541C56983946E4BBE1D830DF71B2D0E2EB79CB37BE5231
 code: 0
@@ -120,7 +120,7 @@ desmoscli tx posts like <post-id> --from <your-key> --yes
 
 This should return you something like this: 
 
-```
+```yml
 height: 0
 txhash: 1F64E1FDBB2A495E9C6F9AEDFD397B3B55DF0895F0232B558DAED042F3E159C9
 code: 0
