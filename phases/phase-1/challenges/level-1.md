@@ -2,10 +2,10 @@
 - [Refer a friend](#refer-a-friend)
 
 ## Refer a friend
-The first challenge is the one that allows you to refer a friend. For safety purposes and to avoid scams or spams, it is divided into two steps: 
+The first challenge is to refer a friend. For safety purposes and to avoid scams or spams, it is divided into two steps: 
 
 1. Referring a friend, that you need to complete if you want to refer another user.
-2. Accepting a referral, that you need to complete if another user has referred you and you want to accept such referral. 
+2. Accepting a referral, that you need to complete if another user has referred you and you want to accept the referral. 
 
 Please note that you will receive **20 points** per each user that accepts your referral, and the referred person will receive **20 points** too upon accepting your referral.
 
@@ -33,7 +33,7 @@ To do so, you will have to follow this procedure:
    # echo "kwunyeung" >> ./phases/phase-1/challenges/referral/RiccardoM
    ```
 
-4. Commit the changes, push them to your forked repo and create a pull request. If you do not know to to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+4. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, please refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
    
 ### Step 2 - Accepting a referral
 In order to avoid scams, we require each referred user to accept their referring friend explicitly. Upon being referred (and thus, having your name written inside one of the files under the `phases/phase-1/referral` files), you will need to complete the following procedure to make sure that you and your referring friend get the **20 points**: 
@@ -56,4 +56,4 @@ In order to avoid scams, we require each referred user to accept their referring
    # echo "RiccardoM" >> ./phases/phase-1/challenges/referred/kwunyeung
    ```
    
-4. Commit the changes, push them to your forked repo and create a pull request. If you do not know to to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+4. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, please refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).

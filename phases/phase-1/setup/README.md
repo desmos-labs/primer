@@ -1,8 +1,8 @@
 # Phase 1 setup
-In order to complete the primer challenges, you will have to go through a setup that allows you to install the Desmos CLI as well as to connect it to a full node and get your Desmos account. If you have already done so, you can skip this step. Otherwise, following you will find a detailed description of the process. 
+In order to complete the primer challenges, you have to go through a setup process to install the Desmos CLI and connect it to a full node to create your Desmos account. If you have already done so, you can skip this step. Otherwise, you will find a detailed description of the process below. 
 
 ## Requirements
-In order to complete the challenges of the first phase, you will have to satisfy the following requirements first: 
+In order to complete the challenges of the first phase, you have to satisfy the following requirements: 
 
 1. Having Go installed.  
    If you do not have it, you can get it at the following link: [Installing Go](https://golang.org/doc/install). 
@@ -32,7 +32,7 @@ go version go1.12.10 linux/amd64
 Please make sure the version is `1.12.10` or later. 
 
 ### 2. Installing the Desmos CLI 
-The Desmos Command Line Interface (in short, *CLI*) is the tools that allows you to perform Desmos-related operations using a terminal on your machine. It connects to a full node of the Desmos Chain allowing you to easily create, sign and send transactions to it. 
+The Desmos Command Line Interface (in short, *CLI*) is the tool that allows you to perform Desmos-related operations using a terminal on your machine. It connects to a full node of the Desmos Chain allowing you to easily create, sign and send transactions to it. 
 
 In order to install it, please execute the following commands: 
 
@@ -56,7 +56,7 @@ The result should be:
 ```
 
 ### 3. Connecting the CLI to a full node
-Once the CLI has been properly installed, to allow it reading and writing the chain state, we need to connect it to our public full node. To do so, please run: 
+Once the CLI has been properly installed, to allow it reading from and writing to the chain state, we need to connect it to our public full node. To do so, please run: 
 
 ```shell
 desmoscli config node http://34.74.131.47:26657
@@ -82,7 +82,7 @@ The output should be
 ```
 
 ### 4. Creating your address
-In order to perform operations on the Desmos chain, you will need a Desmos address. These are unique random-generated accounts based on 24 words-long mnemonic phrases. 
+In order to perform operations on the Desmos Chain, you will need a Desmos address. These are unique random-generated accounts based on 24 words-long mnemonic phrases. 
 
 In order to generate a new address, run the following commands: 
 
@@ -111,7 +111,7 @@ conduct never unit tobacco song hurt pepper silk hundred merit cheese bulb elect
 ```
 
 :::warning  
-Make sure you write somewhere safe the mnemonic phrase that is returned to you as this will be the only way to later recover the account if you need to do so. Loosing this phrase means loosing access to all your funds.  
+Make sure you have written somewhere safe the mnemonic phrase that is returned to you as this will be the only way to later recover the account if you need to do so. Loosing this phrase means loosing access to all your funds.  
 :::
 
 ### 5. Receive some `upotic`
@@ -120,7 +120,7 @@ Inside our testnets the tokens will be:
 * Daric (namely `udaric`) as the staking token
 * Potic (namely `upotic`) as the fee token
 
-To fully active your account, what you need to do is to go to our [faucet page](https://faucet.desmos.network) and request some `upotic` inserting your address. If you forgot it you can get it by running 
+You need some fund to fully activate your account, visit our [faucet page](https://faucet.desmos.network) and request some `upotic` by inserting your address. If you forget the address you have just generated, you can get it by running 
 
 ```shell
 desmoscli keys show <your-key-name> --address
@@ -135,8 +135,8 @@ This will return the associated address such as
 desmos1gmu4uevcvwfcuu43yp27gcv4ngxuh9sxfpv3er
 ```
 
-After you've put it into the faucet you will receive some tokens.
+You will receive some tokens after you put it into the faucet.
 
 :::tip Welcome! 
-Congratulations, you successfully completed the setup of your Desmos account! You can now go and start from the [Level 1 challenges](../challenges/level-1.md) to start earning some Desmos Points!  
+Congratulations, you have successfully completed the setup of your Desmos account! You can now start the [Level 1 challenges](../challenges/level-1.md) and start earning some Desmos Points!  
 ::: 

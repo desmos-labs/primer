@@ -1,5 +1,5 @@
 # Level 2 - 50 points
-The level 2 challenges will allow you to get more into the depths on how Desmos works and what components it is made of. During these challenges you will be required to perform some operations from the Desmos CLI so if you haven't done so, go and follow the [setup guide](../setup/README.md)  now. 
+The level 2 challenges will let you have more understandings on how Desmos works and what components it is made of. During these challenges you will be required to perform some operations from the Desmos CLI. If you haven't done so, please follow the [setup guide](../setup/README.md) before continuing. 
 
 Available challenges: 
 - [Create a post](#create-a-post)
@@ -48,7 +48,7 @@ timestamp: ""
 events: []
 ```
 
-To make sure the transaction has been successful, you can query it using the following command: 
+To make sure the transaction has been processed successfully, you can query it using the following command: 
 
 ```shell
 desmoscli query tx <hash> --output json
@@ -66,7 +66,7 @@ Congratulations! You've just created your first Desmos post!
 ### Getting the reward 
 After you've created a post, to make sure you receive your reward please following this procedure: 
 
-1. Create a for of this repo inside your private GitHub profile.  
+1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Pull the fork locally:  
@@ -75,7 +75,7 @@ After you've created a post, to make sure you receive your reward please followi
    cd ~/desmos-primer
    ```
 
-3. Create a file named after your GitHub username and containing the post creation transaction hash:  
+3. Create a file named after your GitHub username containing the post creation transaction hash:  
    ```shell
    echo "<tx-hash>" >> ./phases/phase-1/challenges/posts/<your-github-name>
    
@@ -86,9 +86,9 @@ After you've created a post, to make sure you receive your reward please followi
 4. Commit the changes, push them to your forked repo and create a pull request. If you do not know to to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
 ## Like a post
-Likes are Desmos' way of allowing users express their appreciation towards an already existing post, either created by them or by another user. 
+Likes are Desmos' way for users expressing their appreciation towards an existing post, either created by the post authors or by another users. 
 
-Differently from posts, likes can be removed using the _unlike_ transaction. However, once you like a post on the chain a trace will be left forever and clients can also decide to ignore unlikes showing just the original likes. In the end, make sure to really like a post before liking it on Desmos as likes will be forever. 
+Different from posts, likes can be removed using the _unlike_ transaction. However, once you like a post on the chain a trace will be left forever and clients can decide to ignore unlikes and showing just the original likes. In the end, make sure you really like a post before liking it on Desmos as likes will be forever. 
 
 ### Liking a post
 #### Retrieving a post id 
@@ -144,16 +144,16 @@ timestamp: ""
 events: []
 ```
 
-You can now query the tx result to make sure everything was successful: 
+You can now query the tx result to make sure everything was processed successfully: 
 
 ```shell
 desmoscli query tx 1F64E1FDBB2A495E9C6F9AEDFD397B3B55DF0895F0232B558DAED042F3E159C9 --output json
 ```
 
 ### Getting the reward 
-After you've created a post, to make sure you receive your reward please following this procedure: 
+After you've created a post, please following this procedure to receive your rewards: 
 
-1. Create a for of this repo inside your private GitHub profile.  
+1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Pull the fork locally:  
@@ -162,7 +162,7 @@ After you've created a post, to make sure you receive your reward please followi
    cd ~/desmos-primer
    ```
 
-3. Create a file named after your GitHub username and containing the like transaction hash:    
+3. Create a file named after your GitHub username containing the like transaction hash:    
    ```shell
    echo "<tx-hash>" >> ./phases/phase-1/challenges/likes/<your-github-name>
    
@@ -170,4 +170,4 @@ After you've created a post, to make sure you receive your reward please followi
    # echo "1F64E1FDBB2A495E9C6F9AEDFD397B3B55DF0895F0232B558DAED042F3E159C9" >> ./phases/phase-1/challenges/likes/RiccardoM
    ```
 
-4. Commit the changes, push them to your forked repo and create a pull request. If you do not know to to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+4. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
