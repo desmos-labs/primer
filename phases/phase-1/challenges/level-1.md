@@ -21,13 +21,13 @@ To do so, you will have to follow this procedure:
 
 2. Pull the fork locally:  
    ```shell
-   git clone https://github.com/<your-name>/primer.git ~/desmos-primer
+   git clone https://github.com/<your-github-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
 3. Append to a file named as your GitHub username, the GitHub name of the referred person:    
    ```shell
-   echo "<GitHub name>" >> ./phases/phase-1/challenges/referral/<your-github-name>
+   echo "<referral-github name>" >> ./phases/phase-1/challenges/referral/<your-github-name>
    
    # Example
    # echo "kwunyeung" >> ./phases/phase-1/challenges/referral/RiccardoM
@@ -43,14 +43,14 @@ In order to avoid scams, we require each referred user to accept their referring
 
 2. Pull the fork locally:  
    ```shell
-   git clone https://github.com/<your-name>/primer.git ~/desmos-primer
+   git clone https://github.com/<your-github-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
    
 3. Create a file named as your GitHub username and containing the GitHub username of the referring friend under the `phases/phase-1/referred` folder: 
 
    ```shell
-   echo "<GitHub name>" >> ./phases/phase-1/challenges/referred/<your-github-name>
+   echo "<referred-github-name>" >> ./phases/phase-1/challenges/referred/<your-github-name>
       
    # Example
    # echo "RiccardoM" >> ./phases/phase-1/challenges/referred/kwunyeung
