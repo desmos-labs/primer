@@ -1,8 +1,17 @@
 # Phase 1 challenges
-The first challenges of the Desmos Primer Program are divided into two levels: 
+The first challenges of the Desmos Primer Program are the following:
 
-- [Level 1 - 20 points each](level-1.md)  
-  These are the easiest challenges that do not require much effort and thus they are worth 20 points each. 
-  
-- [Level 2 - 50 points each](level-2.md)  
-  A little more harder tasks that can be completed by spending a little more time, and thus they are worth 50 points each.   
+1. [Refer a friend (200 Desmos Tokens per referral)](refer.md)
+2. [Create a post (20 Desmos Tokens)](create-post.md)
+3. [Like a post (10 Desmos Tokens)](like-post.md)
+4. [Accept a referral (50 Desmos Tokens)](accept-referral.md)
+
+Please note that in order to complete the challenge number 4 you are required to be referred by another user (via challenge 1) and have already created a post (via challenge 2). 
+
+Trying to complete challenge 4 without being referred or without having completed challenge 2 will result in you getting **no rewards** for such challenge.
+
+:::warning Phase 1 ending  
+Phase 1 will close on Friday 31th January 2020 at 23:59:59 UTC.  
+
+Submissions after that date will **not** receive any reward.  
+:::
