@@ -34,5 +34,5 @@ To make sure the referred user sees your invitation to join Desmos and later com
 
 You can do so by including `@<your-friend-github-name>` inside the description. 
 
-E.g. `@kwunjeung`  
+E.g. `@kwunyeung`  
 :::
