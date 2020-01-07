@@ -71,7 +71,7 @@ After you've created a post, to make sure you receive your reward please followi
 
 2. Pull the fork locally:  
    ```shell
-   git clone https://github.com/<your-name>/primer.git ~/desmos-primer
+   git clone https://github.com/<your-github-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
@@ -112,7 +112,7 @@ And, using a JSON formatter website or tool, read the `post_id` associated value
 Once you got the id of a post that you would want to put a like on, you simply have to run the following command: 
 
 ```shell
-desmoscli tx posts like <post-id> --from <your-key> --yes
+desmoscli tx posts like <post-id> --from <your-key-name> --yes
 
 # Example 
 # desmoscli tx posts like 12 --from jack --yes
@@ -158,7 +158,7 @@ After you've created a post, please following this procedure to receive your rew
 
 2. Pull the fork locally:  
    ```shell
-   git clone https://github.com/<your-name>/primer.git ~/desmos-primer
+   git clone https://github.com/<your-github-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
