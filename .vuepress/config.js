@@ -39,8 +39,10 @@ module.exports = {
                                 path: "/phases/phase-1/challenges/",
                                 collapsable: false,
                                 children: [
-                                    ["/phases/phase-1/challenges/level-1", "Level 1"],
-                                    ["/phases/phase-1/challenges/level-2", "Level 2"],
+                                    ["/phases/phase-1/challenges/refer", "Refer a friend"],
+                                    ["/phases/phase-1/challenges/create-post", "Create a post"],
+                                    ["/phases/phase-1/challenges/like-post", "Like a post"],
+                                    ["/phases/phase-1/challenges/accept-referral", "Accept a referral"],
                                 ]
                             }
                         ]
