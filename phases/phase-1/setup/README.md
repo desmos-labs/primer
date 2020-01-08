@@ -114,13 +114,13 @@ conduct never unit tobacco song hurt pepper silk hundred merit cheese bulb elect
 Make sure you have written somewhere safe the mnemonic phrase that is returned to you as this will be the only way to later recover the account if you need to do so. Loosing this phrase means loosing access to all your funds.  
 :::
 
-### 5. Receive some `upotic`
+### 5. Receive some `upotin`
 Inside our testnets the tokens will be: 
 
 * Daric (namely `udaric`) as the staking token
-* Potic (namely `upotic`) as the fee token
+* Potin (namely `upotin`) as the fee token
 
-You need some fund to fully activate your account, visit our [faucet page](https://faucet.desmos.network) and request some `upotic` by inserting your address. If you forget the address you have just generated, you can get it by running 
+You need some fund to fully activate your account, visit our [faucet page](https://faucet.desmos.network) and request some `upotin` by inserting your address. If you forget the address you have just generated, you can get it by running 
 
 ```shell
 desmoscli keys show <your-key-name> --address
@@ -138,5 +138,5 @@ desmos1gmu4uevcvwfcuu43yp27gcv4ngxuh9sxfpv3er
 You will receive some tokens after you put it into the faucet.
 
 :::tip Welcome! 
-Congratulations, you have successfully completed the setup of your Desmos account! You can now start the [Level 1 challenges](../challenges/level-1.md) and start earning some Desmos Points!  
+Congratulations, you have setup your Desmos account successfully! You can now start the [Phase 1 challenges](../challenges/README.md) and earn some Desmos Tokens!  
 ::: 
