@@ -10,7 +10,7 @@ Please note that you can refer multiple friends and get 200 Desmos Tokens per fr
 You will get **200 Desmos Tokens per successful referral**. There is no ceiling for the number of successful referral you can make but there is a cap of 100,000 Desmos Tokens to be rewarded for Phase 1 as a whole. Once this cap has been reached, Phase 1 will end immediately. So, make sure you grab the chances to make as many referrals as possible!
 :::
 
-Referring a friend is the way that you have to let people know about Desmos, helping us increase the user base. In order to complete this challenge follow this procedure: 
+Referral program is a great way for us to go viral with more co-builders like you! To create a censorship-resistant social network, we need your help to let more people know about Desmos and increase its user base. In order to complete this challenge, please follow this procedure:
 
 1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
@@ -33,9 +33,7 @@ Referring a friend is the way that you have to let people know about Desmos, hel
 
 
 :::tip  
-To make sure the referred user sees your invitation to join Desmos and later completes the Post challenge allowing you to receive 200 Desmos Tokens, make sure to tag him inside the pull request message when creating it. 
+Please note that you will only get the 200 Desmos Tokens reward for a successful referral. So you need to make sure the person you have referred would see your invitation and complete the [Post challenge](create-post.md) accordingly.
 
-You can do so by including `@<your-friend-github-name>` inside the description. 
-
-E.g. `@kwunyeung`  
+Beside calling them, you may notify them by tagging them inside the pull request message when creating it. This can be done by including `@<your-friend-github-name>` inside the description, e.g. `@kwunyeung`.
 :::
