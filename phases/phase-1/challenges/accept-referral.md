@@ -1,11 +1,14 @@
 # Accept a referral
 :::tip Note  
-This challenge is only available top users who have been referred from another user via the [Referral challenge](refer.md) and who have already created a post via the [Post challenge](create-post.md). 
+You will only be eligible for reward in this challenge if you met **all** the below conditions:
 
-Upon completing this challenge, you will be rewarded with **50 Desmos Tokens**.   
+1. you have not yet made your first post, and
+2. you have been referred by another user via the [Referral challenge](refer.md) of which the PR has been accepted.
+
+Upon completion of this challenge, you will get **50 Desmos Tokens**. Each user (verified with an account on GitHub) can only be rewarded once for this challenge.
 :::
 
-Once you have been properly being referred via the [Referral challenge](refer.md) and you have create a post via the [Post challenge](create-post.md), you are now ready to get 50 Desmos Tokens by accepting the referral. To do so, you need to:
+Once you have met the above conditions and completed the challenge, you are now ready to get 50 Desmos Tokens. To do so, you need to:
 
 1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).

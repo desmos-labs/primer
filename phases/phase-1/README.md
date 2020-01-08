@@ -7,5 +7,5 @@ The first phase of the Primer is based on the `morpheus-1000` testnet. During th
 :::warning Phase 1 ending  
 Phase 1 will close on Friday 31th January 2020 at 23:59:59 UTC.  
 
-Submissions after that date will **not** receive any reward.  
+Submissions after that date may **not** receive any reward. 
 :::

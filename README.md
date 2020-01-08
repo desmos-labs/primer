@@ -6,7 +6,7 @@ Community participation is crucial to the success of a new project. This is why 
 ## How the Primer works
 To make things as easy as possible we will gradually publish new challenges that, once completed, will grant you `Desmos Tokens`. To help newer users to get used to the blockchain space, along with each challenge we will publish a step-by-step completion guide to explain the reason behind some specific operations. 
 
-You can complete the challenges in any order you prefer, but please note that you will only get Desmos Tokens when you have completed the challenges by the given deadlines.
+Please note that you will only get Desmos Tokens when you have completed the challenges by the given deadlines and conditions.
 
 In case of dispute, Desmos’ team reserves the right of the final decision.
 

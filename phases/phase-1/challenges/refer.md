@@ -1,10 +1,13 @@
 # Refer a friend
 :::tip Note  
-This challenges allows you to refer one or more friend(s) and get **200 Desmos Tokens per invited user that has completed the [Post challenge](create-post.md) and [accepted your referral](accept-referral.md)**.  
+This challenges allows you to refer one or more friend(s). A referral is deemed correctly if below conditions have **all** been met: 
+   
+1. your referred friend has not joined Desmos Primer before your referral and 
+2. (s)he has completed the [Post challenge](create-post.md) after your referral.  
 
 Please note that you can refer multiple friends and get 200 Desmos Tokens per friend referred.
 
-If one of the users who have referred does **not** create a post or accept your referral, you will **not** be granted any Desmos Token. 
+You will get **200 Desmos Tokens per successful referral**. There is no ceiling for the number of successful referral you can make but there is a cap of 100,000 Desmos Tokens to be rewarded for Phase 1 as a whole. Once this cap has been reached, Phase 1 will end immediately. So, make sure you grab the chances to make as many referrals as possible!
 :::
 
 Referring a friend is the way that you have to let people know about Desmos, helping us increase the user base. In order to complete this challenge follow this procedure: 
