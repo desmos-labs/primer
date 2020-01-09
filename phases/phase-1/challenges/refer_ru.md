@@ -1,10 +1,10 @@
-# Приведите друга
+# Привести рефералов
 :::примечание 
 Это задание позволяет вам привести одного или нескольких друзей. Реферал будет зачислен только в случае выполнения **всех** нижеперечисленных условий:
 This challenges allows you to refer one or more friend(s). A referral is deemed correctly if below conditions have **all** been met: 
    
 1. Ваш друг не вступил в Desmos Primer до того как вы его привели и
-2. Он/она выполнил задание [Создайте пост](create-post_ru.md) после того как вы его привели
+2. Он/она выполнил задание [Создать пост](create-post_ru.md) после того как вы его привели
  
 Не забудьте что вы получите по 200 токенов Desmos за каждого приведенного друга.
 
@@ -14,7 +14,7 @@ This challenges allows you to refer one or more friend(s). A referral is deemed 
 Реферальная программа - это отличный способ стать популярным среди таких соавторов, как вы! Чтобы создать социальную сеть, защищенную от цензуры, нам нужна ваша помощь, чтобы больше людей узнали о Desmos и расширили базу пользователей. Для выполнения этой задачи, пожалуйста, следуйте процедуре:
 
 1. Создайте форк данного репозитория в свой личный профиль GitHub  
-   Если вы не знаете как это сделать, следуюте [GitHub fork инструкции](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
+   Если вы не знаете как это сделать, следуюте [GitHub форк инструкции](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Склонируйте репозиторий:  
    ```shell
@@ -30,7 +30,7 @@ This challenges allows you to refer one or more friend(s). A referral is deemed 
    # echo "kwunyeung" >> ./phases/phase-1/challenges/referral/RiccardoM
    ```
 
-4. Закомитьте изменения, сделайте push вашего локального репозитория и создайте pull request в репозитории Desmos Primer. Если вы не знаете как это сделать, то можете почитать тут [GitHub Pull Request инструкция](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+4. Сделайте commit изменений, сделайте push вашего локального репозитория и создайте pull request в репозитории Desmos Primer. Если вы не знаете как это сделать, то можете почитать тут [GitHub Pull Request инструкция](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
 :::примечание  
 Обратите внимание на то что вы получите 200 токенов Desmos за каждого успешного реферала. Поэтому вам нужно убедиться, что человек, которого вы пригласили, увидит ваше приглашение и, соответственно, завершит [Создайте пост] (create-post_ru.md).

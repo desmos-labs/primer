@@ -17,4 +17,4 @@ In order to participate to the Primer you need to have an active GitHub account 
 If you're feeling ready to take part to the Primer, here are all the phases currently active:  
 
 - [Phase 1](phases/phase-1/README.md)
-- [Phase 1 russian version](phases/phase-1/README_RU.md)
+- [Phase 1 Russian version](README_RU.md)
