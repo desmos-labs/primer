@@ -16,13 +16,13 @@ Referral program is a great way for us to go viral with more co-builders like yo
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Pull the fork locally:  
-   ```shell
+   ```bash
    git clone https://github.com/<your-github-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
 3. Append to a file named as your GitHub username, the GitHub name of the referred person:    
-   ```shell
+   ```bash
    echo "<GitHub name>" >> ./phases/phase-1/challenges/referral/<your-github-name>
    
    # Example

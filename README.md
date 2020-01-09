@@ -1,3 +1,5 @@
+![](/assets/cover.jpg)
+
 # Desmos Primer Program
 
 ## Introduction
@@ -17,3 +19,4 @@ In order to participate to the Primer you need to have an active GitHub account 
 If you're feeling ready to take part to the Primer, here are all the phases currently active:  
 
 - [Phase 1](phases/phase-1/README.md)
+- [Phase 2](phases/phase-2/README.md)
