@@ -1,43 +1,43 @@
-# Like a post
-:::tip Note  
-This challenge allows you to receive **10 Desmos Tokens** upon completion.  
+# Лайкнуть пост
+:::примечание 
+Это задание позволит вам получить **10 токенов Desmos** после завершения.   
 
-Please note that in order to prevent spam, you will receive the reward just **for the first post** you like. No tokens will be awarded for later posts.  
+Обратите внимание, что для предотвращения спама вы получите вознаграждение только за **первое сообщение**, которое вам нравится. Токены не будут присуждаться за последующие сообщения.
 :::  
 
-Likes are Desmos' way for users expressing their appreciation towards an existing post, either created by the post authors or by another users. 
+Лайки в Desmos это способ пользователей выразить свою признательность посту, созданному автором поста или другим пользователем.
 
-Different from posts, likes can be removed using the _unlike_ transaction. However, once you like a post on the chain a trace will be left forever and clients can decide to ignore unlikes and showing just the original likes. In the end, make sure you really like a post before liking it on Desmos as likes will be forever. 
+В отличие от постов, лайки можно удалить с помощью транзакции _unlike_. Однако, если вам нравится пост, след останется навсегда, и клиенты могут решить игнорировать анлайки и показывать только оригинальные лайки. Поэтому убедитесь, что вам действительно понравился пост, прежде чем он понравится в Desmos, так как лайки будут навсегда.
 
-## Liking a post
-### Retrieving a post id 
-To like a post, you will need to know its id. Post ids can be retrieved from creation transactions. 
+## Лайкните пост
+### Получите id поста
+Чтобы лайкнуть пост, вым нужно будет знать id этого поста. Id постов можно получить отправив транзакцию. 
 
-As an example, let's take the transaction having the following hash and used to create a simple post: 
+Как пример, давайте возьмем транзакцию которая была создана в результате поста и имеет следующий хеш:  
 
 ```
 89243E31ED012CC0AE541C56983946E4BBE1D830DF71B2D0E2EB79CB37BE5231
 ```
 
-To get the id of the post you can get its JSON representation by running 
+Чтобы получить id поста вы можете получить JSON представление этой транзакции выполнив
 
 ```shell
 desmoscli query tx 89243E31ED012CC0AE541C56983946E4BBE1D830DF71B2D0E2EB79CB37BE5231 --output json
 ```
 
-And, using a JSON formatter website or tool, read the `post_id` associated value inside the `events` array. In this case, the id of the created post is `12`. 
+И, используя инструмент форматирования JSON, прочтите `post_id` ассоциированное значение внтри `events` массива. В нашем случае, id созданного поста равняется значению `12`.
 
-### Performing the like transaction
-Once you got the id of a post that you would want to put a like on, you simply have to run the following command: 
+### Отправьте лайк транзакцию
+После того, как вы получили id поста, на которое вы хотели бы поставить лайк, вам просто нужно выполнить следующую команду:
 
 ```shell
-desmoscli tx posts like <post-id> --from <your-key> --yes
+desmoscli tx posts like <id-поста> --from <имя-вашего-ключа> --yes
 
-# Example 
+# Пример 
 # desmoscli tx posts like 12 --from jack --yes
 ```
 
-This should return you something like this: 
+Вывод должен выглядить примерно так:
 
 ```yml
 height: 0
@@ -63,30 +63,30 @@ timestamp: ""
 events: []
 ```
 
-You can now query the tx result to make sure everything was processed successfully: 
+Теперь вы можете запросить результат транзакции, чтобы убедиться, что все было успешно обработано:
 
 ```shell
 desmoscli query tx 1F64E1FDBB2A495E9C6F9AEDFD397B3B55DF0895F0232B558DAED042F3E159C9 --output json
 ```
 
-## Getting the reward 
-After you've created a post, please following this procedure to receive your rewards: 
+## Получите вознагдаждение 
+После того, как вы создали сообщение, пожалуйста, следуйте этой процедуре, чтобы получить свои награды:
 
-1. Create a fork of this repo inside your private GitHub profile.  
-   If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
+1. Создайте fork этого репозитория в ваш Github профиль. 
+   Если вы не знаете как это сделать, то следуйте [GitHub форк инструкции](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
-2. Pull the fork locally:  
+2. Сделайте pull этого форка на ваш компьютер:   
    ```shell
    git clone https://github.com/<your-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
-3. Create a file named after your GitHub username containing the like transaction hash:    
+3. Создайте файл с именем вашего GitHub имени содержащий хеш транзации вашего лайка:    
    ```shell
-   echo "<tx-hash>" >> ./phases/phase-1/challenges/likes/<your-github-name>
+   echo "<tx-hash>" >> ./phases/phase-1/challenges/likes/<ваше-github-имя>
    
-   # Example
+   # Пример
    # echo "1F64E1FDBB2A495E9C6F9AEDFD397B3B55DF0895F0232B558DAED042F3E159C9" >> ./phases/phase-1/challenges/likes/RiccardoM
    ```
 
-4. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+4. Сделайте commit ваших изменений, сделайте push этих изменений в ваш форкнутый репозиторий и затем создайте pull request в репозитории Desmos Primer. Если вы не знаете как это сделать, то обратитесь в [GitHub Pull Requests инструкцию](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
