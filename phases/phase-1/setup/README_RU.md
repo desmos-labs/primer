@@ -1,40 +1,40 @@
-# Phase 1 setup
-In order to complete the primer challenges, you have to go through a setup process to install the Desmos CLI and connect it to a full node to create your Desmos account. If you have already done so, you can skip this step. Otherwise, you will find a detailed description of the process below. 
+# Настройка этапа 1
+Чтобы выполнить Primar задания, необходимо создать аккаунт Desmos. Для этого вы должны установить CLI(консоль) Desmos и подключить ее к фулл ноде. Если вы уже это сделали, вы можете пропустить этот шаг. В противном случае вы найдете подробное описание процесса ниже.
 
-## Requirements
-In order to complete the challenges of the first phase, you have to satisfy the following requirements: 
+## Требования
+Чтобы выполнить задачи первого этапа, вы должны соответствовать следующим требованиям:
 
-1. Having Go installed.  
-   If you do not have it, you can get it at the following link: [Installing Go](https://golang.org/doc/install). 
+1. Должен быть установлен Go.
+   Если у вас он не установлен, вы можете найти Go по ссылке: [Установка Go](https://golang.org/doc/install). 
 
-2. Having Git installed.  
-   If you do not have it yet, you can get it here: [Git Downloads](https://git-scm.com/downloads). 
+2. Должен быть установлен Git.
+   Если у вас он не установлен, вы можете найти Git по ссылке: [Скачать Git](https://git-scm.com/downloads).
    
-3. Having Git setup with GitHub.  
-   If you have not done it yet, you can connect Git with GitHub following these procedure: [Set up Git](https://help.github.com/en/github/getting-started-with-github/set-up-git).
+3. Git должен быть настроен на работу с GitHub.
+   Если вы еще не настроили Git на работу с Github, вам поможет следующая инструкция [Настройка Git](https://help.github.com/en/github/getting-started-with-github/set-up-git).
    
-## Setup 
-Once all the requirements have been satisfied, you can setup your machine to start completing the challenges. 
+## Настройка 
+Когда все условия были соблюдены, можете приступать к настройке вашего компьютера для выполнения заданий.
 
-### 1. Making sure Go is installed
-Execute the following command: 
+### 1. Убедитесь что установлен Go
+Выполните команду: 
 
 ```shell
 go version
 ```
 
-The output should look like 
+Вывод должен выглядить так:
 
 ```
 go version go1.12.10 linux/amd64
 ```
 
-Please make sure the version is `1.12.10` or later. 
+Убедитесь что версия либо `1.12.10` либо свежее. 
 
-### 2. Installing the Desmos CLI 
-The Desmos Command Line Interface (in short, *CLI*) is the tool that allows you to perform Desmos-related operations using a terminal on your machine. It connects to a full node of the Desmos Chain allowing you to easily create, sign and send transactions to it. 
+### 2. Установка Desmos CLI(консоли) 
+Интерфейс CLI(консоли) Desmos - это инструмент, который позволяет вам выполнять операции, связанные с Desmos, используя терминал на вашем компьютере. Она подключается к фулл ноде сети Desmos, что позволяет вам легко создавать, подписывать и отправлять транзакции в сети.
 
-In order to install it, please execute the following commands: 
+Чтобы установить CLI(консоль) выполните следующие действия: 
 
 ```shell
 git clone https://github.com/desmos-labs/desmos.git $GOPATH/src/github.com/desmos-labs/desmos
@@ -43,56 +43,56 @@ git checkout -b phase-1 tags/v0.1.0
 make install
 ```
 
-Once all the above commands have completed successfully, you should be able to execute the following command: 
+После успешного выполнения предыдущих команд, вы сможете выполнить команды ниже: 
 
 ```shell
 desmoscli version
 ```
 
-The result should be: 
+Результат должен выглядить так
 
 ```
 0.1.0
 ```
 
-### 3. Connecting the CLI to a full node
-Once the CLI has been properly installed, to allow it reading from and writing to the chain state, we need to connect it to our public full node. To do so, please run: 
+### 3. Подключение CLI(консоли) к фулл ноде
+После того, как CLI(консоль) правильно установлена, чтобы разрешить чтение и запись в сеть Desmos, вам нужно подключить ее к вашей публичной фулл ноде. Для этого, пожалуйста, запустите:
 
 ```shell
 desmoscli config node http://34.74.131.47:26657
 desmoscli config chain-id morpheus-1000
 ```
 
-The result should look something like
+Результат должен выглядить так
 
 ```
 configuration saved to .desmoscli/config/config.toml
 ```
 
-To make sure everything is done properly, try running: 
+Чтобы удостовериться что все установилось как надо, попробуйте запустить: 
 
 ```shell
 desmoscli query block 1
 ```
 
-The output should be 
+Результат должен выглядить так 
 
 ```json
 {"block_meta":{"block_id":{"hash":"CC24512EEE121FA27FA44A2CC9EE3CD27A41E5FD0F018DD7E1DCC83E6C2E52F0","parts":{"total":"1","hash":"F009ABF3312DEF71052DC7348368329D131C1BC26EA566ED969E01321DB5D773"}},"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1000","height":"1","time":"2019-12-11T04:42:14.03384Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"6435B4DF8C20D126978E030E946096066ED46050"}},"block":{"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1000","height":"1","time":"2019-12-11T04:42:14.03384Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"6435B4DF8C20D126978E030E946096066ED46050"},"data":{"txs":null},"evidence":{"evidence":null},"last_commit":{"block_id":{"hash":"","parts":{"total":"0","hash":""}},"precommits":null}}}
 ```
 
-### 4. Creating your address
-In order to perform operations on the Desmos Chain, you will need a Desmos address. These are unique random-generated accounts based on 24 words-long mnemonic phrases. 
+### 4. Создание адреса
+Для выполнения операций в сети Desmos вам потребуется адрес Desmos. Это уникальные случайно сгенерированные аккаунты, основанные на мнемонических словосочетаниях длиной в 24 слова. 
 
-In order to generate a new address, run the following commands: 
+Чтобы сгенерировать новый адрес, запустите следующую команду: 
 
 ```shell
-desmoscli keys add <your-name>
+desmoscli keys add <ваше-имя>
 
-# E.g. desmosli keys add jack  
+# Например, desmosli keys add jack  
 ``` 
 
-After typing a password and the confirmation, the result should look like the following: 
+После ввода пароля и подтверждения, результат должен выглядить так: 
 
 ```yml
 - name: jack
@@ -110,33 +110,33 @@ It is the only way to recover your account if you ever forget your password.
 conduct never unit tobacco song hurt pepper silk hundred merit cheese bulb electric wink swarm auto rule afford taxi lounge local bundle trouble kitten
 ```
 
-:::warning  
-Make sure you have written somewhere safe the mnemonic phrase that is returned to you as this will be the only way to later recover the account if you need to do so. Loosing this phrase means loosing access to all your funds.  
+:::внимание  
+Убедитесь, что вы записали где-нибудь в безопасном месте мнемоническую фразу, так как это будет единственным способом восстановить учетную запись. Потеря этой фразы означает потерю доступа ко всем вашим средствам.  
 :::
 
-### 5. Receive some `upotin`
-Inside our testnets the tokens will be: 
+### 5. Получение `upotin`
+В наших тестнетах будут следующие токены: 
 
-* Daric (namely `udaric`) as the staking token
-* Potin (namely `upotin`) as the fee token
+* Daric (то есть `udaric`) стэйкинг токен
+* Potin (то есть `upotin`) токен комиссии
 
-You need some fund to fully activate your account, visit our [faucet page](https://faucet.desmos.network) and request some `upotin` by inserting your address. If you forget the address you have just generated, you can get it by running 
+Ваш нужен будет какой-то минимальный баланс в токенах чтобы активировать аккаунт, посетите наш [кран](https://faucet.desmos.network) и запросите некоторое кол-во `upotin`. Если вы забыли адрес который только что сгенерировали, вы можете его увидеть следующим образом 
 
 ```shell
-desmoscli keys show <your-key-name> --address
+desmoscli keys show <ваше имя> --address
 
-# Example 
+# Пример 
 # desmoscli keys show jack --address 
 ```
 
-This will return the associated address such as 
+Вывод будет похож на адрес ниже 
 
 ```
 desmos1gmu4uevcvwfcuu43yp27gcv4ngxuh9sxfpv3er
 ```
 
-You will receive some tokens after you put it into the faucet.
+Вы получите токены сразу после того как запросите токены через наш кран
 
-:::tip Welcome! 
-Congratulations, you have setup your Desmos account successfully! You can now start the [Phase 1 challenges](../challenges/README.md) and earn some Desmos Tokens!  
+:::Добро пожаловать! 
+Поздравляем, вы успешно создали ваш аккаунт Desmos! Вы можете приступить к выполнению [заданиям Этапа 1](../challenges/README_RU.md) и заработать некоторое кол-во токенов Desmos!  
 ::: 
