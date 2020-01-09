@@ -37,5 +37,5 @@ This should return the current version of the executable, which should start wit
 ## Challenges
 Phase 2 challenges include:
 
-1. [Becoming a validator](challenges/add-reaction.md)
-2. [Adding a reaction to a post](challenges/become-validator.md)
+1. [Adding a reaction to a post](challenges/add-reaction.md)
+2. [Becoming a validator](challenges/become-validator.md)
