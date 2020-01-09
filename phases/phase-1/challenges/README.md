@@ -1,13 +1,13 @@
-# Задания этапа 1
-Задания этапа 1 включают:
+# Phase 1 challenges
+Phase 1 challenges include:
 
-1. [Приведите рефералов (200 токенов Desmos за каждого успешно приведенного реферала)](refer_ru.md)
-2. [Создайте пост (20 токенов Desmos)](create-post_ru.md)
-3. [Лайните пост (10 токеонв Desmos)](like-post_ru.md)
-4. [Подтвердите реферала (50 токенов Desmos)](accept-referral_ru.md)
+1. [Making referrals (200 Desmos Tokens per successful referral)](refer.md)
+2. [Creating a post (20 Desmos Tokens)](create-post.md)
+3. [Liking a post (10 Desmos Tokens)](like-post.md)
+4. [Accepting a referral (50 Desmos Tokens)](accept-referral.md)
 
-:::предупреждение конца этапа 1 
-Этап 1 закончится в пятницу 31-го января 2020 в 23:59:59 UTC. Заявки после этой даты могут **не** получить награду.   
+:::warning Deadline for Phase 1
+Phase 1 will close on Friday 31th January 2020 at 23:59:59 UTC. Submissions after that date will **not** receive any reward.  
 
-Для этапа 1 выделено всего 100,000 токенов Desmos. Этап 1 закроется сразу после заполения всей выделеной капы.  
+The total reward allocated for Phase 1 is capped at 100,000 Desmos Tokens. Phase 1 will be closed immediately once the cap is reached.  
 :::
