@@ -138,5 +138,5 @@ desmos1gmu4uevcvwfcuu43yp27gcv4ngxuh9sxfpv3er
 You will receive some tokens after you put it into the faucet.
 
 :::tip Welcome! 
-Congratulations, you have successfully completed the setup of your Desmos account! You can now start the [Level 1 challenges](../challenges/level-1.md) and start earning some Desmos Points!  
+Congratulations, you have setup your Desmos account successfully! You can now start the [Phase 1 challenges](../challenges/README.md) and earn some Desmos Tokens!  
 ::: 
