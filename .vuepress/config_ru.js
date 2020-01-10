@@ -1,14 +1,10 @@
 module.exports = {
     locale: {
         lang: 'ru-RU',
-        // TODO: Translate this
         title: 'Программа Desmos Primer',
-        //TODO: Check this
         description: 'Введение в мир Desmos и как с ним начать играть',
     },
-    // TODO: Translate this
     themeConfig: {
-        // TODO: Translate this
         label: 'Русский',
         sidebar: [
             {
