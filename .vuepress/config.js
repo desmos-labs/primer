@@ -56,8 +56,7 @@ module.exports = {
                             {
                                 title: "Setup",
                                 collapsable: false,
-                                path: "/phases/phase-1/#setup",
-                                children: [],
+                                path: "/phases/phase-1/setup/",
                             },
                             {
                                 title: "Challenges",

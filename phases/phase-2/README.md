@@ -7,7 +7,7 @@ The second phase of the Primer program is based on the `morpheus-2000` testnet. 
 
 ## Setup
 ### First time
-If you are a first time user that wants to join the Primer program now, make sure you follow the [Phase 1 Setup](../phase-1/setup/README.md). 
+If you are a first time user that wants to join the Primer program now, make sure you follow the [Phase 1 setup guide](../phase-1/setup/README.md). 
 
 Upon following all the setup, you should be able to execute the following command: 
 

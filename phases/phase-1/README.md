@@ -8,7 +8,7 @@ Submissions after that date may **not** receive any reward.
 The first phase of the Primer is based on the `morpheus-1000` testnet. During this phase you will start learning a bit about the two fundamental activities on Desmos: `posts` and `likes`. 
 
 ## Setup
-To learn how to setup your machine properly in order to complete the Phase 1 challenges, please refer to the [_Setup_ page](setup/README.md).
+To learn how to setup your machine properly in order to complete the Phase 1 challenges, please refer to the ["_Phase 1 setup_" page](setup/README.md).
 
 ## Challenges
 Phase 1 challenges include:
