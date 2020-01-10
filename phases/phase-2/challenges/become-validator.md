@@ -1,7 +1,11 @@
 # Become a testnet validator
-During Phase 1, we decided not to accept any external validator due to the fact that we wanted to make sure everyone enjoyed their holidays with their family. 
+:::tip Note  
+Upon completing this challenge, you will be rewarded **300 Desmos Tokens**. 
+  
+Please note that in order to prevent scams, you will receive the reward just after your validator has **successfully proposed a block**.  
+:::
 
-Now that holidays have passed, we are ready to onboard new collaborators in the form of external validators. 
+The time has come. We are now inviting validators to join our first public testnet named `morpheus-2000`.
 
 If you feel ready to take the challenge and help us making the Desmos chain safer and more distributed, read below to know how to do it. 
 

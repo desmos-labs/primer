@@ -38,4 +38,4 @@ This should return the current version of the executable, which should start wit
 Phase 2 challenges include:
 
 1. [Adding a reaction to a post](challenges/add-reaction.md)
-2. [Becoming a validator](challenges/become-validator.md)
+2. [Becoming a validator (300 DT upon first block proposal)](challenges/become-validator.md)
