@@ -1,4 +1,10 @@
 # Add a reaction to post
+:::tip Note  
+This challenge allows you to receive **30 Desmos Tokens** upon completion.  
+
+Please note that in order to prevent spam, you will receive the reward just **for the first post** you react to. No tokens will be awarded for later posts.  
+:::  
+
 During the [Phase 1 Like challenge](../../phase-1/challenges/like-post.md) we saw how we could add a like to post to show everyone that we appreciated such post. 
 
 However, we think that "likes" are nowadays not sufficient anymore while expressing our feelings for a post that is made on a social network. It's for this same reason that Facebook implemented other kind of reactions such "Love", "Wow", "Aha", etc.
