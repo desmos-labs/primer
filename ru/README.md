@@ -17,4 +17,4 @@
 ## Этапы
 Если вы готовы принять участие в Primer, вот все активные фазы:
 
-- [Этап 1](ru/phases/phase-1/README.md)
+- [Этап 1](../ru/phases/phase-1/README.md)
