@@ -14,14 +14,14 @@ Once you have met the above conditions and completed the challenge, you are now 
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Pull the fork locally:  
-   ```bash
+   ```shell
    git clone https://github.com/<your-github-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
    
 3. Create a file named as your GitHub username and containing the GitHub username of the referring friend under the `phases/phase-1/referred` folder: 
 
-   ```bash
+   ```shell
    echo "<Referee GitHub name>" >> ./phases/phase-1/challenges/referred/<your-github-name>
       
    # Example
