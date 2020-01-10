@@ -1,4 +1,4 @@
-# Привести рефералов
+# Привести реферала
 :::tip примечание 
 Это задание позволяет вам привести одного или нескольких друзей. Реферал будет зачислен только в случае выполнения **всех** нижеперечисленных условий:
 This challenges allows you to refer one or more friend(s). A referral is deemed correctly if below conditions have **all** been met: 
