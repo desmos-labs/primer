@@ -1,5 +1,5 @@
 # Phase 2 
-The second phase of the Primer program is based on the `morpheus-2000` testnet. In this phase, you will learn how to become a validator and use reactions (:tada:) which have replaced the like action from Phase 1. 
+The second phase of the Primer program is based on the `morpheus-1001` testnet. In this phase, you will learn how to become a validator and use reactions (:tada:) which have replaced the like action from Phase 1. 
 
 ## Table of Contents
 - [Setup](#setup)
