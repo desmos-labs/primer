@@ -1,5 +1,5 @@
 # Phase 2 
-The second phase of the Primer program is based on the `morpheus-2000` testnet. During this phase you will have the chance to become a validator and/or learn more about the replacements of Phase 1's likes: reactions! :tada:
+The second phase of the Primer program is based on the `morpheus-2000` testnet. In this phase, you will learn how to become a validator and use reactions (:tada:) which have replaced the like action from Phase 1. 
 
 ## Table of Contents
 - [Setup](#setup)
@@ -18,7 +18,7 @@ desmosd version
 This should return you the current version, which should start with `0.2.0`. 
 
 ### Updating from Phase 1
-If you have already taken part to the first phase of the Primer program, you can update your already installed executables by executing: 
+If you have already taken part to the Phase 1 of the Primer program, you can update your already installed executables by executing: 
 
 ```bash
 cd $GOPATH/src/github.com/desmos-labs/desmos

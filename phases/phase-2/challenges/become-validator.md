@@ -1,6 +1,6 @@
 # Become a testnet validator
 :::tip Note  
-Upon completing this challenge, you will be rewarded **300 Desmos Tokens**. 
+You will earn **300 Desmos Tokens** upon completion of this challenge. 
   
 Please note that in order to prevent scams, you will receive the reward just after your validator has **successfully proposed a block**.  
 :::

@@ -1,17 +1,11 @@
 # Add a reaction to post
 :::tip Note  
-This challenge allows you to receive **30 Desmos Tokens** upon completion.  
+You will learn **30 Desmos Tokens** upon completion of this challenge.  
 
-Please note that in order to prevent spam, you will receive the reward just **for the first post** you react to. No tokens will be awarded for later posts.  
+Please note that you will only receive the reward **for the first reaction** you make. No rewards will be given for later reactions.  
 :::  
 
-During the [Phase 1 Like challenge](../../phase-1/challenges/like-post.md) we saw how we could add a like to post to show everyone that we appreciated such post. 
-
-However, we think that "likes" are nowadays not sufficient anymore while expressing our feelings for a post that is made on a social network. It's for this same reason that Facebook implemented other kind of reactions such "Love", "Wow", "Aha", etc.
-
-To solve this issue inside Desmos, we looked at the best system of reactions that in our opinion exists right now: [Slack emoji reactions](https://slack.com/intl/en-it/help/articles/206870317-Use-emoji-reactions). 
-
-Thanks to [Desmos PR #59](https://github.com/desmos-labs/desmos/pull/59) we replaced the old post likes with post reactions, allowing everyone to add a unique reaction to every post. 
+With the latest Desmos software upgrade, we have replaced the "Like" action with the "Reaction" one. This allows you to express a larger set of emotions regarding a post.  
 
 ## Adding your first reaction
 :::warning Desmos executable required  
@@ -76,7 +70,7 @@ desmoscli query tx <hash> --output json
 This will return you the JSON representation of the transaction itself.
 
 ## Getting the reward 
-After you've reacted to a post, to make sure you receive your reward please following this procedure: 
+After you have added your first reaction, please follow the steps below to claim your reward: 
 
 1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
