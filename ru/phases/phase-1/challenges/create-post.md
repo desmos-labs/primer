@@ -14,7 +14,7 @@
 ## Создание вашего первого поста
 После того как вы следовали [Настройке](../setup/README.md) и вы создали свой Desmos аккаунт используя команду `desmoscli keys`, вы готовы к созданию вашего первого поста. Чтобы это сделать, выполните следующие команды: 
 
-```shell
+```bash
 desmoscli tx posts create "<Сообщение>" true --from <имя-вашего-ключа> --yes 
 
 # Пример
@@ -49,7 +49,7 @@ events: []
 
 Чтобы убедиться, что транзакция была успешно обработана, вы можете запросить ее, используя следующую команду:
 
-```shell
+```bash
 desmoscli query tx <txhash> --output json
 
 # Пример
@@ -69,13 +69,13 @@ desmoscli query tx <txhash> --output json
    Если вы не знаете как это сделать, то следуйте [GitHub форк инструкции](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Сделайте pull этого форка на ваш компьютер:  
-   ```shell
+   ```bash
    git clone https://github.com/<your-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
 3. Создайте файл с именем вашего GitHub имени содержащий хеш транзации вашего первого поста.  
-   ```shell
+   ```bash
    echo "<tx-hash>" >> ./phases/phase-1/challenges/posts/<ваше-github-имя>
    
    # Пример

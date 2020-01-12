@@ -19,7 +19,7 @@
 ### 1. Убедитесь что установлен Go
 Выполните команду: 
 
-```shell
+```bash
 go version
 ```
 
@@ -36,7 +36,7 @@ go version go1.12.10 linux/amd64
 
 Чтобы установить CLI(консоль) выполните следующие действия: 
 
-```shell
+```bash
 git clone https://github.com/desmos-labs/desmos.git $GOPATH/src/github.com/desmos-labs/desmos
 cd $GOPATH/src/github.com/desmos-labs/desmos
 git checkout -b phase-1 tags/v0.1.0
@@ -45,7 +45,7 @@ make install
 
 После успешного выполнения предыдущих команд, вы сможете выполнить команды ниже: 
 
-```shell
+```bash
 desmoscli version
 ```
 
@@ -58,7 +58,7 @@ desmoscli version
 ### 3. Подключение CLI(консоли) к фулл ноде
 После того, как CLI(консоль) правильно установлена, чтобы разрешить чтение и запись в сеть Desmos, вам нужно подключить ее к вашей публичной фулл ноде. Для этого, пожалуйста, запустите:
 
-```shell
+```bash
 desmoscli config node http://34.74.131.47:26657
 desmoscli config chain-id morpheus-1000
 ```
@@ -71,7 +71,7 @@ configuration saved to .desmoscli/config/config.toml
 
 Чтобы удостовериться что все установилось как надо, попробуйте запустить: 
 
-```shell
+```bash
 desmoscli query block 1
 ```
 
@@ -86,7 +86,7 @@ desmoscli query block 1
 
 Чтобы сгенерировать новый адрес, запустите следующую команду: 
 
-```shell
+```bash
 desmoscli keys add <ваше-имя>
 
 # Например, desmosli keys add jack  
@@ -122,7 +122,7 @@ conduct never unit tobacco song hurt pepper silk hundred merit cheese bulb elect
 
 Ваш нужен будет какой-то минимальный баланс в токенах чтобы активировать аккаунт, посетите наш [кран](https://faucet.desmos.network) и запросите некоторое кол-во `upotin`. Если вы забыли адрес который только что сгенерировали, вы можете его увидеть следующим образом 
 
-```shell
+```bash
 desmoscli keys show <ваше имя> --address
 
 # Пример 
@@ -138,5 +138,5 @@ desmos1gmu4uevcvwfcuu43yp27gcv4ngxuh9sxfpv3er
 Вы получите токены сразу после того как запросите токены через наш кран
 
 :::tip Добро пожаловать! 
-Поздравляем, вы успешно создали ваш аккаунт Desmos! Вы можете приступить к выполнению [заданий этапа 1](../challenges/README.md) и заработать некоторое кол-во токенов Desmos!  
+Поздравляем, вы успешно создали ваш аккаунт Desmos! Вы можете приступить к выполнению [заданий этапа 1](../README.md#Задания) и заработать некоторое кол-во токенов Desmos!  
 ::: 

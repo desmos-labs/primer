@@ -17,13 +17,13 @@ This challenges allows you to refer one or more friend(s). A referral is deemed 
    Если вы не знаете как это сделать, следуюте [GitHub форк инструкции](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Склонируйте репозиторий:  
-   ```shell
+   ```bash
    git clone https://github.com/<your-github-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
 3. Добавьте в файл с названием вашего GitHub профиля имя GitHub профиля приведеннего друга:    
-   ```shell
+   ```bash
    echo "<GitHub имя приведенного друга>" >> ./phases/phase-1/challenges/referral/<ваше-github-имя>
    
    # Пример
