@@ -1,3 +1,7 @@
+// Import all the locales
+let en = require("./config_en.js");
+let ru = require("./config_ru.js");
+
 module.exports = {
     title: "Desmos Primer Program",
     description: "An introduction on the Desmos world and how you can start playing with it",
@@ -33,6 +37,14 @@ module.exports = {
     plugins: [
         'latex'
     ],
+    locales: {
+        '/': en.locale,
+        '/ru/': ru.locale,
+    },
+    extraWatchFiles: [
+        '/ru/**/*',
+        '.vuepress/config_*.js'
+    ],
     themeConfig: {
         repo: "desmos-labs/primer",
         docsDir: ".",
@@ -43,51 +55,9 @@ module.exports = {
             {text: "Desmos website", link: "https://desmos.network"},
         ],
         sidebarDepth: 0,
-        sidebar: [
-            {
-                title: "Phase 1",
-                path: "/phases/phase-1/",
-                collapsable: false,
-                children: [
-                    {
-                        title: "Setup",
-                        collapsable: false,
-                        path: "/phases/phase-1/setup/",
-                    },
-                    {
-                        title: "Challenges",
-                        path: "/phases/phase-1/#challenges",
-                        collapsable: false,
-                        children: [
-                            ["/phases/phase-1/challenges/refer", "Refer a friend"],
-                            ["/phases/phase-1/challenges/create-post", "Create a post"],
-                            ["/phases/phase-1/challenges/like-post", "Like a post"],
-                            ["/phases/phase-1/challenges/accept-referral", "Accept a referral"],
-                        ]
-                    }
-                ]
-            },
-            {
-                title: "Phase 2",
-                path: "/phases/phase-2/",
-                collapsable: false,
-                children: [
-                    {
-                        title: "Setup",
-                        collapsable: false,
-                        path: "/phases/phase-2/#setup",
-                    },
-                    {
-                        title: "Challenges",
-                        collapsable: false,
-                        path: "/phases/phase-2/#challenges",
-                        children: [
-                            ["/phases/phase-2/challenges/become-validator", "Become a validator"],
-                            ["/phases/phase-2/challenges/add-reaction", "Add a reaction to a post"],
-                        ]
-                    }
-                ]
-            }
-        ]
+        locales: {
+            '/': en.themeConfig,
+            '/ru/': ru.themeConfig,
+        }
     }
 };
