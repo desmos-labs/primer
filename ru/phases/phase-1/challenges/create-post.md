@@ -18,7 +18,7 @@
 desmoscli tx posts create "<подпространство>" "<Сообщение>" true --from <имя-вашего-ключа> --yes 
 
 # Пример
-# desmoscli tx posts create "primer" "Hello world!" true --from jack --yes
+# desmoscli tx posts create "desmos" "Hello world!" true --from jack --yes
 ```
 
 Вам будет предложено ввести пароль, который вы задали во время установки, и после правильного ввода пароля вы увидите что-то вроде этого: 
