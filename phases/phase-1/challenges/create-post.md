@@ -15,10 +15,10 @@ The only difference with tweets is that once you've created a Desmos post you wi
 After you've followed the [setup](../setup/README.md) and you've created your Desmos account using the `desmoscli keys` command, you are ready to create your first post. To do so, run the following command: 
 
 ```bash
-desmoscli tx posts create "<Message>" true --from <your-key-name> --yes 
+desmoscli tx posts create "<Subspace>" "<Message>" true --from <your-key-name> --yes 
 
 # Example
-# desmoscli tx posts create "Hello world!" true --from jack --yes
+# desmoscli tx posts create "primer" "Hello world!" true --from jack --yes
 ```
 
 You will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 

@@ -15,10 +15,10 @@
 После того как вы следовали [Настройке](../setup/README.md) и вы создали свой Desmos аккаунт используя команду `desmoscli keys`, вы готовы к созданию вашего первого поста. Чтобы это сделать, выполните следующие команды: 
 
 ```bash
-desmoscli tx posts create "<Сообщение>" true --from <имя-вашего-ключа> --yes 
+desmoscli tx posts create "<подпространство>" "<Сообщение>" true --from <имя-вашего-ключа> --yes 
 
 # Пример
-# desmoscli tx posts create "Hello world!" true --from jack --yes
+# desmoscli tx posts create "primer" "Hello world!" true --from jack --yes
 ```
 
 Вам будет предложено ввести пароль, который вы задали во время установки, и после правильного ввода пароля вы увидите что-то вроде этого: 
