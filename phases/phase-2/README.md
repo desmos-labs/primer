@@ -29,10 +29,19 @@ make install
 Upon updating, try running the following command: 
 
 ```bash
-desmoscli version
+desmoscli version --long
 ```
 
-This should return the current version of the executable, which should start with `0.2.0`.
+This should return the current version information, which should be: 
+```
+name: Desmos
+server_name: desmosd
+client_name: desmoscli
+version: 0.2.0-3-gf25f7dd
+commit: f25f7ddd1c9644d1cb4cc300c56ec93b8e574b4c
+build_tags: netgo ledger
+go: go version go1.13.5 linux/amd64
+```
 
 ## Challenges
 Phase 2 challenges include:

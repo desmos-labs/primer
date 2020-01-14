@@ -17,7 +17,7 @@ The procedure to become a validator is composed of two parts:
 2. Once you have properly set up a full node, you can upgrade its functionality making it a validator node. To read how to do this, please refer to the ["_Run a validator on Desmos_" guide on the Desmos documentation website](https://docs.desmos.network/validators/validator-setup.html). 
 
 :::tip Testnet version and data   
-Please note that Phase 2 validators must rely on the `morpheus-1001` testnet. Such testnet's `genesis.json` file and seeds information can be found inside the [`2000` folder of the testnet repo](https://github.com/desmos-labs/morpheus/tree/master/2000).  
+Please note that Phase 2 validators must rely on the `morpheus-1001` testnet. Such testnet's `genesis.json` file and seeds information can be found inside the [root directory of the testnet repo](https://github.com/desmos-labs/morpheus).  
 ::: 
 
 ## Getting the reward 
