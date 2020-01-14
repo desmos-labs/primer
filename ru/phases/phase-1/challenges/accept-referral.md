@@ -14,14 +14,14 @@
    Если вы не знаете как это сделать, следуйте [GitHub форк инструкции](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Сделайте pull этого форкнутого репозитория на свой компьютер:  
-   ```shell
+   ```bash
    git clone https://github.com/<your-github-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
    
 3. Создайте файл с названием вашего GitHub имени, который будет содержать GitHub имя вашего друга, который вас привел в Desmos в папку `phases/phase-1/referred`:
 
-   ```shell
+   ```bash
    echo "<имя GitHub реферера>" >> ./phases/phase-1/challenges/referred/<your-github-name>
       
    # Пример

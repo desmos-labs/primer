@@ -21,7 +21,7 @@
 
 Чтобы получить id поста вы можете получить JSON представление этой транзакции выполнив
 
-```shell
+```bash
 desmoscli query tx 89243E31ED012CC0AE541C56983946E4BBE1D830DF71B2D0E2EB79CB37BE5231 --output json
 ```
 
@@ -30,7 +30,7 @@ desmoscli query tx 89243E31ED012CC0AE541C56983946E4BBE1D830DF71B2D0E2EB79CB37BE5
 ### Отправьте лайк транзакцию
 После того, как вы получили id поста, на которое вы хотели бы поставить лайк, вам просто нужно выполнить следующую команду:
 
-```shell
+```bash
 desmoscli tx posts like <id-поста> --from <имя-вашего-ключа> --yes
 
 # Пример 
@@ -65,7 +65,7 @@ events: []
 
 Теперь вы можете запросить результат транзакции, чтобы убедиться, что все было успешно обработано:
 
-```shell
+```bash
 desmoscli query tx 1F64E1FDBB2A495E9C6F9AEDFD397B3B55DF0895F0232B558DAED042F3E159C9 --output json
 ```
 
@@ -76,13 +76,13 @@ desmoscli query tx 1F64E1FDBB2A495E9C6F9AEDFD397B3B55DF0895F0232B558DAED042F3E15
    Если вы не знаете как это сделать, то следуйте [GitHub форк инструкции](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Сделайте pull этого форка на ваш компьютер:   
-   ```shell
+   ```bash
    git clone https://github.com/<your-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
 3. Создайте файл с именем вашего GitHub имени содержащий хеш транзации вашего лайка:    
-   ```shell
+   ```bash
    echo "<tx-hash>" >> ./phases/phase-1/challenges/likes/<ваше-github-имя>
    
    # Пример
