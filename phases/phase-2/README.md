@@ -47,4 +47,4 @@ go: go version go1.13.5 linux/amd64
 Phase 2 challenges include:
 
 1. [Adding a reaction to a post (30 Desmos Tokens)](challenges/add-reaction.md)
-2. [Becoming a validator (300 Desmos Tokens upon first block proposal)](challenges/become-validator.md)
+2. [Becoming a validator (300 Desmos Tokens)](challenges/become-validator.md)
