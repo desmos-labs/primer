@@ -19,24 +19,24 @@ Once all the requirements have been satisfied, you can setup your machine to sta
 ### 1. Making sure Go is installed
 Execute the following command: 
 
-```shell
+```bash
 go version
 ```
 
 The output should look like 
 
 ```
-go version go1.12.10 linux/amd64
+go version go1.13.5 linux/amd64
 ```
 
-Please make sure the version is `1.12.10` or later. 
+Please make sure the version is `1.13` or later. 
 
 ### 2. Installing the Desmos CLI 
 The Desmos Command Line Interface (in short, *CLI*) is the tool that allows you to perform Desmos-related operations using a terminal on your machine. It connects to a full node of the Desmos Chain allowing you to easily create, sign and send transactions to it. 
 
 In order to install it, please execute the following commands: 
 
-```shell
+```bash
 git clone https://github.com/desmos-labs/desmos.git $GOPATH/src/github.com/desmos-labs/desmos
 cd $GOPATH/src/github.com/desmos-labs/desmos
 git checkout -b phase-1 tags/v0.1.0
@@ -45,7 +45,7 @@ make install
 
 Once all the above commands have completed successfully, you should be able to execute the following command: 
 
-```shell
+```bash
 desmoscli version
 ```
 
@@ -58,7 +58,7 @@ The result should be:
 ### 3. Connecting the CLI to a full node
 Once the CLI has been properly installed, to allow it reading from and writing to the chain state, we need to connect it to our public full node. To do so, please run: 
 
-```shell
+```bash
 desmoscli config node http://34.74.131.47:26657
 desmoscli config chain-id morpheus-1000
 ```
@@ -71,7 +71,7 @@ configuration saved to .desmoscli/config/config.toml
 
 To make sure everything is done properly, try running: 
 
-```shell
+```bash
 desmoscli query block 1
 ```
 
@@ -86,7 +86,7 @@ In order to perform operations on the Desmos Chain, you will need a Desmos addre
 
 In order to generate a new address, run the following commands: 
 
-```shell
+```bash
 desmoscli keys add <your-name>
 
 # E.g. desmosli keys add jack  
@@ -122,7 +122,7 @@ Inside our testnets the tokens will be:
 
 You need some fund to fully activate your account, visit our [faucet page](https://faucet.desmos.network) and request some `upotin` by inserting your address. If you forget the address you have just generated, you can get it by running 
 
-```shell
+```bash
 desmoscli keys show <your-key-name> --address
 
 # Example 
@@ -138,5 +138,5 @@ desmos1gmu4uevcvwfcuu43yp27gcv4ngxuh9sxfpv3er
 You will receive some tokens after you put it into the faucet.
 
 :::tip Welcome! 
-Congratulations, you have successfully completed the setup of your Desmos account! You can now start the [Level 1 challenges](../challenges/level-1.md) and start earning some Desmos Points!  
+Congratulations, you have setup your Desmos account successfully! You can now start the [Phase 1 challenges](../README.md#Challenges) and earn some Desmos Tokens!  
 ::: 
