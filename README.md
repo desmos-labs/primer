@@ -1,4 +1,4 @@
-# Desmos Primer Program
+![](/assets/cover.jpg)
 
 ## Introduction
 Community participation is crucial to the success of a new project. This is why we are launching *Desmos Primer* ("*Primer*"), a simple cookbook that will help you to get started with Desmos and enjoy a brand new social networking experience. 
@@ -17,3 +17,4 @@ In order to participate to the Primer you need to have an active GitHub account 
 If you're feeling ready to take part to the Primer, here are all the phases currently active:  
 
 - [Phase 1](phases/phase-1/README.md)
+- [Phase 2](phases/phase-2/README.md)

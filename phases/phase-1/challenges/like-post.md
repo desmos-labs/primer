@@ -21,7 +21,7 @@ As an example, let's take the transaction having the following hash and used to 
 
 To get the id of the post you can get its JSON representation by running 
 
-```shell
+```bash
 desmoscli query tx 89243E31ED012CC0AE541C56983946E4BBE1D830DF71B2D0E2EB79CB37BE5231 --output json
 ```
 
@@ -30,7 +30,7 @@ And, using a JSON formatter website or tool, read the `post_id` associated value
 ### Performing the like transaction
 Once you got the id of a post that you would want to put a like on, you simply have to run the following command: 
 
-```shell
+```bash
 desmoscli tx posts like <post-id> --from <your-key> --yes
 
 # Example 
@@ -65,7 +65,7 @@ events: []
 
 You can now query the tx result to make sure everything was processed successfully: 
 
-```shell
+```bash
 desmoscli query tx 1F64E1FDBB2A495E9C6F9AEDFD397B3B55DF0895F0232B558DAED042F3E159C9 --output json
 ```
 
@@ -76,13 +76,13 @@ After you've created a post, please following this procedure to receive your rew
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Pull the fork locally:  
-   ```shell
+   ```bash
    git clone https://github.com/<your-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
 3. Create a file named after your GitHub username containing the like transaction hash:    
-   ```shell
+   ```bash
    echo "<tx-hash>" >> ./phases/phase-1/challenges/likes/<your-github-name>
    
    # Example
