@@ -34,7 +34,7 @@ After you've become a validator, to make sure you receive your reward please fol
    
 3. Make sure your fork is up to date with the Primer repository:  
    ```bash
-   git remote add upstream https://github.com/desmos-labs/desmos.git
+   git remote add upstream https://github.com/desmos-labs/primer.git
    git fetch upstream
    git rebase upstream/master
    ```
