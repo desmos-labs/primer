@@ -14,11 +14,11 @@ The only difference with tweets is that once you've created a Desmos post you wi
 ## Creating your first post
 After you've followed the [setup](../setup/README.md) and you've created your Desmos account using the `desmoscli keys` command, you are ready to create your first post. To do so, run the following command: 
 
-```shell
-desmoscli tx posts create "<Message>" true --from <your-key-name> --yes 
+```bash
+desmoscli tx posts create "<Subspace>" "<Message>" true --from <your-key-name> --yes 
 
 # Example
-# desmoscli tx posts create "Hello world!" true --from jack --yes
+# desmoscli tx posts create "desmos" "Hello world!" true --from jack --yes
 ```
 
 You will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 
@@ -49,7 +49,7 @@ events: []
 
 To make sure the transaction has been processed successfully, you can query it using the following command: 
 
-```shell
+```bash
 desmoscli query tx <hash> --output json
 
 # Example
@@ -69,13 +69,13 @@ After you've created a post, to make sure you receive your reward please followi
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Pull the fork locally:  
-   ```shell
+   ```bash
    git clone https://github.com/<your-name>/primer.git ~/desmos-primer
    cd ~/desmos-primer
    ```
 
 3. Create a file named after your GitHub username containing the post creation transaction hash:  
-   ```shell
+   ```bash
    echo "<tx-hash>" >> ./phases/phase-1/challenges/posts/<your-github-name>
    
    # Example
