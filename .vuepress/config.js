@@ -35,7 +35,12 @@ module.exports = {
         lineNumbers: true,
     },
     plugins: [
-        'latex'
+        [
+            '@vuepress/google-analytics',
+            {
+                'ga': 'UA-108489905-9'
+            }
+        ]
     ],
     locales: {
         '/': en.locale,
