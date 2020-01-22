@@ -17,5 +17,3 @@ deploy:
   local_dir: .vuepress/dist
   github-token: $GITHUB_TOKEN
   keep-history: true
-  on:
-    tags: true
