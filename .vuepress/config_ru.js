@@ -46,8 +46,8 @@ module.exports = {
                         collapsable: false,
                         path: "/ru/phases/phase-2/#challenges",
                         children: [
-                            ["/ru/phases/phase-2/challenges/become-validator", "Become a validator"],
                             ["/ru/phases/phase-2/challenges/add-reaction", "Add a reaction to a post"],
+                            ["/ru/phases/phase-2/challenges/become-validator", "Become a validator"],
                         ]
                     }
                 ]
