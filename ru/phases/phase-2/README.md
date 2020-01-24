@@ -22,7 +22,7 @@ If you have already taken part to the Phase 1 of the Primer program, you can upd
 
 ```bash
 cd $GOPATH/src/github.com/desmos-labs/desmos
-git fetch --all && git checkout master
+git fetch --all && git checkout tags/v0.2.0
 make install
 ``` 
 
