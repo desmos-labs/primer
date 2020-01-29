@@ -1,3 +1,10 @@
 # Editors
 .idea/
 .vscode/
+
+# NPM
+node_modules/
+
+# Script
+dist/
+output.json
