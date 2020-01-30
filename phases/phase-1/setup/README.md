@@ -29,7 +29,32 @@ The output should look like
 go version go1.13.5 linux/amd64
 ```
 
-Please make sure the version is `1.13` or later. 
+:::tip Go 1.13 or above is required  
+To continue make sure the version or your Go executable is `1.13` or later.  
+::: 
+
+Once you have properly installed Go, we need to make sure the necessary environmental variables are properly setup. To do so, execute: 
+
+```bash
+echo 'export GOPATH="$HOME/go"' >> ~/.profile
+echo 'export GOBIN="$GOPATH/bin"' >> ~/.profile
+echo 'export PATH="$PATH:$GOBIN"' >> ~/.profile
+source ~/.profile
+```
+
+To make sure everything is all right, try executing: 
+
+```bash
+echo $GOBIN
+```
+
+This should return something like 
+
+```
+/home/<user>/go/bin
+```
+
+If it returns an empty string, make sure you execute the above commands properly. 
 
 ### 2. Installing the Desmos CLI 
 The Desmos Command Line Interface (in short, *CLI*) is the tool that allows you to perform Desmos-related operations using a terminal on your machine. It connects to a full node of the Desmos Chain allowing you to easily create, sign and send transactions to it. 
