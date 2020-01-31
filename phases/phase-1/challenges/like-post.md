@@ -1,4 +1,17 @@
 # Like a post
+:::warning  
+This challenge has been replaced by the [Phase 2 Reaction challenge](../../phase-2/challenges/add-reaction.md). 
+
+Until January 31th 23:59:59 UTC, you can still complete it by replacing the below command with 
+
+```
+desmoscli tx posts add-reaction <post-id> "like" --from <your-key> --yes
+
+# Example 
+# desmoscli tx posts add-reaction 12 "like" --from jack --yes
+```
+:::
+
 :::tip Note  
 This challenge allows you to receive **10 Desmos Tokens** upon completion.  
 
