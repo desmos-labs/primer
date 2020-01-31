@@ -39,20 +39,25 @@ In order to install it, please execute the following commands:
 ```bash
 git clone https://github.com/desmos-labs/desmos.git $GOPATH/src/github.com/desmos-labs/desmos
 cd $GOPATH/src/github.com/desmos-labs/desmos
-git checkout -b phase-1 tags/v0.1.0
+git checkout -b phase-1 tags/v0.2.0
 make install
 ```
 
 Once all the above commands have completed successfully, you should be able to execute the following command: 
 
 ```bash
-desmoscli version
+desmoscli version --long
 ```
 
 The result should be: 
 
 ```
-0.1.0
+name: Desmos
+server_name: desmosd
+client_name: desmoscli
+version: 0.2.0
+commit: 9cb1e900627c16b9489e16f16141794e9c1d602f
+build_tags: netgo ledger
 ```
 
 ### 3. Connecting the CLI to a full node
@@ -60,7 +65,7 @@ Once the CLI has been properly installed, to allow it reading from and writing t
 
 ```bash
 desmoscli config node http://34.74.131.47:26657
-desmoscli config chain-id morpheus-1000
+desmoscli config chain-id morpheus-1001
 ```
 
 The result should look something like
@@ -78,7 +83,7 @@ desmoscli query block 1
 The output should be 
 
 ```json
-{"block_meta":{"block_id":{"hash":"CC24512EEE121FA27FA44A2CC9EE3CD27A41E5FD0F018DD7E1DCC83E6C2E52F0","parts":{"total":"1","hash":"F009ABF3312DEF71052DC7348368329D131C1BC26EA566ED969E01321DB5D773"}},"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1000","height":"1","time":"2019-12-11T04:42:14.03384Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"6435B4DF8C20D126978E030E946096066ED46050"}},"block":{"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1000","height":"1","time":"2019-12-11T04:42:14.03384Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"6435B4DF8C20D126978E030E946096066ED46050"},"data":{"txs":null},"evidence":{"evidence":null},"last_commit":{"block_id":{"hash":"","parts":{"total":"0","hash":""}},"precommits":null}}}
+{"block_meta":{"block_id":{"hash":"3E1720539D3DAAD5D84E8047FBB60A48D545960BBE3AC0540DC13791D071913D","parts":{"total":"1","hash":"CFCB6DEB1BFC2618918CF93A4A0A2C16342C35476ACFED466EFCC7C31655DD1C"}},"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1001","height":"1","time":"2020-01-14T00:00:00Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"D986DA6092404D46251F58DBC480AE05493763C5"}},"block":{"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1001","height":"1","time":"2020-01-14T00:00:00Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"D986DA6092404D46251F58DBC480AE05493763C5"},"data":{"txs":null},"evidence":{"evidence":null},"last_commit":{"block_id":{"hash":"","parts":{"total":"0","hash":""}},"precommits":null}}}
 ```
 
 ### 4. Creating your address
