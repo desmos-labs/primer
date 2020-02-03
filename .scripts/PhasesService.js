@@ -1,23 +1,21 @@
-import RequestService from './RequestService.js'
+const fs = require('fs');
+const path = require('path');
 
-const BASE_URL = "https://api.github.com";
-const CONTENTS_API = `${BASE_URL}/repos/desmos-labs/primer/contents`;
-
-const PHASE_1_URL = `${CONTENTS_API}/phases/phase-1/challenges`;
+const PHASE_1_URL = path.join(__dirname, `../phases/phase-1/challenges`);
 
 /**
  * Allows to easily get the data from the different phases of the program.
  */
 class PhasesService {
 
-    async _getFilesContents(url) {
-        const files = (await RequestService.getJson(url)).filter(file => !file.path.includes(".gitkeep"));
+    async _getFilesContents(dir) {
+        const files = fs.readdirSync(dir).filter((file) => file !== ".gitkeep");
 
         let contents = new Map();
-        for (const file of files){
-            const contentsUrl = file.download_url;
-            const userName = file.path.split("/").pop().toString();
-            const lines = (await RequestService.getPlain(contentsUrl))
+        for (const file of files) {
+            const filePath = path.join(dir, file);
+            const userName = filePath.split("/").pop().toString();
+            const lines = fs.readFileSync(filePath, 'utf8')
                 .split("\n").filter(name => name.trim().length !== 0);
             contents.set(userName, lines);
         }

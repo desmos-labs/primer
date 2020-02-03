@@ -1,6 +1,12 @@
 require("@babel/core");
 require("@babel/polyfill");
-import PhasesService from "./utils/PhasesService.js";
+
+const fs = require('fs');
+const path = require('path');
+
+const filePath = process.argv[2];
+
+import PhasesService from "./PhasesService.js";
 
 function getReferringUsersNumber(referrals) {
     return referrals.size;
@@ -27,17 +33,17 @@ function _addData(userData, mapToIterate, mapKey) {
  */
 async function readData() {
     const referrals = await PhasesService.getReferrals();
-    // console.log(`Referring users: ${getReferringUsersNumber(referrals)}`);
-    // console.log(`Referred users: ${getReferredUsersNumber(referrals)}`);
+    console.log(`Referring users: ${getReferringUsersNumber(referrals)}`);
+    console.log(`Referred users: ${getReferredUsersNumber(referrals)}`);
 
     const acceptedReferrals = await PhasesService.getAcceptedReferrals();
-    // console.log(`Accepted referrals: ${acceptedReferrals.size}`);
+    console.log(`Accepted referrals: ${acceptedReferrals.size}`);
 
     const posts = await PhasesService.getPosts();
-    // console.log(`Posts created: ${posts.size}`);
+    console.log(`Posts created: ${posts.size}`);
 
     const likes = await PhasesService.getLikes();
-    // console.log(`Likes created: ${likes.size}`);
+    console.log(`Likes created: ${likes.size}`);
 
     const userData = {};
     _addData(userData, referrals, "referrals");
@@ -88,5 +94,10 @@ function computeTokens(userData) {
 // Main function. Reads the data, computes the tokens and prints to stdOut
 readData().then(data => {
     const points = computeTokens(data);
-    console.log(JSON.stringify({data: data, tokens: points}));
+
+    let total = 0;
+    Object.keys(points).forEach((key, index) => total += points[key]);
+    console.log(`Total points allocated: ${total}`);
+
+    fs.writeFileSync(filePath, JSON.stringify({data: data, tokens: points}));
 });
