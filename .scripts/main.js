@@ -97,7 +97,7 @@ readData().then(data => {
 
     let total = 0;
     Object.keys(points).forEach((key, index) => total += points[key]);
-    console.log(`Total points allocated: ${total}`);
+    console.log(`Total tokens allocated: ${total}`);
 
     fs.writeFileSync(filePath, JSON.stringify({data: data, tokens: points}));
 });
