@@ -3,7 +3,7 @@
 This challenges allows you to refer one or more friend(s). A referral is deemed correctly if below conditions have **all** been met: 
    
 1. your referred friend has not joined Desmos Primer before your referral and 
-2. (s)he has completed the [Post challenge](create-post.md) after your referral.  
+2. (s)he has completed the [Post challenge](phase-1/create-post.md) after your referral.  
 
 Please note that you can refer multiple friends and get 200 Desmos Tokens per friend referred.
 
@@ -33,7 +33,7 @@ Referral program is a great way for us to go viral with more co-builders like yo
 
 
 :::tip  
-Please note that you will only get the 200 Desmos Tokens reward for a successful referral. So you need to make sure the person you have referred would see your invitation and complete the [Post challenge](create-post.md) accordingly.
+Please note that you will only get the 200 Desmos Tokens reward for a successful referral. So you need to make sure the person you have referred would see your invitation and complete the [Post challenge](phase-1/create-post.md) accordingly.
 
 Beside calling them, you may notify them by tagging them inside the pull request message when creating it. This can be done by including `@<your-friend-github-name>` inside the description, e.g. `@kwunyeung`.
 :::

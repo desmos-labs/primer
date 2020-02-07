@@ -1,20 +1,51 @@
-# Phase 1 setup
-In order to complete the primer challenges, you have to go through a setup process to install the Desmos CLI and connect it to a full node to create your Desmos account. If you have already done so, you can skip this step. Otherwise, you will find a detailed description of the process below. 
+# Desmos Primer Setup
+In order to complete the primer challenges, you have to go through a setup process to install the Desmos CLI and connect it to a full node to create your Desmos account. You will find a detailed description of how this can be done below. 
+
+## Contents
+- [Requirements](#requirements)
+- [Installing](#installing)
+- [Updating](#updating)
 
 ## Requirements
-In order to complete the challenges of the first phase, you have to satisfy the following requirements: 
+In order to properly install `desmoscli` and `desmosd` you need to satisfy the following requirements. 
 
-1. Having Go installed.  
-   If you do not have it, you can get it at the following link: [Installing Go](https://golang.org/doc/install). 
+### 1. Having Go installed
+As the Desmos binaries are compiled using Go, you are required to have it installed on your machine to properly build and execute them.  
 
-2. Having Git installed.  
-   If you do not have it yet, you can get it here: [Git Downloads](https://git-scm.com/downloads). 
+To verify your Go version you can run `go version` inside a terminal window.
+This should return something that looks like 
+
+```shell
+go version go1.13.7 linux/amd64
+```
    
-3. Having Git setup with GitHub.  
-   If you have not done it yet, you can connect Git with GitHub following these procedure: [Set up Git](https://help.github.com/en/github/getting-started-with-github/set-up-git).
+If you instead get a `go: command not found`, it means you do not have Go installed. In this case, you can get it by going through the setup process present at the following link: [Installing Go](https://golang.org/doc/install). 
+
+### 2. Having Git installed
+Git will be used to download the Desmos binaries source that will later be compiled. To verify if you have Git installed, try running `git version` inside a terminal window. 
+  
+If you get a `git: command not found`, it means you are missing it. In this case, you can get it here: [Git Downloads](https://git-scm.com/downloads). 
    
-## Setup 
+### 3. Having Git setup with GitHub 
+This step is required to later create Pull Requests that will make sure you get the Primer rewards properly. 
+
+If you haven't setup your Git to properly connect to your GitHub account, you can do it following this procedure: [Set up Git](https://help.github.com/en/github/getting-started-with-github/set-up-git).
+   
+   
+## Installing 
 Once all the requirements have been satisfied, you can setup your machine to start completing the challenges. 
+
+:::warning Use upgrade procedure to upgrade   
+The following allows you to install the Desmos binaries from scratch. If you already have either `desmosd` or `desmoscli` installed, please make sure you follow the [update guide](#updating) instead. To verify if you have either one of those commands, try running the following inside a terminal windows: 
+
+```
+desmoscli version 
+desmosd version
+```
+
+If you see an output that's different from `desmosXXX: command not found`, it means you already have them installed.  
+:::
+
 
 ### 1. Making sure Go is installed
 Execute the following command: 
@@ -168,5 +199,31 @@ desmos1gmu4uevcvwfcuu43yp27gcv4ngxuh9sxfpv3er
 You will receive some tokens after you put it into the faucet.
 
 :::tip Welcome! 
-Congratulations, you have setup your Desmos account successfully! You can now start the [Phase 1 challenges](../README.md#Challenges) and earn some Desmos Tokens!  
+Congratulations, you have setup your Desmos account successfully! You can now start the [Phase 1 challenges](phase-1/README.md#Challenges) and earn some Desmos Tokens!  
 ::: 
+
+## Updating
+If you have already installed the Desmos binaries in the past and you want to update them to the latest version, you can execute the following set of commands: 
+
+```bash
+cd $GOPATH/src/github.com/desmos-labs/desmos
+git fetch --all && git checkout tags/$(git describe --tags `git rev-list --tags --max-count=1`)
+make install
+``` 
+
+Upon updating, try running the following command: 
+
+```bash
+desmoscli version --long
+```
+
+This should return the current version information, which should something like be: 
+```
+name: Desmos
+server_name: desmosd
+client_name: desmoscli
+version: 0.2.0-3-gf25f7dd
+commit: f25f7ddd1c9644d1cb4cc300c56ec93b8e574b4c
+build_tags: netgo ledger
+go: go version go1.13.5 linux/amd64
+```

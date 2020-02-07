@@ -8,10 +8,6 @@ Please note that you will only receive the reward **for the first reaction** you
 With the latest Desmos software upgrade, we have replaced the "Like" action with the "Reaction" one. This allows you to express a larger set of emotions regarding a post.  
 
 ## Adding your first reaction
-:::warning Desmos executable required  
-Make sure you've followed the [setup instructions](../README.md#Setup) properly before going further.  
-:::
-
 To add a reaction to a post, the procedure is really easy.
 
 The first thing that you need to do is to find a post that you want to react to. To do so you can use our [explorer](https://morpheus.desmos.network) and browse though all the posts. Once you have find the one that you prefer, note its ID number. 

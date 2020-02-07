@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const PHASE_1_URL = path.join(__dirname, `../phases/phase-1/challenges`);
+const PHASE_1_URL = path.join(__dirname, `../phase-1/submissions`);
 
 /**
  * Allows to easily get the data from the different phases of the program.

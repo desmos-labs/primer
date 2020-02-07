@@ -4,7 +4,7 @@
 This challenges allows you to refer one or more friend(s). A referral is deemed correctly if below conditions have **all** been met: 
    
 1. Ваш друг не вступил в Desmos Primer до того как вы его привели и
-2. Он/она выполнил задание [Создать пост](create-post.md) после того как вы его привели
+2. Он/она выполнил задание [Создать пост](ru/phase-1/challenges/create-post.md) после того как вы его привели
  
 Не забудьте что вы получите по 200 токенов Desmos за каждого приведенного друга.
 
