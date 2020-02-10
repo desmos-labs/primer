@@ -82,4 +82,4 @@ After you've created a post, to make sure you receive your reward please followi
    # echo "89243E31ED012CC0AE541C56983946E4BBE1D830DF71B2D0E2EB79CB37BE5231" >> ./phases/phase-1/challenges/posts/RiccardoM
    ```
 
-4. Commit the changes, push them to your forked repo and create a pull request. If you do not know to to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+4. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
