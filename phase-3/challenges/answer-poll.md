@@ -10,7 +10,7 @@ Along with [polls](create-poll.md), with Desmos `v0.3.0` we've also implemented 
 ## Answering your first poll
 To answer a poll, the procedure is really easy.
 
-The first thing that you need to do is to find a post that you want to react to. To do so you can use our [explorer](https://morpheus.desmos.network) and browse though all the posts that contain a poll. Once you have find the one that you prefer, write down its ID number. 
+The first thing that you need to do is to find a post that you want to answer to. To do so you can use our [explorer](https://morpheus.desmos.network) and browse though all the posts that contain a poll. Once you have find the one that you prefer, write down its ID number. 
 
 To be 100% sure that post has a poll inside, you can query its details by executing the following command: 
 
@@ -88,4 +88,4 @@ After you have added your first reaction, please follow the steps below to claim
    # echo "286D943499C2A235801C7E5B342EDB9467A64BED8E00765656CA6F2305F277E7" >> ./phases/phase-3/challenges/answers/RiccardoM
    ```
 
-5. Commit the changes, push them to your forked repo and create a pull request. If you do not know to to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
