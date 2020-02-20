@@ -9,4 +9,4 @@ Phase 3 challenges include:
 - [Creating a poll (100 Desmos Tokens)](challenges/create-poll.md)
 - [Answering to an existent poll (10 Desmos Tokens)](challenges/answer-poll.md)
 - [Creating a post containing a multimedia file (50 Desmos Tokens)](challenges/create-multimedia-post.md)
-- [Undergo an upgrade procedure (50 Desmos Tokens + Periodic rewards)](challenges/upgrade-node.md)
+- [Undergo an update procedure (50 Desmos Tokens + Periodic rewards)](challenges/update-node.md)
