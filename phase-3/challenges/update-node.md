@@ -38,5 +38,5 @@ In order to make sure the migration to `v0.3.0` works properly, you need to **de
 }
 ```
 
-After doing so, you can proceed with the migration command. 
+After doing so, you can proceed with the migration command.  
 ::: 

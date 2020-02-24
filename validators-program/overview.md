@@ -6,9 +6,9 @@ If you feel ready to take the challenge and help us making the Desmos chain safe
 :::warning Validator rewards
 In order to get the validator program running longer and include a larger number of validators, we will periodically revisit the number of tokens that will be rewarded upon becoming a validator of our chains. 
 
-Also, we will reward tokens based on the activity of validators: more blocks they precommit and more reward they will get, so make sure your validator node is always active to get the larger amount of tokens possible.
+Also, we will reward tokens based on the activity of validators: more blocks you precommit and more reward you will get, so make sure your validator node is always active to get the larger amount of tokens possible.
   
-Currently the reward for becoming a validator is set to be **50 Desmos Tokens + periodic rewards based on the availability of the node**. 
+Currently the reward for becoming a validator is set to be **50 Desmos Tokens + periodic rewards based on the availability of the node** (see below). 
   
 Please note that in order to prevent scams, you will receive the initial reward just after your validator has **successfully proposed a block**.  
 ::: 
@@ -24,7 +24,7 @@ The procedure to become a validator is composed of two parts:
 Please note that new validators must rely on the latest testnet running. Such testnet's `genesis.json` file and seeds information can be found inside the [root directory of the testnet repo](https://github.com/desmos-labs/morpheus).  
 ::: 
 
-## Getting the reward 
+## Getting the initial reward 
 After you've become a validator, to make sure you receive your reward please following this procedure: 
 
 1. Create a fork of this repo inside your private GitHub profile.  
@@ -52,3 +52,23 @@ After you've become a validator, to make sure you receive your reward please fol
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know to to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
+## About periodic rewards
+In order to prevent an over-accumulation in the hands of few validators, during each Phase of the Primer program we will review the rules and quantity of the tokens that will be allocated to validators. 
+
+The currently running Phase is **Phase 3** and we have decided to allow for a maximum of **250 Desmos Tokens** to be distributed to each validator, based on the **number of pre-commits** their node will sign. 
+
+We plan to run this phase for 31 days. Considering an average block time of 5.70 seconds, this means that each validator should sign approximately 7,830 pre-commits during that period of time. To incentivize validators to run their node through the whole Phase 3, we have decided to adopt a logarithmic token distribution: 
+
+| Pre-commits signed | Tokens rewarded | 
+| :----------------: | :-------------: |
+| 1 | 1 |
+| 3 | 2 | 
+| 8 | 3 |
+| 20 | 7 |
+| 54 | 12 |
+| 145 | 21 |
+| 394 | 40 |
+| 1,067 | 73 |
+| 2,891 | 135 | 
+| 7,831 | 250 |
