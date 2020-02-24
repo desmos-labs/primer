@@ -58,17 +58,17 @@ In order to prevent an over-accumulation in the hands of few validators, during 
 
 The currently running Phase is **Phase 3** and we have decided to allow for a maximum of **250 Desmos Tokens** to be distributed to each validator, based on the **number of pre-commits** their node will sign. 
 
-We plan to run this phase for 31 days. Considering an average block time of 5.70 seconds, this means that each validator should sign approximately 7,830 pre-commits during that period of time. To incentivize validators to run their node through the whole Phase 3, we have decided to adopt a logarithmic token distribution: 
+We plan to run this phase for 31 days. Considering an average block time of 5.70 seconds, this means that each validator should sign approximately 469,894 pre-commits during that period of time. To incentivize validators to run their node through the whole Phase 3, we have decided to adopt a logarithmic token distribution: 
 
 | Pre-commits signed | Tokens rewarded | 
 | :----------------: | :-------------: |
 | 1 | 1 |
-| 3 | 2 | 
-| 8 | 3 |
-| 20 | 7 |
-| 54 | 12 |
-| 145 | 21 |
-| 394 | 40 |
-| 1,067 | 73 |
-| 2,891 | 135 | 
-| 7,831 | 250 |
+| 4 | 2 |
+| 18 | 3 |
+| 78 | 7 |
+| 331 | 12 |
+| 1,416 | 21 |
+| 6,044 | 40 |
+| 25,796 | 73 |
+| 110,097 | 135 |
+| 469,894 | 250 |
