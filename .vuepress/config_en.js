@@ -45,7 +45,7 @@ module.exports = {
                     ["/phase-3/challenges/create-poll", "Create a poll post"],
                     ["/phase-3/challenges/answer-poll", "Answer to a poll"],
                     ["/phase-3/challenges/create-multimedia-post", "Create a multimedia post"],
-                    ["/phase-3/challenges/upgrade-node", "Upgrade node"],
+                    ["/phase-3/challenges/update-node", "Upgrade node"],
                 ]
             }
         ]
