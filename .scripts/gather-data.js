@@ -110,7 +110,7 @@ readData().then(data => {
 
     // Write to a CSV file if it exists
     if (csvFilePath != null) {
-        fs.writeFileSync(csvFilePath, "Username,Phase1\n");
+        fs.writeFileSync(csvFilePath, "Username,Phase 1 earned tokens\n");
         tokensData.forEach(function (data) {
             fs.appendFileSync(csvFilePath, `${data.user},${data.phase1}\n`)
         });
