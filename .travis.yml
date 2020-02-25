@@ -10,6 +10,8 @@ install:
 script:
   - npm run docs:build
   - echo 'primer.desmos.network' > .vuepress/dist/CNAME
+  - npm run gather-data
+  - npm run upload-data
 
 deploy:
   provider: pages

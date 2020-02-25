@@ -6,7 +6,8 @@
   "scripts": {
     "docs:serve": "vuepress dev",
     "docs:build": "vuepress build",
-    "gather-data": "babel .scripts -s -d dist && node dist/main.js output.json output.csv --scripts-prepend-node-path"
+    "gather-data": "babel .scripts -s -d dist && node dist/gather-data.js output.json output.csv --scripts-prepend-node-path",
+    "upload-data": "babel .scripts -s -d dist && node dist/upload-data.js output.csv --scripts-prepend-node-path"
   },
   "author": "",
   "license": "MIT",
