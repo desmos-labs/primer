@@ -1,12 +1,16 @@
 require("@babel/core");
 require("@babel/polyfill");
 
+import {TokenData, UserData} from "./Objects.js";
+import PhasesService from "./PhasesService.js";
+
 const fs = require('fs');
-const path = require('path');
 
 const filePath = process.argv[2];
-
-import PhasesService from "./PhasesService.js";
+let csvFilePath = null;
+if (process.argv.length > 3) {
+    csvFilePath = process.argv[3];
+}
 
 function getReferringUsersNumber(referrals) {
     return referrals.size;
@@ -17,19 +21,8 @@ function getReferredUsersNumber(referrals) {
 }
 
 /**
- * Adds a data to the {userData} map.
- */
-function _addData(userData, mapToIterate, mapKey) {
-    for (const [key, value] of mapToIterate.entries()) {
-        const data = userData[key] || {};
-        data[mapKey] = value;
-        userData[key] = data;
-    }
-}
-
-/**
  * Reads the data from GitHub, puts all together and returns the complete object.
- * @returns {Promise<Object>} Object containing the data of each user.
+ * @returns {Promise<Array<UserData>>} Object containing the data of each user.
  */
 async function readData() {
     const referrals = await PhasesService.getReferrals();
@@ -45,59 +38,81 @@ async function readData() {
     const likes = await PhasesService.getLikes();
     console.log(`Likes created: ${likes.size}`);
 
-    const userData = {};
-    _addData(userData, referrals, "referrals");
-    _addData(userData, acceptedReferrals, "referredBy");
-    _addData(userData, posts, "post");
-    _addData(userData, likes, "like");
-    return userData;
+    const users = [];
+    users.push(...referrals.keys());
+    users.push(...acceptedReferrals.keys());
+    users.push(...posts.keys());
+    users.push(...likes.keys());
+
+    return users.unique().map(function (key) {
+        return new UserData(key, referrals.get(key), acceptedReferrals.get(key), posts.get(key), likes.get(key));
+    });
 }
 
 /**
- * Allows to compute the tokens that each user should get.
- * @param userData {Object} representing the current data of the users.
- * @returns {Object}
+ * Computes the tokens to be awarded for Phase 1 Challenges to a specific user.
+ * @param usersData {Array<UserData>}: the list of users data.
+ * @param user {UserData}: the currently considered user.
+ * @returns {number}: the amount of tokens to be awarded to the user for Phase 1.
  */
-function computeTokens(userData) {
-    const tokens = {};
+function computePhase1Amount(usersData, user) {
+    let tokens = 0;
 
-    for (const [user, data] of Object.entries(userData)) {
+    // Check referrals
+    for (const referral of (user.referrals || [])) {
+        // We need to make sure that the referral exists and has a post
+        const referralData = usersData.find((e) => e.user === referral);
 
-        // Check referrals
-        for (const referral of (data["referrals"] || [])) {
-            // We need to make sure that the referral exists and has a post
-            const referralData = userData[referral] ?? {};
+        // 200 tokens per valid referral
+        const referralPoints = 200 * (referralData?.post ? 1 : 0);
+        tokens += referralPoints;
+    }
 
-            // 200 tokens per valid referral
-            const referralPoints = 200 * (referralData.post ? 1 : 0);
+    // 20 tokens for the post
+    tokens += user.post ? 20 : 0;
 
-            tokens[user] = (tokens[user] || 0) + referralPoints;
-        }
+    // 10 tokens for the like
+    tokens += user.like ? 10 : 0;
 
-        // 20 tokens for the post
-        tokens[user] = (tokens[user] || 0) + (data.hasOwnProperty("post") ? 20 : 0);
-
-        // 10 tokens for the like
-        tokens[user] = (tokens[user] || 0) + (data.hasOwnProperty("like") ? 10 : 0);
-
-        // Check if the referring user exists
-        if (data.hasOwnProperty("referredBy")) {
-            // 50 tokens for being referred, if the referring person exists
-            const referringUser = data["referredBy"];
-            tokens[user] = (tokens[user] || 0) + (userData[referringUser] ? 50 : 0)
-        }
+    // Check if the referring user exists
+    if (user.referredBy) {
+        // 50 tokens for being referred, if the referring person exists
+        const referringUser = usersData.find((e) => e.user === user.referredBy);
+        tokens += referringUser ? 50 : 0
     }
 
     return tokens;
 }
 
+/**
+ * Allows to compute the tokens that each user should get.
+ * @param userData {Array<UserData>}: list of users phases completion data.
+ * @returns {Array<TokenData>}: the data of the tokens to be awarded.
+ */
+function getTokensData(userData) {
+    return userData.map(function (user) {
+        return new TokenData(
+            user.user,
+            computePhase1Amount(userData, user),
+        );
+    })
+}
+
 // Main function. Reads the data, computes the tokens and prints to stdOut
 readData().then(data => {
-    const points = computeTokens(data);
+    const tokensData = getTokensData(data);
 
-    let total = 0;
-    Object.keys(points).forEach((key, index) => total += points[key]);
+    const total = tokensData.map((data) => data.phase1).reduce(((a, c) => a + c), 0);
     console.log(`Total tokens allocated: ${total}`);
 
-    fs.writeFileSync(filePath, JSON.stringify({data: data, tokens: points}));
+    // Write to a JSON file
+    fs.writeFileSync(filePath, JSON.stringify({phasesData: data, tokens: tokensData}));
+
+    // Write to a CSV file if it exists
+    if (csvFilePath != null) {
+        fs.writeFileSync(csvFilePath, "Username,Phase1\n");
+        tokensData.forEach(function (data) {
+            fs.appendFileSync(csvFilePath, `${data.user},${data.phase1}\n`)
+        });
+    }
 });
