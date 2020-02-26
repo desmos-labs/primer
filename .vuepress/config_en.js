@@ -12,6 +12,10 @@ module.exports = {
                 path: "/setup/",
             },
             {
+                title: "Scoreboard",
+                path: "/scoreboard/scoreboard"
+            },
+            {
                 title: "Phase 1",
                 path: "/phase-1/",
                 collapsable: false,

@@ -5,17 +5,34 @@ import {TokenData, UserData} from "./Objects.js";
 import PhasesService from "./PhasesService.js";
 
 const fs = require('fs');
+const argv = require("yargs").argv;
 
-const filePath = process.argv[2];
-let csvFilePath = null;
-if (process.argv.length > 3) {
-    csvFilePath = process.argv[3];
-}
+// Main function. Reads the data, computes the tokens and prints to stdOut
+readData().then((data) => {
+    const tokensData = getTokensData(data);
 
+    const total = tokensData.map((data) => data.phase1).reduce(((a, c) => a + c), 0);
+    console.log(`Total tokens allocated: ${total}`);
+
+    writeJsonFile(data, tokensData);
+    writeCsvFile(data, tokensData);
+    writeScoreboardFile(data, tokensData);
+});
+
+/**
+ * Returns the number of referring users.
+ * @param {Map} referrals: list of referrals.
+ * @returns {number} the number of referrals.
+ */
 function getReferringUsersNumber(referrals) {
     return referrals.size;
 }
 
+/**
+ * Returns the total allocated tokens.
+ * @param {Map<String, Array<String>>} referrals: referrals data.
+ * @returns {number}: the number of totally allocated tokens.
+ */
 function getReferredUsersNumber(referrals) {
     return Array.from(referrals.values()).map(a => a.length).reduce(((a, c) => a + c), 0);
 }
@@ -98,21 +115,59 @@ function getTokensData(userData) {
     })
 }
 
-// Main function. Reads the data, computes the tokens and prints to stdOut
-readData().then(data => {
-    const tokensData = getTokensData(data);
-
-    const total = tokensData.map((data) => data.phase1).reduce(((a, c) => a + c), 0);
-    console.log(`Total tokens allocated: ${total}`);
-
-    // Write to a JSON file
-    fs.writeFileSync(filePath, JSON.stringify({phasesData: data, tokens: tokensData}));
-
-    // Write to a CSV file if it exists
-    if (csvFilePath != null) {
-        fs.writeFileSync(csvFilePath, "Username,Phase 1 earned tokens\n");
-        tokensData.forEach(function (data) {
-            fs.appendFileSync(csvFilePath, `${data.user},${data.phase1}\n`)
-        });
+/**
+ * Writes the JSON file containing the given data.
+ * @param {Array<UserData>} usersData: list of users data.
+ * @param {Array<TokenData>} tokensData: list of tokens data.
+ */
+function writeJsonFile(usersData, tokensData) {
+    const jsonPath = argv["json-file-path"];
+    if (!jsonPath) {
+        return;
     }
-});
+
+    fs.writeFileSync(jsonPath, JSON.stringify({phasesData: usersData, tokens: tokensData}));
+}
+
+/**
+ * Writes the CSV file containing the given data.
+ * @param {Array<UserData>} usersData: list of users data.
+ * @param {Array<TokenData>} tokensData: list of tokens data.
+ */
+function writeCsvFile(usersData, tokensData) {
+    const csvPath = argv["csv-file-path"];
+    if (!csvPath) {
+        return;
+    }
+
+    fs.writeFileSync(csvPath, "Username,Phase 1 earned tokens\n");
+    tokensData.forEach(function (data) {
+        fs.appendFileSync(csvPath, `${data.user},${data.phase1}\n`)
+    });
+}
+
+/**
+ * Writes the scoreboard MarkDown file containing the given data.
+ * @param {Array<UserData>} usersData: list of users data.
+ * @param {Array<TokenData>} tokensData: list of tokens data.
+ */
+function writeScoreboardFile(usersData, tokensData) {
+    const mdFilePath = argv["scoreboard-file-path"];
+    if (!mdFilePath) {
+        return;
+    }
+
+    const mdContents = fs.readFileSync(mdFilePath).toString();
+
+    let table = `
+| User | Phase 1 |
+| :--- | :-----: |
+`;
+    tokensData.forEach(function (data) {
+        table += `| ${data.user} | ${data.phase1} |\n`;
+    });
+
+    const placeholder = "<!-- Scoreboard -->";
+    const newContents = mdContents.replace(placeholder, table);
+    fs.writeFileSync(mdFilePath, newContents);
+}

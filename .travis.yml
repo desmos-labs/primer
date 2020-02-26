@@ -10,8 +10,9 @@ install:
 script:
   - npm run docs:build
   - echo 'primer.desmos.network' > .vuepress/dist/CNAME
-  - npm run gather-data
-  - npm run upload-data
+  - npm run build-scripts
+  - npm run gather-data -- --csv-file-path=output.csv --scoreboard-file-path=scoreboard/scoreboard.md
+  - npm run upload-data -- --csv-file-path=output.csv
 
 deploy:
   provider: pages
