@@ -1,4 +1,4 @@
-# Updating your validator node
+# Update your validator node
 :::tip Rewards  
 Upon completing this challenge, you will be rewarded **50 Desmos Tokens**. 
   
