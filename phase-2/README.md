@@ -1,7 +1,7 @@
 # Phase 2 
 
 :::warning Phase 2 ending  
-Phase 2 will end on Sunday 1 March 2020 at 23:59:59 UTC.
+Phase 2 will end on Saturday 29 February 2020 at 23:59:59 UTC.
 
 Make sure you complete the challenges before that date to get your rewards.   
 ::: 
