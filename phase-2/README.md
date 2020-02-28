@@ -11,5 +11,5 @@ The Phase 2 of the Primer program is based on the `morpheus-1001` testnet. In th
 ## Challenges
 Phase 2 challenges include:
 
-1. [Adding a reaction to a post (30 Desmos Tokens)](phase-2/challenges/add-reaction.md)
-2. [Becoming a validator (300 Desmos Tokens)](phase-2/challenges/become-validator.md)
+1. [Adding a reaction to a post (30 Desmos Tokens)](challenges/add-reaction.md)
+2. [Becoming a validator (300 Desmos Tokens)](challenges/become-validator.md)
