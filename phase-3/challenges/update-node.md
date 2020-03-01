@@ -40,3 +40,5 @@ In order to make sure the migration to `v0.3.0` works properly, you need to **de
 
 After doing so, you can proceed with the migration command.  
 ::: 
+
+If you do not want to export and migrate the chain state by yourself, you can download and use the [genesis file](https://raw.githubusercontent.com/desmos-labs/morpheus/master/genesis.json) of `morpheus-3000` directly. Details of the genesis file can be found at the [Morpheus Testnet repository](https://github.com/desmos-labs/morpheus).
