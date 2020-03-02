@@ -1,6 +1,5 @@
 // Import all the locales
 let en = require("./config_en.js");
-let ru = require("./config_ru.js");
 
 module.exports = {
     title: "Desmos Primer Program",
@@ -44,10 +43,8 @@ module.exports = {
     ],
     locales: {
         '/': en.locale,
-        '/ru/': ru.locale,
     },
     extraWatchFiles: [
-        '/ru/**/*',
         '.vuepress/config_*.js'
     ],
     themeConfig: {
@@ -62,7 +59,6 @@ module.exports = {
         sidebarDepth: 0,
         locales: {
             '/': en.themeConfig,
-            '/ru/': ru.themeConfig,
         }
     }
 };

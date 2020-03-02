@@ -8,49 +8,46 @@ module.exports = {
         label: 'English',
         sidebar: [
             {
-                title: "Phase 1",
-                path: "/phases/phase-1/",
-                collapsable: false,
+                title: "Setup",
+                path: "/setup/",
+            },
+            {
+                title: "Referral program",
+                collapsable: true,
                 children: [
-                    {
-                        title: "Setup",
-                        collapsable: false,
-                        path: "/phases/phase-1/setup/",
-                    },
-                    {
-                        title: "Challenges",
-                        path: "/phases/phase-1/#challenges",
-                        collapsable: false,
-                        children: [
-                            ["/phases/phase-1/challenges/refer", "Refer a friend"],
-                            ["/phases/phase-1/challenges/create-post", "Create a post"],
-                            ["/phases/phase-1/challenges/like-post", "Like a post"],
-                            ["/phases/phase-1/challenges/accept-referral", "Accept a referral"],
-                        ]
-                    }
+                    ["/referral-program/refer-a-friend", "Refer a friend"],
+                    ["/referral-program/accept-referral", "Accept a referral"],
                 ]
             },
             {
-                title: "Phase 2",
-                path: "/phases/phase-2/",
+                title: "Validators program",
+                path: "/validators-program/overview"
+            },
+            {
+                title: "Phase 1",
+                path: "/phase-1/",
                 collapsable: false,
+            },
+            {
+                title: "Phase 2",
+                path: "/phase-2/",
+                collapsable: false,
+            },
+            {
+                title: "Phase 3",
+                path: "/phase-3/",
+                collapsable: true,
                 children: [
-                    {
-                        title: "Setup",
-                        collapsable: false,
-                        path: "/phases/phase-2/#setup",
-                    },
-                    {
-                        title: "Challenges",
-                        collapsable: false,
-                        path: "/phases/phase-2/#challenges",
-                        children: [
-                            ["/phases/phase-2/challenges/add-reaction", "Add a reaction to a post"],
-                            ["/phases/phase-2/challenges/become-validator", "Become a validator"],
-                        ]
-                    }
+                    ["/phase-3/challenges/create-poll", "Create a poll post"],
+                    ["/phase-3/challenges/answer-poll", "Answer to a poll"],
+                    ["/phase-3/challenges/create-multimedia-post", "Create a multimedia post"],
+                    ["/phase-3/challenges/update-node", "Update your validator node"],
                 ]
-            }
+            },
+            {
+                title: "Scoreboard",
+                path: "/scoreboard/scoreboard"
+            },
         ]
     }
 };
