@@ -18,7 +18,7 @@ To be 100% sure that post has a poll inside, you can query its details by execut
 desmoscli query posts <ID>
 
 # E.g.
-# desmoscli query posts 1 --output text
+# desmoscli query posts post 1 --output text
 ```
 
 If the output contains the `polldata` object, that post contains a poll. 
