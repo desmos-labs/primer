@@ -14,7 +14,7 @@ In order to perform the quick update, execute the following commands.
 
 1. Stop the running service:   
    ```bash
-   systemctl stop desmosd
+   sudo systemctl stop desmosd
    ```
    
 2. Update the Desmos binaries:  
@@ -38,7 +38,7 @@ In order to perform the quick update, execute the following commands.
    
 5. Start your new node:  
    ```bash
-   systemctl desmosd start
+   sudo systemctl desmosd start
    ```
    
 Now you should be able to see your node properly syncing with the other ones by executing: 
@@ -85,6 +85,12 @@ If you do not want to export and migrate the chain state by yourself, you can do
 
 ## Keys migration required
 When migrating from `v0.2.0` to `v0.3.0`, you need to also migrate your keys to the new keystore system. In order to do so, please follow the [detailed guide](https://docs.desmos.network/migrations/v0.3.0.html#users).
+
+After you've updated your keys, restart your validator node by running 
+
+```bash
+sudo systemctl restart desmosd
+```
 
 ## Getting the reward 
 After you have updated your nmode, please follow the steps below to claim your reward: 
