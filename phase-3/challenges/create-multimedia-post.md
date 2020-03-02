@@ -10,13 +10,23 @@ With version `v0.3.0` along with poll, we've also implemented the possibility of
 ## Creating your first multimedia post
 Creating a multimedia post is very similar to [creating a plain text post](../../phase-1/create-post.md). The only difference is that you need to perform an additional step: uploading the multimedia file you want to attach to the post to IPFS. 
 
-To do so, you can use our [IPFS Web UI](). Uploading a multimedia file with it it's pretty straightforward: 
+To do so, you can use our [IPFS Web UI](https://put.ipfs.desmos.network/ipfs/Qmexhq2sBHnXQbvyP2GfUdbnY7HCagH2Mw5vUNSBn2nxip/#/files). Uploading a multimedia file with it it's pretty straightforward: 
 
-<!-- TODO: Add screens and guide -->
+1. Click on the "Add" button.  
+   ![](/assets/phase-3/add.png)
+2. Click on the "File" button.  
+   ![](/assets/phase-3/file.png)
+3. Select the file you want to upload.  
+   ![](/assets/phase-3/select_file.png)
+4. The file is now uploaded, and you can see it inside the list of files.   
+   ![](/assets/phase-3/uploaded_file.png)
+5. Click on the three dots icon on the right of the corresponding line.   
+   ![](/assets/phase-3/three_dots.png)
+6. Select the "Share link" option.  
+   ![](/assets/phase-3/share_link.png)
+7. Click on the "Copy" button.  
+   ![](/assets/phase-3/copy_url.png)
 
-1. ...
-2. ...
-3. ...
 
 Once you have obtained the IPFS hash of the file, to create a multimedia post you can use the following command
 
