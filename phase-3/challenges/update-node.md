@@ -12,7 +12,7 @@ The following guide is based on the genesis file we have already published on ou
 
 In order to perform the quick update, execute the following commands. 
 
-1. Start the running service:   
+1. Stop the running service:   
    ```bash
    systemctl stop desmosd
    ```
@@ -34,7 +34,7 @@ In order to perform the quick update, execute the following commands.
 4. Reset your node to make sure everything is ready:  
    ```bash
    desmosd unsafe-reset-all
-   ```
+   ``` 
    
 5. Start your new node:  
    ```bash
@@ -82,3 +82,35 @@ After doing so, you can proceed with the migration command.
 ::: 
 
 If you do not want to export and migrate the chain state by yourself, you can download and use the [genesis file](https://raw.githubusercontent.com/desmos-labs/morpheus/master/genesis.json) of `morpheus-3000` directly. Details of the genesis file can be found at the [Morpheus Testnet repository](https://github.com/desmos-labs/morpheus).
+
+## Keys migration required
+When migrating from `v0.2.0` to `v0.3.0`, you need to also migrate your keys to the new keystore system. In order to do so, please follow the [detailed guide](https://docs.desmos.network/migrations/v0.3.0.html#users).
+
+## Getting the reward 
+After you have updated your nmode, please follow the steps below to claim your reward: 
+
+1. Create a fork of this repo inside your private GitHub profile.  
+   If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
+
+2. Pull the fork locally:  
+   ```bash
+   git clone https://github.com/<your-name>/primer.git ~/desmos-primer
+   cd ~/desmos-primer
+   ```
+   
+3. Make sure your fork is up to date with the Primer repository:  
+   ```bash
+   git remote add upstream https://github.com/desmos-labs/primer.git
+   git fetch upstream
+   git rebase upstream/master
+   ```
+
+4. Create a file named after your GitHub username containing the public key of your validator:  
+   ```bash
+   echo $(desmoscli keys show <your_key> --bech=val --address) >> ./phases/phase-3/challenges/updates/<your-github-name>
+   
+   # Example
+   # echo $(desmoscli keys show validator_key --bech=val --address) >> ./phases/phase-3/challenges/updates/RiccardoM
+   ```
+
+5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).

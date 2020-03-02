@@ -80,7 +80,7 @@ After you have added your first reaction, please follow the steps below to claim
    git rebase upstream/master
    ```
 
-4. Create a file named after your GitHub username containing the post reaction transaction hash:  
+4. Create a file named after your GitHub username containing the post answering transaction hash:  
    ```bash
    echo "<tx-hash>" >> ./phases/phase-3/challenges/answers/<your-github-name>
    
