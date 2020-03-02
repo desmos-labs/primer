@@ -27,10 +27,10 @@ Once you have the ID number of a post you would like to react to, open a new ter
 
 ```bash
 desmoscli tx posts answer-poll <Poll ID> <Answer IDs...> \
-  --from <your_key> --yes 
+  --from <your_key> --yes --chain-id morpheus-3000
 
 # Example
-# desmoscli tx posts answer-poll 2 0 --from jack --yes
+# desmoscli tx posts answer-poll 2 0 --from jack --yes --chain-id morpheus-3000
 ```  
 
 You will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 
