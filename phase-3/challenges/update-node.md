@@ -7,8 +7,48 @@ Additionally, you will also earn more tokens the longer you keep the node runnin
 
 When a new version of Desmos is released, all validators need to update their node so that it can keep running properly. Following you will find the guide on how you can do this making sure everything is ready for when the new chain is started. 
 
-## Update guide
-In order to properly update your validator node, please refer to the [updating guide on the Desmos Docs website](https://docs.desmos.network/validators/update.html).
+## Quick update
+The following guide is based on the genesis file we have already published on our GitHub repository. If you feel comfortable with what we have done, you can follow the below steps. On the other hand, if you want to check that what we have done is correct and not malicious, you can perform a [manual update](#manual-update) instead. 
+
+In order to perform the quick update, execute the following commands. 
+
+1. Start the running service:   
+   ```bash
+   systemctl stop desmosd
+   ```
+   
+2. Update the Desmos binaries:  
+   ```bash
+   cd ~/desmos
+   git fetch -a 
+   git checkout tags/v0.3.0
+   make install
+   ```
+   
+3. Delete the current `genesis.json` file and download the new one:  
+   ```bash
+   rm ~/.desmosd/config/genesis.json
+   curl https://raw.githubusercontent.com/desmos-labs/morpheus/master/genesis.json > ~/.desmosd/config/genesis.json
+   ```
+   
+4. Reset your node to make sure everything is ready:  
+   ```bash
+   desmosd unsafe-reset-all
+   ```
+   
+5. Start your new node:  
+   ```bash
+   systemctl desmosd start
+   ```
+   
+Now you should be able to see your node properly syncing with the other ones by executing: 
+
+```bash
+tail -100f /var/log/syslog
+```
+
+## Manual update
+If you feel more comfortable into performing a manual update of your node, you can follow the [updating guide on the Desmos Docs website](https://docs.desmos.network/validators/update.html).
 
 :::warning Required state change  
 After you have exported the chain state, you are required to perform a small state change.  
