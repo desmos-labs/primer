@@ -63,10 +63,10 @@ timestamp: ""
 To make sure the transaction has been processed successfully, you can query it using the following command: 
 
 ```bash
-desmoscli query tx <hash> --output json
+desmoscli query tx <hash> --output json --chain-id morpheus-3000
 
 # Example
-# desmoscli query tx 0AC2DE8ABBBA27AC2C1C83E2D3070B426E3D8BB67589C8C4A6804A31516F4AA9 --output json
+# desmoscli query tx 0AC2DE8ABBBA27AC2C1C83E2D3070B426E3D8BB67589C8C4A6804A31516F4AA9 --output json --chain-id morpheus-3000
 ``` 
 
 This will return you the JSON representation of the transaction itself.
