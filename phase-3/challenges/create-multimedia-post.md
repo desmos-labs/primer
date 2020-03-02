@@ -23,6 +23,7 @@ Once you have obtained the IPFS hash of the file, to create a multimedia post yo
 ```bash
 desmoscli tx posts create "<Subspace>" "<Message>" true \
   --media '<URI,MimeType>" \
+  --chain-id morpheus-3000 \
   --from <your-key-name> --yes 
 ```
 
@@ -36,6 +37,7 @@ An example of such command is:
 ```bash
 desmoscli tx posts create "4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cccb81494b36e" "I am Batman!" false \
   --media "https://ipfs.desmos.network/ipfs/QmPWWWaqkXQ5ub96r6Hz7dsYUZXuaEnwe14cEsyGfwfsCD,image/jpeg" \
+  --chain-id morpheus-3000 \
   --from jack --yes
 ```
 
@@ -59,7 +61,7 @@ timestamp: ""
 To make sure the transaction has been processed successfully, you can query it using the following command: 
 
 ```bash
-desmoscli query tx <hash> --output json
+desmoscli query tx <hash> --chain-id morpheus-3000 --output json
 
 # Example
 # desmoscli query tx C5375D02CDA05AFC3B8381CCFBF02E34C3448CA0C9264B17EC0E123E403BBE3B --output json

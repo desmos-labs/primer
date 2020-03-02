@@ -15,10 +15,10 @@ The first thing that you need to do is to find a post that you want to answer to
 To be 100% sure that post has a poll inside, you can query its details by executing the following command: 
 
 ```
-desmoscli query posts <ID>
+desmoscli query posts <ID> --chain-id morpheus-3000
 
 # E.g.
-# desmoscli query posts post 1 --output text
+# desmoscli query posts post 1 --chain-id morpheus-3000 --output text
 ```
 
 If the output contains the `polldata` object, that post contains a poll. 
