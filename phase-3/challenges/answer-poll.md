@@ -82,10 +82,10 @@ After you have added your first reaction, please follow the steps below to claim
 
 4. Create a file named after your GitHub username containing the post answering transaction hash:  
    ```bash
-   echo "<tx-hash>" >> ./phases/phase-3/challenges/answers/<your-github-name>
+   echo "<tx-hash>" >> ./phase-3/challenges/answers/<your-github-name>
    
    # Example
-   # echo "286D943499C2A235801C7E5B342EDB9467A64BED8E00765656CA6F2305F277E7" >> ./phases/phase-3/challenges/answers/RiccardoM
+   # echo "286D943499C2A235801C7E5B342EDB9467A64BED8E00765656CA6F2305F277E7" >> ./phase-3/challenges/answers/RiccardoM
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).

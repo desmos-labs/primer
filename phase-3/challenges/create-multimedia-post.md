@@ -88,10 +88,10 @@ After you've created a multimedia post, to make sure you receive your reward ple
 
 4. Create a file named after your GitHub username containing the post creation transaction hash:  
    ```bash
-   echo "<tx-hash>" >> ./phases/phase-3/challenges/multimedia/<your-github-name>
+   echo "<tx-hash>" >> ./phase-3/challenges/multimedia/<your-github-name>
    
    # Example
-   # echo "C5375D02CDA05AFC3B8381CCFBF02E34C3448CA0C9264B17EC0E123E403BBE3B" >> ./phases/phase-3/challenges/multimedia/RiccardoM
+   # echo "C5375D02CDA05AFC3B8381CCFBF02E34C3448CA0C9264B17EC0E123E403BBE3B" >> ./phase-3/challenges/multimedia/RiccardoM
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
