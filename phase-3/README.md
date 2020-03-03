@@ -1,8 +1,4 @@
 # Phase 3
-:::warning Phase 3 Starting   
-Phase 3 will start on March 1st 2020, at 00:00:00 UTC.   
-:::
-
 The Phase 3 of the Primer program is based on the `morpheus-3000` testnet. In this phase you will learn how to post multimedia files or polls and how you can answer the latter.
 
 If you are a validator you will also learn how you can undergo an update procedure so that your node can keep operating on the new chain version. 

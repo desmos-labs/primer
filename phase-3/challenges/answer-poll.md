@@ -15,10 +15,10 @@ The first thing that you need to do is to find a post that you want to answer to
 To be 100% sure that post has a poll inside, you can query its details by executing the following command: 
 
 ```
-desmoscli query posts <ID>
+desmoscli query posts <ID> --chain-id morpheus-3000
 
 # E.g.
-# desmoscli query posts 1 --output text
+# desmoscli query posts post 1 --chain-id morpheus-3000 --output text
 ```
 
 If the output contains the `polldata` object, that post contains a poll. 
@@ -27,10 +27,10 @@ Once you have the ID number of a post you would like to react to, open a new ter
 
 ```bash
 desmoscli tx posts answer-poll <Poll ID> <Answer IDs...> \
-  --from <your_key> --yes 
+  --from <your_key> --yes --chain-id morpheus-3000
 
 # Example
-# desmoscli tx posts answer-poll 2 0 --from jack --yes
+# desmoscli tx posts answer-poll 2 0 --from jack --yes --chain-id morpheus-3000
 ```  
 
 You will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 
@@ -82,10 +82,10 @@ After you have added your first reaction, please follow the steps below to claim
 
 4. Create a file named after your GitHub username containing the post answering transaction hash:  
    ```bash
-   echo "<tx-hash>" >> ./phases/phase-3/challenges/answers/<your-github-name>
+   echo "<tx-hash>" >> ./phase-3/challenges/answers/<your-github-name>
    
    # Example
-   # echo "286D943499C2A235801C7E5B342EDB9467A64BED8E00765656CA6F2305F277E7" >> ./phases/phase-3/challenges/answers/RiccardoM
+   # echo "286D943499C2A235801C7E5B342EDB9467A64BED8E00765656CA6F2305F277E7" >> ./phase-3/challenges/answers/RiccardoM
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
