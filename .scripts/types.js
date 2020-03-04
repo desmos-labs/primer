@@ -1,7 +1,7 @@
 /**
  * Contains all the data related to a specific user for all the phases.
  */
-class UserData {
+export class UserData {
     constructor(user, p1Referral, p1ReferredBy, p1Post, p1Like, p2Reaction, p2Validator) {
         this.user = user;
         this.referrals = p1Referral;
@@ -13,7 +13,10 @@ class UserData {
     }
 }
 
-class TokenData {
+/**
+ * Contains the data about the earned tokens for a specific user.
+ */
+export class TokenData {
     constructor(user, phase1, phase2) {
         this.user = user;
         this.phase1 = phase1;
@@ -26,6 +29,17 @@ class TokenData {
      */
     total() {
         return this.phase1 + this.phase2;
+    }
+}
+
+/**
+ * Contains the data of the sum of all the awarded tokens.
+ */
+export class TotalTokensData {
+    constructor(phase1Total, phase2Total, allPhasesTotal) {
+        this.phase1Total = phase1Total;
+        this.phase2Total = phase2Total;
+        this.globalTokens = allPhasesTotal;
     }
 }
 
@@ -45,4 +59,6 @@ Map.prototype.sumValues = function() {
     return Array.from(this.values()).map(a => a.length).reduce(((a, c) => a + c), 0);
 };
 
-export {UserData, TokenData}
+Array.prototype.sumValues = function() {
+    return this.reduce((a, c) => a + c, 0);
+};
