@@ -70,30 +70,13 @@ timestamp: ""
 To make sure the transaction has been processed successfully, you can query it using the following command: 
 
 ```bash
-desmoscli query tx <hash> --output json --chain-id morpheus-3000
+desmoscli query tx <hash> --trust-node --output json
 
 # Example
-# desmoscli query tx 0AC2DE8ABBBA27AC2C1C83E2D3070B426E3D8BB67589C8C4A6804A31516F4AA9 --output json --chain-id morpheus-3000
+# desmoscli query tx 0AC2DE8ABBBA27AC2C1C83E2D3070B426E3D8BB67589C8C4A6804A31516F4AA9 --trust-node --output json
 ``` 
 
 This will return you the JSON representation of the transaction itself.
-
-:::warning Error during the query of a transaction  
-We've aware that you might run into the following error while query a transaction from the chain:  
-
-```
-ERROR: header has vhash XXXXX but valset hash is YYYYYY
-```
-
-If you get that error, please use our REST endpoint to make sure the transaction has been sent properly. In order to do so, you can execute the following command:
-
-```bash
-curl http://lcd.morpheus.desmos.network:1317/txs/<hash>
-
-# Example
-# curl http://lcd.morpheus.desmos.network:1317/txs/0AC2DE8ABBBA27AC2C1C83E2D3070B426E3D8BB67589C8C4A6804A31516F4AA9
-``` 
-:::
 
 ## Getting the reward 
 After you've created a poll, to make sure you receive your reward please following this procedure: 
