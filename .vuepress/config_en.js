@@ -26,12 +26,19 @@ module.exports = {
             {
                 title: "Phase 1",
                 path: "/phase-1/",
-                collapsable: false,
+                collapsable: true,
+                children: [
+                    ["/phase-1/create-post", "Create a post"],
+                    ["/phase-1/like-post", "Like a post"],
+                ]
             },
             {
                 title: "Phase 2",
                 path: "/phase-2/",
-                collapsable: false,
+                collapsable: true,
+                children: [
+                    ["/phase-2/add-reaction", "Add a post reaction"],
+                ]
             },
             {
                 title: "Phase 3",

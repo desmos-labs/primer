@@ -121,7 +121,7 @@ Once the CLI has been properly installed, to allow it reading from and writing t
 
 ```bash
 desmoscli config node http://34.74.131.47:26657
-desmoscli config chain-id morpheus-1001
+desmoscli config chain-id morpheus-3000
 ```
 
 The result should look something like

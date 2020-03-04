@@ -8,7 +8,7 @@ Please note that in order to prevent spam, you will receive the reward just **fo
 With version `v0.3.0` we've implemented the possibility for users to create poll posts, which allow to easily know what other Desmos users think about a specific question. 
 
 ## Creating your first poll
-After you've followed the [setup](setup/README.md) and you've created your Desmos account using the `desmoscli keys` command, you are ready to create your first poll posts. To do so, run the following command: 
+After you've followed the [setup](../setup/README.md) and you've created your Desmos account using the `desmoscli keys` command, you are ready to create your first poll posts. To do so, run the following command: 
 
 ```bash
 desmoscli tx posts create "<Subspace>" "<Message>" true \
@@ -22,6 +22,9 @@ desmoscli tx posts create "<Subspace>" "<Message>" true \
 
 Before seeing an example of such command, let's see what all the different parts of it do: 
 
+- `<Subspace>`: allows to specify which application should show this poll. It must be a SHA256 hash.  
+   We suggest you using `4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cccb81494b36e` (SHA256 hash of `desmos`) as its value. Otherwise, you can create your own using any [online SHA256 hashing tool](https://emn178.github.io/online-tools/sha256.html).
+ 
 - `--poll-details` allows you to specify the details of the polls. It must contain the following data: 
    - `question`: the question of the poll
    - `date`: the end date of your poll after which no further answers will be accepted, in [RFC3339 format](https://tools.ietf.org/html/rfc3339).
@@ -42,6 +45,10 @@ desmoscli tx posts create "4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cc
   --from jack --yes 
   --chain-id morpheus-3000
 ```
+
+:::tip Know more about posts  
+If you want to know more about posts and how they are composed of, including the poll data, please refer to the [official Desmos documentation](https://docs.desmos.network/types/post.html)  
+:::
 
 Once you've run that command you will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 
 
@@ -70,6 +77,23 @@ desmoscli query tx <hash> --output json --chain-id morpheus-3000
 ``` 
 
 This will return you the JSON representation of the transaction itself.
+
+:::warning Error during the query of a transaction  
+We've aware that you might run into the following error while query a transaction from the chain:  
+
+```
+ERROR: header has vhash XXXXX but valset hash is YYYYYY
+```
+
+If you get that error, please use our REST endpoint to make sure the transaction has been sent properly. In order to do so, you can execute the following command:
+
+```bash
+curl http://lcd.morpheus.desmos.network:1317/txs/<hash>
+
+# Example
+# curl http://lcd.morpheus.desmos.network:1317/txs/0AC2DE8ABBBA27AC2C1C83E2D3070B426E3D8BB67589C8C4A6804A31516F4AA9
+``` 
+:::
 
 ## Getting the reward 
 After you've created a poll, to make sure you receive your reward please following this procedure: 
