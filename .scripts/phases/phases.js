@@ -114,10 +114,10 @@ export class Phase2 {
         let tokens = 0;
 
         // 30 tokens for the reaction
-        tokens += user.post ? 30 : 0;
+        tokens += user.reaction ? 30 : 0;
 
         // 300 tokens for the validator
-        tokens += user.like ? 300 : 0;
+        tokens += user.validator ? 300 : 0;
 
         return tokens;
     }
