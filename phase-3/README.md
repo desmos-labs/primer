@@ -6,7 +6,7 @@ If you are a validator you will also learn how you can undergo an update procedu
 ## Challenges
 Phase 3 challenges include: 
 
-- [Creating a poll (100 Desmos Tokens)](challenges/create-poll.md)
-- [Answering to an existent poll (10 Desmos Tokens)](challenges/answer-poll.md)
-- [Creating a post containing a multimedia file (50 Desmos Tokens)](challenges/create-multimedia-post.md)
-- [Undergo an update procedure (50 Desmos Tokens + Periodic rewards)](challenges/update-node.md)
+- [Creating a poll (100 Desmos Tokens)](create-poll.md)
+- [Answering to an existent poll (10 Desmos Tokens)](answer-poll.md)
+- [Creating a post containing a multimedia file (50 Desmos Tokens)](create-multimedia-post.md)
+- [Undergo an update procedure (50 Desmos Tokens + Periodic rewards)](update-node.md)
