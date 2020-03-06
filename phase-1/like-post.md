@@ -1,6 +1,6 @@
 # Like a post
 :::warning  
-This challenge has been replaced by the [Phase 2 Reaction challenge](phase-2/challenges/add-reaction.md). 
+This challenge has been replaced by the [Phase 2 Reaction challenge](phase-2/add-reaction.md). 
 
 Until January 31th 23:59:59 UTC, you can still complete it by replacing the below command with 
 

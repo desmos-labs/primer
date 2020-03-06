@@ -8,7 +8,7 @@ Please note that in order to prevent spam, you will receive the reward just **fo
 With version `v0.3.0` along with poll, we've also implemented the possibility of creating posts containing multimedia files. Such files can be images, GIFs or even other file types.  
 
 ## Creating your first multimedia post
-Creating a multimedia post is very similar to [creating a plain text post](../../phase-1/create-post.md). The only difference is that you need to perform an additional step: uploading the multimedia file you want to attach to the post to IPFS. 
+Creating a multimedia post is very similar to [creating a plain text post](phase-1/create-post.md). The only difference is that you need to perform an additional step: uploading the multimedia file you want to attach to the post to IPFS. 
 
 To do so, you can use our [IPFS Web UI](https://put.ipfs.desmos.network/ipfs/Qmexhq2sBHnXQbvyP2GfUdbnY7HCagH2Mw5vUNSBn2nxip/#/files). Uploading a multimedia file with it it's pretty straightforward: 
 
@@ -51,6 +51,10 @@ desmoscli tx posts create "4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cc
   --from jack --yes
 ```
 
+:::tip Know more about posts  
+If you want to know more about posts and how they are composed of, including the medias, please refer to the [official Desmos documentation](https://docs.desmos.network/types/post.html)  
+:::
+
 Once you've run that command you will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 
 
 ```yml
@@ -71,10 +75,10 @@ timestamp: ""
 To make sure the transaction has been processed successfully, you can query it using the following command: 
 
 ```bash
-desmoscli query tx <hash> --chain-id morpheus-3000 --output json
+desmoscli query tx <hash> --trust-node --output json
 
 # Example
-# desmoscli query tx C5375D02CDA05AFC3B8381CCFBF02E34C3448CA0C9264B17EC0E123E403BBE3B --output json
+# desmoscli query tx C5375D02CDA05AFC3B8381CCFBF02E34C3448CA0C9264B17EC0E123E403BBE3B --trust-node --output json
 ``` 
 
 This will return you the JSON representation of the transaction itself.

@@ -11,6 +11,10 @@ You can see posts much like tweets on Twitter, as they have the same functionali
 
 The only difference with tweets is that once you've created a Desmos post you will **not** be able to delete it! This is due to the blockchain's intrinsic characteristic of being immutable: each transaction that is performed cannot be undone.      
 
+:::tip Know more about posts  
+If you want to know more about posts and how they are composed of, including the poll data, please refer to the [official Desmos documentation](https://docs.desmos.network/types/post.html)  
+:::
+
 ## Creating your first post
 After you've followed the [setup](setup/README.md) and you've created your Desmos account using the `desmoscli keys` command, you are ready to create your first post. To do so, run the following command: 
 

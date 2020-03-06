@@ -53,10 +53,10 @@ timestamp: ""
 To make sure the transaction has been processed successfully, you can query it using the following command: 
 
 ```bash
-desmoscli query tx <hash> --output json
+desmoscli query tx <hash> --trust-node --output json
 
 # Example
-# desmoscli query tx 286D943499C2A235801C7E5B342EDB9467A64BED8E00765656CA6F2305F277E7 --output json
+# desmoscli query tx 286D943499C2A235801C7E5B342EDB9467A64BED8E00765656CA6F2305F277E7 --trust-node --output json
 ``` 
 
 This will return you the JSON representation of the transaction itself.
