@@ -6,4 +6,5 @@ No more submissions are accepted.
 
 Even tho Phase 2 has now ended, you can still complete its challenges in order to get used to Desmos: 
 
-- [Add a reaction](phase-2/add-reaction.md) 
+- [Add a reaction](add-reaction.md) 
+- [Become a validator](become-validator.md)
