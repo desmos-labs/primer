@@ -45,10 +45,10 @@ module.exports = {
                 path: "/phase-3/",
                 collapsable: true,
                 children: [
-                    ["/phase-3/challenges/create-poll", "Create a poll post"],
-                    ["/phase-3/challenges/answer-poll", "Answer to a poll"],
-                    ["/phase-3/challenges/create-multimedia-post", "Create a multimedia post"],
-                    ["/phase-3/challenges/update-node", "Update your validator node"],
+                    ["/phase-3/create-poll", "Create a poll post"],
+                    ["/phase-3/answer-poll", "Answer to a poll"],
+                    ["/phase-3/create-multimedia-post", "Create a multimedia post"],
+                    ["/phase-3/update-node", "Update your validator node"],
                 ]
             },
             {
