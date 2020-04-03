@@ -4,3 +4,8 @@
 
 # NPM
 node_modules/
+
+# Script
+dist/
+*.json
+*.csv
