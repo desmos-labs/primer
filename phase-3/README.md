@@ -1,10 +1,10 @@
 # Phase 3
-The Phase 3 of the Primer program is based on the `morpheus-3000` testnet. In this phase you will learn how to post multimedia files or polls and how you can answer the latter.
+:::danger Phase 3 is closed  
+Phase 1 is closed since Saturday 4th April 2020 at 23:59:59 UTC.  
+No more submissions are accepted.    
+:::
 
-If you are a validator you will also learn how you can undergo an update procedure so that your node can keep operating on the new chain version. 
-
-## Challenges
-Phase 3 challenges include: 
+Even though Phase 3 is now closed, you can still try out the following challenged to learn a bit more about Desmos:
 
 - [Creating a poll (100 Desmos Tokens)](create-poll.md)
 - [Answering to an existent poll (10 Desmos Tokens)](answer-poll.md)
