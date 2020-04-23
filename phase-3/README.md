@@ -1,6 +1,6 @@
 # Phase 3
 :::danger Phase 3 is closed  
-Phase 1 is closed since Saturday 4th April 2020 at 23:59:59 UTC.  
+Phase 3 is closed since Saturday 4th April 2020 at 23:59:59 UTC.  
 No more submissions are accepted.    
 :::
 
