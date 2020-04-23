@@ -3,6 +3,10 @@
 Upon completing this challenge, you will be rewarded **50 Desmos Tokens**. 
   
 Additionally, you will also earn more tokens the longer you keep the node running. To know more about this please reference the [Validators program](validators-program/overview.md).   
+  
+Please note that the `morpheus-3000` status is planned to be exported at height `820,300`, which we estimate to be around 24 April 2020 03:00 UTC. 
+
+However, to allow all validators to have a change or earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after 27 April 2020 05:00 UTC**.  
 :::
 
 When a new version of Desmos is released, all validators need to update their node so that it can keep running properly. Following you will find the guide on how you can do this making sure everything is ready for when the new chain is started. 
@@ -31,12 +35,19 @@ In order to perform the quick update, execute the following commands.
    curl https://raw.githubusercontent.com/desmos-labs/morpheus/master/genesis.json > ~/.desmosd/config/genesis.json
    ```
    
-4. Reset your node to make sure everything is ready:  
+4. Verify the validity of the generated `genesis.json` file by running the following commands: 
+   ```bash
+   sha256sum ~/.desmosd/config/genesis.json
+   curl https://raw.githubusercontent.com/desmos-labs/morpheus/master/genesis-checksum
+   ```
+   The output should show two identical checksums. 
+   
+5. Reset your node to make sure everything is ready:  
    ```bash
    desmosd unsafe-reset-all
    ``` 
    
-5. Start your new node:  
+6. Start your new node:  
    ```bash
    sudo systemctl desmosd start
    ```

@@ -1,7 +1,8 @@
 # Phase 4
-:::tip Phase 4 starting soon
-Phase 4 is going to start soon  
-No more submissions are accepted.    
+:::tip Phase 4 starting soon  
+The current Morpheus status is planned to be exported at height `820,300`, which we estimate to be around 24 April 2020 03:00 UTC. 
+
+However, to allow all validators to have a change or earning all the tokens by completing the [node updating challenge](update-node.md), we will start counting the precommits from the first block generated after 27 April 2020 05:00 UTC.  
 :::
 
 Thanks to the latest Morpheus testnet (`morpheus-4000`), we've implemented the possibility for users of doing two new things: 
@@ -16,3 +17,12 @@ Inside Phase 4 you will be able to play with those features and earn some DSM by
 
 Also, if you're a Desmos validator, you can earn other Desmos Tokens by completing the following challenge as well:
 - [Undergo an update procedure (50 Desmos Tokens + Periodic rewards)](update-node.md)
+
+## Incentivised program
+In order to further boost the adoption and usage of Desmos, we've planned to run two different incentivised programs based oh whether you are a Desmos validator and/or a Mooncake user. 
+
+In order to know more about these programs and how you can earn Desmos Tokens (`DSM`) with them, please refer to the following pages: 
+
+1. [Invest in Desmos by validating](https://medium.com/@terencesflam/e70907be87db) 
+
+2. [Invest in Desmos by engaging](https://medium.com/@terencesflam/ceb41b514db1)
