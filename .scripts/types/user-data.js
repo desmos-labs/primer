@@ -28,6 +28,21 @@ export class UserData {
             multimedia: phase3Data.multimedia.get(user),
             poll: phase3Data.polls.get(user),
             answer: phase3Data.answers.get(user),
+            validator: phase3Data.validators.get(user),
+            precommits: phase3Data.precommits.get(phase3Data.validators.get(user)),
+
+            precommitsRewards: new Map([
+                [1, 1],
+                [4, 2],
+                [18, 3],
+                [78, 7],
+                [331, 12],
+                [1416, 21],
+                [6044, 40],
+                [25796, 73],
+                [110097, 135],
+                [469894, 250],
+            ]),
         }
     }
 
@@ -97,9 +112,30 @@ export class UserData {
         // 50 tokens for a multimedia post
         tokens += this.phase3.multimedia ? 50 : 0;
 
-        // TODO: Add the validator
+        // Get the tokens for the signed precommits
+        tokens += this._computePrecommitsReward(this.phase3.precommitsRewards, this.phase3.precommits);
 
         return tokens;
+    }
+
+    /**
+     * Computes the number of tokens that should be rewarded based on the number of precommits signed.
+     * @param rewards {Map<int, int>} Map containing the precommits rewards. The keys should represent the number of
+     * precommits and the values the number of tokens to distribute.
+     * @param precommits {int} Number of precommits signed.
+     * @return {int} The number of tokens that should be returned.
+     * @private
+     */
+    _computePrecommitsReward(rewards, precommits) {
+        if (!precommits) return 0;
+
+        let commitsToken = 0;
+        for (const entry of rewards.entries()) {
+            if (precommits >= entry[0]) {
+                commitsToken = entry[1];
+            }
+        }
+        return commitsToken;
     }
 
     /**
@@ -124,15 +160,15 @@ export class UserData {
     }
 
     toMdTableRow() {
-       return `| ${this.user} | ${this.phase1Tokens} | ${this.phase2Tokens} | ${this.phase3Tokens} | ${this.totalTokens} |\n`;
+        return `| ${this.user} | ${this.phase1Tokens} | ${this.phase2Tokens} | ${this.phase3Tokens} | ${this.totalTokens} |\n`;
     }
 }
 
-Array.prototype.unique = function() {
+Array.prototype.unique = function () {
     let a = this.concat();
-    for(let i=0; i<a.length; ++i) {
-        for(let j=i+1; j<a.length; ++j) {
-            if(a[i] === a[j])
+    for (let i = 0; i < a.length; ++i) {
+        for (let j = i + 1; j < a.length; ++j) {
+            if (a[i] === a[j])
                 a.splice(j--, 1);
         }
     }
@@ -140,10 +176,10 @@ Array.prototype.unique = function() {
     return a;
 };
 
-Map.prototype.sumValues = function() {
+Map.prototype.sumValues = function () {
     return Array.from(this.values()).map(a => a.length).reduce(((a, c) => a + c), 0);
 };
 
-Array.prototype.sumValues = function() {
+Array.prototype.sumValues = function () {
     return this.reduce((a, c) => a + c, 0);
 };

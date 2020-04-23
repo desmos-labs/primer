@@ -14,7 +14,7 @@ export class Phase2 {
      * The keys represent the names of the user, while the values represent the hashes of the reaction transactions.
      */
     static async _getReactions() {
-        return  Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/reactions`));
+        return Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/reactions`));
     }
 
     /**
@@ -24,7 +24,7 @@ export class Phase2 {
      * transactions.
      */
     static async _getValidators() {
-        return  Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/validators`));
+        return Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/validators`));
     }
 
     /**
@@ -39,6 +39,10 @@ export class Phase2 {
     }
 }
 
+/**
+ * @property reactions
+ * @property validators
+ */
 class Phase2Data {
     constructor(reactions, validators) {
         this.reactions = reactions;

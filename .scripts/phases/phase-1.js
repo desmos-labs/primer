@@ -58,13 +58,13 @@ export class Phase1 {
     }
 }
 
+/**
+ * @property referrals {Map<String, Array<String>>}
+ * @property acceptedReferrals {Map<String, String>}
+ * @property posts {Map<String, String>}
+ * @property likes {Map<String, String>}
+ */
 export class Phase1Data {
-    /**
-     * @param referrals {Map<String, Array<String>>}
-     * @param acceptedReferrals {Map<String, String>}
-     * @param posts {Map<String, String>}
-     * @param likes {Map<String, String>}
-     */
     constructor(referrals, acceptedReferrals, posts, likes) {
         this.referrals = referrals;
         console.log(`Referring users: ${this.referrals.size}`);
