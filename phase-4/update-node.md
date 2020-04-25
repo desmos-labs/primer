@@ -44,9 +44,19 @@ When a new version of Desmos is released, all validators need to update their no
    desmosd unsafe-reset-all
    ``` 
    
-6. Start your new node:  
+6. Open up the `config.toml` file:
    ```bash
-   sudo systemctl desmosd start
+   nano $HOME/.desmosd/config/config.toml
+   ```
+   
+7. Locate the `persistent_peers = ` text at line 164 and change the **whole line** to be: 
+   ```
+   persistent_peers = "7fed5624ca577eb0333d3631b5e4f16ba1736979@54.180.98.75:26656"
+   ``` 
+   
+8. Start your new node:  
+   ```bash
+   sudo systemctl start desmosd
    ```
    
 Now you should be able to see your node properly syncing with the other ones by executing: 
