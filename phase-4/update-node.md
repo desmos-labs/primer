@@ -32,7 +32,7 @@ When a new version of Desmos is released, all validators need to update their no
    
 4. Verify the validity of the generated `genesis.json` file by running the following commands: 
    ```bash
-   jq -S -c -M '' genesis.json | shasum -a 256
+   jq -S -c -M '' ~/.desmosd/config/genesis.json | shasum -a 256
    ```
    The output should be  
    ```
