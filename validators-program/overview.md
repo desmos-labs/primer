@@ -56,9 +56,10 @@ After you've become a validator, to make sure you receive your reward please fol
 ## About periodic rewards
 In order to prevent an over-accumulation in the hands of few validators, during each Phase of the Primer program we will review the rules and quantity of the tokens that will be allocated to validators. 
 
-The currently running Phase is **Phase 3** and we have decided to allow for a maximum of **250 Desmos Tokens** to be distributed to each validator, based on the **number of pre-commits** their node will sign. 
+### Phase 3 
+During **Phase 3** we have decided to allow for a maximum of **250 Desmos Tokens** to be distributed to each validator, based on the **number of pre-commits** their node will sign. 
 
-We plan to run this phase for 31 days. Considering an average block time of 5.70 seconds, this means that each validator should sign approximately 469,894 pre-commits during that period of time. To incentivize validators to run their node through the whole Phase 3, we have decided to adopt a logarithmic token distribution: 
+Such Phase has been running for 31 days. Considering an average block time of 5.70 seconds, this means that each validator should have signed approximately 469,894 pre-commits during that period of time. To incentivize validators to run their node through the whole Phase 3, we decided to adopt a logarithmic token distribution: 
 
 | Pre-commits signed | Tokens rewarded | 
 | :----------------: | :-------------: |
@@ -72,3 +73,6 @@ We plan to run this phase for 31 days. Considering an average block time of 5.70
 | 25,796 | 73 |
 | 110,097 | 135 |
 | 469,894 | 250 |
+
+### Phase 4
+You can read about the incentivised program for Phase 4 at the following link: [Invest in Desmos by validating](https://medium.com/@terencesflam/e70907be87db).
