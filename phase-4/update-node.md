@@ -4,17 +4,12 @@ Upon completing this challenge, you will be rewarded **50 Desmos Tokens**.
   
 Additionally, you will also earn more tokens the longer you keep the node running. To know more about this please reference the [Validators program](validators-program/overview.md).   
   
-Please note that the `morpheus-3000` status is planned to be exported at height `820,300`, which we estimate to be around 24 April 2020 03:00 UTC. 
+Please note that we exported the `morpheus-3000` state at height `845,600`. 
 
-However, to allow all validators to have a change or earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after 27 April 2020 05:00 UTC**.  
+However, to allow all validators to have a chance of earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after 29 April 2020 05:00 UTC**.  
 :::
 
-When a new version of Desmos is released, all validators need to update their node so that it can keep running properly. Following you will find the guide on how you can do this making sure everything is ready for when the new chain is started. 
-
-## Quick update
-The following guide is based on the genesis file we have already published on our GitHub repository. If you feel comfortable with what we have done, you can follow the below steps. On the other hand, if you want to check that what we have done is correct and not malicious, you can perform a [manual update](#manual-update) instead. 
-
-In order to perform the quick update, execute the following commands. 
+When a new version of Desmos is released, all validators need to update their node so that it can keep running properly. Following you will find the guide on how you can do this making sure everything is ready for when the new chain starts. 
 
 1. Stop the running service:   
    ```bash
@@ -37,10 +32,12 @@ In order to perform the quick update, execute the following commands.
    
 4. Verify the validity of the generated `genesis.json` file by running the following commands: 
    ```bash
-   sha256sum ~/.desmosd/config/genesis.json
-   curl https://raw.githubusercontent.com/desmos-labs/morpheus/master/genesis-checksum
+   jq -S -c -M '' genesis.json | shasum -a 256
    ```
-   The output should show two identical checksums. 
+   The output should be  
+   ```
+   65948c4ac43b8765b526a39316ac3dd57c36abad8bdff847f101d1d22249f2d7  -
+   ```
    
 5. Reset your node to make sure everything is ready:  
    ```bash
@@ -57,11 +54,6 @@ Now you should be able to see your node properly syncing with the other ones by 
 ```bash
 tail -100f /var/log/syslog
 ```
-
-## Manual update
-If you feel more comfortable into performing a manual update of your node, you can follow the [updating guide on the Desmos Docs website](https://docs.desmos.network/validators/update.html).
-
-If you do not want to export and migrate the chain state by yourself, you can download and use the [genesis file](https://raw.githubusercontent.com/desmos-labs/morpheus/master/genesis.json) of `morpheus-4000` directly. Details of the genesis file can be found at the [Morpheus Testnet repository](https://github.com/desmos-labs/morpheus).
 
 ## Getting the reward 
 After you have updated your node, please follow the steps below to claim your reward: 
@@ -91,3 +83,5 @@ After you have updated your node, please follow the steps below to claim your re
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
+In order to know more about the validators program for Phase 4 you can reference the following [Medium article](https://medium.com/@terencesflam/e70907be87db).
