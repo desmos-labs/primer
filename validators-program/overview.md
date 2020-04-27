@@ -75,4 +75,4 @@ Such Phase has been running for 31 days. Considering an average block time of 5.
 | 469,894 | 250 |
 
 ### Phase 4
-You can read about the incentivised program for Phase 4 at the following link: [Invest in Desmos by validating](https://medium.com/@terencesflam/e70907be87db).
+You can read about the incentivised program for Phase 4 at the following link: [Invest in Desmos by validating](https://medium.com/desmosnetwork/invest-in-desmos-invest-by-validating-e70907be87db).
