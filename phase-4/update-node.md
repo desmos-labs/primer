@@ -6,7 +6,7 @@ Additionally, you will also earn more tokens the longer you keep the node runnin
   
 Please note that we exported the `morpheus-3000` state at height `845,600`. 
 
-However, to allow all validators to have a chance of earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after 29 April 2020 05:00 UTC**.  
+However, to allow all validators to have a chance of earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after 1st May 2020 00:00 UTC**.  
 :::
 
 When a new version of Desmos is released, all validators need to update their node so that it can keep running properly. Following you will find the guide on how you can do this making sure everything is ready for when the new chain starts. 

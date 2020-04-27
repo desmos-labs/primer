@@ -2,7 +2,7 @@
 :::tip Rewards  
 Upon completing this challenge, you will be rewarded **50 Desmos Tokens**. 
   
-Please note that in order to prevent spam, you will receive the reward just **for the first reaction** you register. No tokens will be awarded for later reactions.  
+Please note that in order to prevent spam, you will receive the reward just **for the first reaction** you register. No tokens will be awarded for later reactions.
 :::
 
 With version `v0.4.0` we've implemented the function that allows users to register their own custom reactions that will later be possible to add to posts in order for them to better express themselves.
