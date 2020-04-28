@@ -1,4 +1,4 @@
-# Create a poll post
+# Create an account
 :::tip Rewards  
 Upon completing this challenge, you will be rewarded **50 Desmos Tokens**.  
 :::
