@@ -36,7 +36,7 @@ When a new version of Desmos is released, all validators need to update their no
    ```
    The output should be  
    ```
-   65948c4ac43b8765b526a39316ac3dd57c36abad8bdff847f101d1d22249f2d7  -
+   dc6bcadf360f037450066bfad89bc54c467810240ac93a317bf5f26cab80079f  -
    ```
    
 5. Reset your node to make sure everything is ready:  
@@ -51,7 +51,7 @@ When a new version of Desmos is released, all validators need to update their no
    
 7. Locate the `persistent_peers = ` text at line 164 and change the **whole line** to be: 
    ```
-   persistent_peers = "7fed5624ca577eb0333d3631b5e4f16ba1736979@54.180.98.75:26656"
+   persistent_peers = "7fed5624ca577eb0333d3631b5e4f16ba1736979@54.180.98.75:26656,e30d9bb713d17d1e4380b2e2a6df4b5c76c73eb1@34.212.106.82:26656"
    ``` 
    
 8. Start your new node:  
@@ -62,7 +62,7 @@ When a new version of Desmos is released, all validators need to update their no
 Now you should be able to see your node properly syncing with the other ones by executing: 
 
 ```bash
-tail -100f /var/log/syslog
+journalctl -n100 -f -u desmosd.service
 ```
 
 ## Getting the reward 
