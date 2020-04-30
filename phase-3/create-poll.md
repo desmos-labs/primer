@@ -16,7 +16,7 @@ desmoscli tx posts create "<Subspace>" "<Message>" true \
   --poll-answer <First answer> \
   --poll-answer <Second answer> \
   ...
-  --from <your-key-name> --yes 
+  --from <your-key-name> --yes \
   --chain-id <chain-id>
 ```
 
@@ -42,7 +42,7 @@ desmoscli tx posts create "4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cc
   --poll-answer "Beagle" \
   --poll-answer "Pug" \
   --poll-answer "German Sheperd" \
-  --from jack --yes 
+  --from jack --yes \
   --chain-id morpheus-3000
 ```
 
