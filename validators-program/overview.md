@@ -18,7 +18,7 @@ The procedure to become a validator is composed of two parts:
 
 1. First thing first, you are required to setup a full node of your server machine. To do so, please follow the ["_Setting up a node_" guide on the Desmos documentation website](https://docs.desmos.network/testnets/join-public.html#validators). 
 
-2. Once you have properly set up a full node, you can upgrade its functionality making it a validator node. To read how to do this, please refer to the ["_Run a validator on Desmos_" guide on the Desmos documentation website](https://docs.desmos.network/validators/validator-setup.html). 
+2. Once you have properly set up a full node, you can upgrade its functionality making it a validator node. To read how to do this, please refer to the ["_Run a validator on Desmos_" guide on the Desmos documentation website](https://docs.desmos.network/validators/setup.html). 
 
 :::tip Testnet version and data   
 Please note that new validators must rely on the latest testnet running. Such testnet's `genesis.json` file and seeds information can be found inside the [root directory of the testnet repo](https://github.com/desmos-labs/morpheus).  
@@ -56,9 +56,10 @@ After you've become a validator, to make sure you receive your reward please fol
 ## About periodic rewards
 In order to prevent an over-accumulation in the hands of few validators, during each Phase of the Primer program we will review the rules and quantity of the tokens that will be allocated to validators. 
 
-The currently running Phase is **Phase 3** and we have decided to allow for a maximum of **250 Desmos Tokens** to be distributed to each validator, based on the **number of pre-commits** their node will sign. 
+### Phase 3 
+During **Phase 3** we have decided to allow for a maximum of **250 Desmos Tokens** to be distributed to each validator, based on the **number of pre-commits** their node will sign. 
 
-We plan to run this phase for 31 days. Considering an average block time of 5.70 seconds, this means that each validator should sign approximately 469,894 pre-commits during that period of time. To incentivize validators to run their node through the whole Phase 3, we have decided to adopt a logarithmic token distribution: 
+Such Phase has been running for 31 days. Considering an average block time of 5.70 seconds, this means that each validator should have signed approximately 469,894 pre-commits during that period of time. To incentivize validators to run their node through the whole Phase 3, we decided to adopt a logarithmic token distribution: 
 
 | Pre-commits signed | Tokens rewarded | 
 | :----------------: | :-------------: |
@@ -72,3 +73,6 @@ We plan to run this phase for 31 days. Considering an average block time of 5.70
 | 25,796 | 73 |
 | 110,097 | 135 |
 | 469,894 | 250 |
+
+### Phase 4
+You can read about the incentivised program for Phase 4 at the following link: [Invest in Desmos by validating](https://medium.com/desmosnetwork/invest-in-desmos-invest-by-validating-e70907be87db).
