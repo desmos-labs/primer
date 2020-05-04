@@ -1,10 +1,10 @@
-require("@babel/core");
-require("@babel/polyfill");
-
+import {Phase4} from "./phases/phases";
 import {UserData} from "./types/user-data.js";
 import {Phase1, Phase2, Phase3} from "./phases/phases.js";
 import {FileWriter} from "./file-writers"
 
+require("@babel/core");
+require("@babel/polyfill");
 
 /**
  * Reads the data from GitHub, puts all together and returns the complete object.
@@ -14,16 +14,24 @@ async function readData() {
     const phase1Data = await Phase1.getData();
     const phase2Data = await Phase2.getData();
     const phase3Data = await Phase3.getData();
+    const phase4Data = await Phase4.getData();
 
     // --- Users ---
     const users = [
         ...phase1Data.getUsers(),
         ...phase2Data.getUsers(),
         ...phase3Data.getUsers(),
+        ...phase4Data.getUsers(),
     ];
 
     return users.unique().map(function (key) {
-        return new UserData(key, phase1Data, phase2Data, phase3Data);
+        return new UserData(
+            key,
+            phase1Data,
+            phase2Data,
+            phase3Data,
+            phase4Data,
+        );
     });
 }
 

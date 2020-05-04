@@ -12,13 +12,14 @@ export class FileWriter {
             phase1Total: usersData.map((d) => d.phase1Tokens).sumValues(),
             phase2Total: usersData.map((d) => d.phase2Tokens).sumValues(),
             phase3Total: usersData.map((d) => d.phase3Tokens).sumValues(),
+            phase4Total: usersData.map((d) => d.phase4Tokens).sumValues(),
             globalTokens: usersData.map((d) => d.totalTokens).sumValues(),
 
             toCsv: function () {
-                return `TOTAL,${this.phase1Total},${this.phase2Total},${this.phase3Total},${this.globalTokens}\n`;
+                return `TOTAL,${this.phase1Total},${this.phase2Total},${this.phase3Total},${this.phase4Total},${this.globalTokens}\n`;
             },
             toMdTableRow: function () {
-                return `| **Total** | ${this.phase1Total} | ${this.phase2Total} | ${this.phase3Total} | ${this.globalTokens}\n`;
+                return `| **Total** | ${this.phase1Total} | ${this.phase2Total} | ${this.phase3Total} | ${this.phase4Total} | ${this.globalTokens}\n`;
             },
         };
     }
@@ -44,7 +45,7 @@ export class FileWriter {
             return;
         }
 
-        fs.writeFileSync(csvPath, "Username,Phase 1 earned tokens,Phase 2 earned tokens,Phase 3 earned tokens,Total\n");
+        fs.writeFileSync(csvPath, "Username,Phase 1 earned tokens,Phase 2 earned tokens,Phase 3 earned tokens,Phase 4 earned tokens,Total\n");
         this.usersData.forEach(function (data) {
             fs.appendFileSync(csvPath, data.toCsv());
         });
@@ -64,8 +65,8 @@ export class FileWriter {
         const mdContents = fs.readFileSync(mdFilePath).toString();
 
         let table = `
-| User | Phase 1 | Phase 2 | Phase 3 | Total |
-| :--- | :-----: | :-----: | :-----: | :---: |
+| User | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Total |
+| :--- | :-----: | :-----: | :-----: | :-----: | :---: |
 `;
         this.usersData.forEach(function (data) {
             table += data.toMdTableRow();

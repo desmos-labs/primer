@@ -9,6 +9,10 @@ export class Utils {
      * @returns {Promise<Map<String, Array<String>>>}
      */
     static async getFilesContents(dir) {
+        if (!fs.existsSync(dir)) {
+            return new Map();
+        }
+
         const files = fs.readdirSync(dir).filter((file) => file !== ".gitkeep");
 
         let contents = new Map();

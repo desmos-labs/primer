@@ -8,8 +8,9 @@ export class UserData {
      * @param phase1Data {Phase1Data}
      * @param phase2Data {Phase2Data}
      * @param phase3Data {Phase3Data}
+     * @param phase4Data {Phase4Data}
      */
-    constructor(user, phase1Data, phase2Data, phase3Data) {
+    constructor(user, phase1Data, phase2Data, phase3Data, phase4Data) {
         this.user = user;
 
         this.phase1 = {
@@ -44,6 +45,47 @@ export class UserData {
                 [469894, 250],
             ]),
         }
+
+        this.phase4 = {
+            account: phase4Data.accounts.get(user),
+            reaction: phase4Data.reactions.get(user),
+            validator: phase4Data.validators.get(user),
+            precommits: phase4Data.precommits.get(phase3Data.validators.get(user)),
+
+            // TODO: Define this
+            precommitsRewards: new Map([
+                [1, 1],
+                [4, 2],
+                [18, 3],
+                [78, 7],
+                [331, 12],
+                [1416, 21],
+                [6044, 40],
+                [25796, 73],
+                [110097, 135],
+                [469894, 250],
+            ]),
+        };
+    }
+
+    /**
+     * Computes the number of tokens that should be rewarded based on the number of precommits signed.
+     * @param rewards {Map<int, int>} Map containing the precommits rewards. The keys should represent the number of
+     * precommits and the values the number of tokens to distribute.
+     * @param precommits {int} Number of precommits signed.
+     * @return {int} The number of tokens that should be returned.
+     * @private
+     */
+    _computePrecommitsReward(rewards, precommits) {
+        if (!precommits) return 0;
+
+        let commitsToken = 0;
+        for (const entry of rewards.entries()) {
+            if (precommits >= entry[0]) {
+                commitsToken = entry[1];
+            }
+        }
+        return commitsToken;
     }
 
     /**
@@ -119,23 +161,22 @@ export class UserData {
     }
 
     /**
-     * Computes the number of tokens that should be rewarded based on the number of precommits signed.
-     * @param rewards {Map<int, int>} Map containing the precommits rewards. The keys should represent the number of
-     * precommits and the values the number of tokens to distribute.
-     * @param precommits {int} Number of precommits signed.
-     * @return {int} The number of tokens that should be returned.
-     * @private
+     * Computes the tokens to be awarded for Phase 4 Challenges to this user.
+     * @returns {number}: the amount of tokens to be awarded to the user for Phase 4.
      */
-    _computePrecommitsReward(rewards, precommits) {
-        if (!precommits) return 0;
+    _computePhase4Amount() {
+        let tokens = 0;
 
-        let commitsToken = 0;
-        for (const entry of rewards.entries()) {
-            if (precommits >= entry[0]) {
-                commitsToken = entry[1];
-            }
-        }
-        return commitsToken;
+        // 50 tokens per account
+        tokens += this.phase4.account ? 50 : 0;
+
+        // 50 tokens per reaction
+        tokens += this.phase4.reaction ? 50 : 0;
+
+        // Get tokens for the signed precommits
+        tokens += this._computePrecommitsReward(this.phase4.precommitsRewards, this.phase4.precommits);
+
+        return tokens;
     }
 
     /**
@@ -147,8 +188,9 @@ export class UserData {
         this.phase1Tokens = this._computePhase1Amount(usersData);
         this.phase2Tokens = this._computePhase2Amount();
         this.phase3Tokens = this._computePhase3Amount();
+        this.phase4Tokens = this._computePhase4Amount();
 
-        this.totalTokens = this.phase1Tokens + this.phase2Tokens + this.phase3Tokens;
+        this.totalTokens = this.phase1Tokens + this.phase2Tokens + this.phase3Tokens + this.phase4Tokens;
     }
 
     /**
@@ -156,11 +198,11 @@ export class UserData {
      * @return {string}
      */
     toCsv() {
-        return `${this.user},${this.phase1Tokens},${this.phase2Tokens},${this.phase3Tokens},${this.totalTokens}\n`;
+        return `${this.user},${this.phase1Tokens},${this.phase2Tokens},${this.phase3Tokens},${this.phase4Tokens},${this.totalTokens}\n`;
     }
 
     toMdTableRow() {
-        return `| ${this.user} | ${this.phase1Tokens} | ${this.phase2Tokens} | ${this.phase3Tokens} | ${this.totalTokens} |\n`;
+        return `| ${this.user} | ${this.phase1Tokens} | ${this.phase2Tokens} | ${this.phase3Tokens} | ${this.phase4Tokens} | ${this.totalTokens} |\n`;
     }
 }
 
