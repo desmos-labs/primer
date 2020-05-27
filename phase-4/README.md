@@ -1,8 +1,6 @@
 # Phase 4
-:::tip Phase 4 starting soon  
-The current Morpheus status is planned to be exported at height `820,300`, which we estimate to be around 24 April 2020 03:00 UTC. 
-
-However, to allow all validators to have a change or earning all the tokens by completing the [node updating challenge](update-node.md), we will start counting the precommits from the first block generated after 1st May 2020 00:00 UTC.  
+:::tip Phase 4 ending soon  
+Phase 4 is planned to end on 23:59:59 UTC of Sunday 31 May 2020.  
 :::
 
 Thanks to the latest Morpheus testnet (`morpheus-4000`), we've implemented the possibility for users of doing two new things: 
