@@ -1,19 +1,21 @@
 # Phase 5
 :::tip Phase 5 starting soon  
-The current Morpheus status is planned to be exported at height `820,300`, which we estimate to be around 24 April 2020 03:00 UTC. 
+The current Morpheus status is planned to be exported at height `XXXXX`, which we estimate to be around XX June 2020 XX:XX UTC. 
 
-However, to allow all validators to have a change or earning all the tokens by completing the [node updating challenge](update-node.md), we will start counting the precommits from the first block generated after 1st May 2020 00:00 UTC.  
+However, to allow all validators to have a change or earning all the tokens by completing the [node updating challenge](update-node.md), we will start counting the precommits from the first block generated after XX June 2020 00:00 UTC.  
 :::
 
-Thanks to the latest Morpheus testnet (`morpheus-4000`), we've implemented the possibility for users of doing two new things: 
+Thanks to the latest Morpheus testnet (`morpheus-5000`), we've implemented the possibility for users of doing three new things: 
 
-1. registering custom reactions that will later be possible to add to existing posts; 
-2. creating personal profiles.  
+1. tagging a person inside a post with a multimedia file; 
+2. reporting a post; 
+3. interacting with the on-chain governance.  
 
-Inside Phase 4 you will be able to play with those features and earn some DSM by completing the following challenges:
+Inside Phase 5 you will be able to play with those features and earn some DSM by completing the following challenges:
 
-- [Register a reaction (50 Desmos Tokens)](register-reaction.md)
-- [Create your account (50 Desmos Tokens)](create-account.md)
+- [Tag a person inside a post (50 Desmos Tokens)](tag-person.md)
+- [Report a post (25 Desmos Tokens)](report-post.md)
+- [Vote an on-chain proposal (50 DSM)](vote-proposal.md)
 
 Also, if you're a Desmos validator, you can earn other Desmos Tokens by completing the following challenge as well:
 - [Undergo an update procedure (50 Desmos Tokens + Periodic rewards)](update-node.md)
