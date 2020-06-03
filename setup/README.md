@@ -16,7 +16,7 @@ To verify your Go version you can run `go version` inside a terminal window.
 This should return something that looks like 
 
 ```shell
-go version go1.13.7 linux/amd64
+go version go1.14.3 linux/amd64
 ```
    
 If you instead get a `go: command not found`, it means you do not have Go installed. In this case, you can get it by going through the setup process present at the following link: [Installing Go](https://golang.org/doc/install). 
@@ -95,7 +95,8 @@ In order to install it, please execute the following commands:
 ```bash
 git clone https://github.com/desmos-labs/desmos.git $GOPATH/src/github.com/desmos-labs/desmos
 cd $GOPATH/src/github.com/desmos-labs/desmos
-git checkout -b phase-1 tags/v0.2.0
+git fetch --tags
+git checkout tags/v0.5.1
 make install
 ```
 
@@ -111,8 +112,8 @@ The result should be:
 name: Desmos
 server_name: desmosd
 client_name: desmoscli
-version: 0.2.0
-commit: 9cb1e900627c16b9489e16f16141794e9c1d602f
+version: 0.5.1
+commit: fba4226f61b0a2224c013362fb41d65bd3b663a9
 build_tags: netgo ledger
 ```
 
@@ -120,8 +121,8 @@ build_tags: netgo ledger
 Once the CLI has been properly installed, to allow it reading from and writing to the chain state, we need to connect it to our public full node. To do so, please run: 
 
 ```bash
-desmoscli config node http://34.74.131.47:26657
-desmoscli config chain-id morpheus-3000
+desmoscli config node http://54.180.98.75:26657
+desmoscli config chain-id morpheus-4001
 ```
 
 The result should look something like
@@ -139,7 +140,7 @@ desmoscli query block 1
 The output should be 
 
 ```json
-{"block_meta":{"block_id":{"hash":"3E1720539D3DAAD5D84E8047FBB60A48D545960BBE3AC0540DC13791D071913D","parts":{"total":"1","hash":"CFCB6DEB1BFC2618918CF93A4A0A2C16342C35476ACFED466EFCC7C31655DD1C"}},"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1001","height":"1","time":"2020-01-14T00:00:00Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"D986DA6092404D46251F58DBC480AE05493763C5"}},"block":{"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-1001","height":"1","time":"2020-01-14T00:00:00Z","num_txs":"0","total_txs":"0","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","next_validators_hash":"148CC373C318FC8825CA753A1228289175CC98667E1283DC949EB52B2490B34A","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"D986DA6092404D46251F58DBC480AE05493763C5"},"data":{"txs":null},"evidence":{"evidence":null},"last_commit":{"block_id":{"hash":"","parts":{"total":"0","hash":""}},"precommits":null}}}
+{"block_id":{"hash":"6933BC56CD668CB5D2EC1286B526A0C4B589D9A92E88B9CCA126CD054E2BE143","parts":{"total":"1","hash":"64588C7720205762808AD2E17E1113F0B82271B3CC4AB04D02E4EAC25AB097E8"}},"block":{"header":{"version":{"block":"10","app":"0"},"chain_id":"morpheus-4001","height":"1","time":"2020-05-20T10:00:00Z","last_block_id":{"hash":"","parts":{"total":"0","hash":""}},"last_commit_hash":"","data_hash":"","validators_hash":"7DAEA6F3C195EC289778EC868998FB82A6CB5B6BFDAC67482AFCBD69AEA9B155","next_validators_hash":"7DAEA6F3C195EC289778EC868998FB82A6CB5B6BFDAC67482AFCBD69AEA9B155","consensus_hash":"048091BC7DDC283F77BFBF91D73C44DA58C3DF8A9CBC867405D8B7F3DAADA22F","app_hash":"","last_results_hash":"","evidence_hash":"","proposer_address":"D986DA6092404D46251F58DBC480AE05493763C5"},"data":{"txs":null},"evidence":{"evidence":null},"last_commit":{"height":"0","round":"0","block_id":{"hash":"","parts":{"total":"0","hash":""}},"signatures":null}}}
 ```
 
 ### 4. Creating your address
@@ -199,7 +200,7 @@ desmos1gmu4uevcvwfcuu43yp27gcv4ngxuh9sxfpv3er
 You will receive some tokens after you put it into the faucet.
 
 :::tip Welcome! 
-Congratulations, you have setup your Desmos account successfully! You can now start the [Phase 1 challenges](phase-1/README.md#Challenges) and earn some Desmos Tokens!  
+Congratulations, you have setup your Desmos account successfully! You can now start the [Phase 1 challenges](https://primer.desmos.network/phase-1/) and earn some Desmos Tokens!  
 ::: 
 
 ## Updating
@@ -222,8 +223,8 @@ This should return the current version information, which should something like 
 name: Desmos
 server_name: desmosd
 client_name: desmoscli
-version: 0.2.0-3-gf25f7dd
-commit: f25f7ddd1c9644d1cb4cc300c56ec93b8e574b4c
+version: 0.5.1
+commit: fba4226f61b0a2224c013362fb41d65bd3b663a9
 build_tags: netgo ledger
 go: go version go1.13.5 linux/amd64
 ```
