@@ -5,17 +5,15 @@ The current Morpheus status is planned to be exported at height `XXXXX`, which w
 However, to allow all validators to have a change or earning all the tokens by completing the [node updating challenge](update-node.md), we will start counting the precommits from the first block generated after XX June 2020 00:00 UTC.  
 :::
 
-Thanks to the latest Morpheus testnet (`morpheus-5000`), we've implemented the possibility for users of doing three new things: 
+Thanks to the latest Morpheus testnet (`morpheus-5000`), we've implemented the possibility for users of doing two new things: 
 
 1. tagging a person inside a post with a multimedia file; 
-2. reporting a post; 
-3. interacting with the on-chain governance.  
+2. reporting a post.
 
 Inside Phase 5 you will be able to play with those features and earn some DSM by completing the following challenges:
 
 - [Tag a person inside a post (50 Desmos Tokens)](tag-person.md)
 - [Report a post (25 Desmos Tokens)](report-post.md)
-- [Vote an on-chain proposal (50 DSM)](vote-proposal.md)
 
 Also, if you're a Desmos validator, you can earn other Desmos Tokens by completing the following challenge as well:
 - [Undergo an update procedure (50 Desmos Tokens + Periodic rewards)](update-node.md)

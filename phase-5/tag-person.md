@@ -52,7 +52,7 @@ To make sure the transaction has been processed successfully, you can query it u
 desmoscli query tx <hash> --output json
 
 # Example
-# desmoscli query tx /sda1/Coding/Desmos/Primer/phase-5/tag-person.md --output json
+# desmoscli query tx 7169B8C88150090BF972F865876B3AA8A37DDD01ED4D8320B0FC680877444549 --output json
 ``` 
 
 This will return you the JSON representation of the transaction itself.

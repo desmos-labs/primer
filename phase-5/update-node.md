@@ -4,9 +4,9 @@ Upon completing this challenge, you will be rewarded **50 Desmos Tokens**.
   
 Additionally, you will also earn more tokens the longer you keep the node running. To know more about this please reference the [Validators program](validators-program/overview.md).   
   
-Please note that we exported the `morpheus-3000` state at height `845,600`. 
+Please note that we exported the `morpheus-4001` state at height `XXXXX`. 
 
-However, to allow all validators to have a chance of earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after 1st May 2020 00:00 UTC**.  
+However, to allow all validators to have a chance of earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after XX June 2020 00:00 UTC**.  
 :::
 
 When a new version of Desmos is released, all validators need to update their node so that it can keep running properly. Following you will find the guide on how you can do this making sure everything is ready for when the new chain starts. 
@@ -20,7 +20,7 @@ When a new version of Desmos is released, all validators need to update their no
    ```bash
    cd ~/desmos
    git fetch -a 
-   git checkout tags/v0.4.0
+   git checkout tags/v0.6.2
    make install
    ```
    
@@ -43,18 +43,8 @@ When a new version of Desmos is released, all validators need to update their no
    ```bash
    desmosd unsafe-reset-all
    ``` 
-   
-6. Open up the `config.toml` file:
-   ```bash
-   nano $HOME/.desmosd/config/config.toml
-   ```
-   
-7. Locate the `persistent_peers = ` text at line 164 and change the **whole line** to be: 
-   ```
-   persistent_peers = "7fed5624ca577eb0333d3631b5e4f16ba1736979@54.180.98.75:26656,e30d9bb713d17d1e4380b2e2a6df4b5c76c73eb1@34.212.106.82:26656"
-   ``` 
-   
-8. Start your new node:  
+    
+6. Start your new node:  
    ```bash
    sudo systemctl start desmosd
    ```
@@ -93,5 +83,3 @@ After you have updated your node, please follow the steps below to claim your re
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
-
-In order to know more about the validators program for Phase 4 you can reference the following [Medium article](https://medium.com/desmosnetwork/invest-in-desmos-invest-by-validating-e70907be87db).
