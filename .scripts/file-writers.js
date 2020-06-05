@@ -1,5 +1,6 @@
 const fs = require('fs');
 const argv = require("yargs").argv;
+const vsprintf = require('sprintf-js').vsprintf
 
 export class FileWriter {
     /**
@@ -12,16 +13,39 @@ export class FileWriter {
             phase1Total: usersData.map((d) => d.phase1Tokens).sumValues(),
             phase2Total: usersData.map((d) => d.phase2Tokens).sumValues(),
             phase3Total: usersData.map((d) => d.phase3Tokens).sumValues(),
+            phase3ValidatorsTotal: usersData.map((d) => d.phase3ValidatorReward).sumValues(),
             phase4Total: usersData.map((d) => d.phase4Tokens).sumValues(),
+            phase4ValidatorsTotal: usersData.map((d) => d.phase4ValidatorReward).sumValues(),
             globalTokens: usersData.map((d) => d.totalTokens).sumValues(),
-
-            toCsv: function () {
-                return `TOTAL,${this.phase1Total},${this.phase2Total},${this.phase3Total},${this.phase4Total},${this.globalTokens}\n`;
-            },
-            toMdTableRow: function () {
-                return `| **Total** | ${this.phase1Total} | ${this.phase2Total} | ${this.phase3Total} | ${this.phase4Total} | ${this.globalTokens}\n`;
-            },
         };
+
+        /**
+         *
+         * @param userData {UserData}
+         * @return {string}
+         */
+        this.toCsvRow = function (userData) {
+            return vsprintf("%s,%s,%s,%s,%s,%s,%s,%s\n", [
+                userData.user, userData.phase1Tokens, userData.phase2Tokens,
+                userData.phase3Tokens, userData.phase3ValidatorReward,
+                userData.phase4Tokens, userData.phase4ValidatorReward,
+                userData.totalTokens,
+            ]);
+        }
+
+        /**
+         *
+         * @param userData {UserData}
+         * @return {string}
+         */
+        this.toMdRow = function (userData) {
+            return vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
+                userData.user, userData.phase1Tokens, userData.phase2Tokens,
+                userData.phase3Tokens, userData.phase3ValidatorReward,
+                userData.phase4Tokens, userData.phase4ValidatorReward,
+                userData.totalTokens,
+            ]);
+        }
     }
 
     /**
@@ -37,6 +61,13 @@ export class FileWriter {
     }
 
     /**
+     *
+     * @param userData {UserData}
+     * @return string
+     */
+
+
+    /**
      * Writes the CSV file containing the users data.
      */
     writeCsvFile() {
@@ -45,11 +76,28 @@ export class FileWriter {
             return;
         }
 
-        fs.writeFileSync(csvPath, "Username,Phase 1 earned tokens,Phase 2 earned tokens,Phase 3 earned tokens,Phase 4 earned tokens,Total\n");
-        this.usersData.forEach(function (data) {
-            fs.appendFileSync(csvPath, data.toCsv());
+        // Header
+        const header = vsprintf("%s,%s,%s,%s,%s,%s,%s,%s\n", [
+            "User", "Phase 1", "Phase 2",
+            "Phase 3", "Phase 3 VP",
+            "Phase 4", "Phase 4 VP",
+            "Total",
+        ]);
+        fs.writeFileSync(csvPath, header);
+
+        // Rows
+        this.usersData.forEach((data) => {
+            fs.appendFileSync(csvPath, this.toCsvRow(data));
         });
-        fs.appendFileSync(csvPath, this.tokensData.toCsv());
+
+        // Footer
+        const footer = vsprintf("%s,%s,%s,%s,%s,%s,%s,%s\n", [
+            "TOTAL", this.tokensData.phase1Total, this.tokensData.phase2Total,
+            this.tokensData.phase3Total, this.tokensData.phase3ValidatorsTotal,
+            this.tokensData.phase4Total, this.tokensData.phase4ValidatorsTotal,
+            this.tokensData.globalTokens,
+        ]);
+        fs.appendFileSync(csvPath, footer);
     }
 
 
@@ -62,18 +110,30 @@ export class FileWriter {
             return;
         }
 
-        const mdContents = fs.readFileSync(mdFilePath).toString();
+        // Header
+        let table = vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
+            "User", "Phase 1", "Phase 2",
+            "Phase 3", "Phase 3 VP",
+            "Phase 4", "Phase 4 VP",
+            "Total",
+        ]);
+        table += "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n"
 
-        let table = `
-| User | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Total |
-| :--- | :-----: | :-----: | :-----: | :-----: | :---: |
-`;
-        this.usersData.forEach(function (data) {
-            table += data.toMdTableRow();
+        // Rows
+        this.usersData.forEach((data) => {
+            table += this.toMdRow(data);
         });
-        table += this.tokensData.toMdTableRow();
+
+        // Footer
+        table += vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s |`, [
+            "**Total**", this.tokensData.phase1Total, this.tokensData.phase2Total,
+            this.tokensData.phase3Total, this.tokensData.phase3ValidatorsTotal,
+            this.tokensData.phase4Total, this.tokensData.phase4ValidatorsTotal,
+            this.tokensData.globalTokens,
+        ]);
 
         const placeholder = "<!-- Scoreboard -->";
+        const mdContents = fs.readFileSync(mdFilePath).toString();
         const newContents = mdContents.replace(placeholder, table);
         fs.writeFileSync(mdFilePath, newContents);
     }
