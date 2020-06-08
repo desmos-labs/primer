@@ -4,9 +4,7 @@ Upon completing this challenge, you will be rewarded **50 Desmos Tokens**.
   
 Additionally, you will also earn more tokens the longer you keep the node running. To know more about this please reference the [Validators program](validators-program/overview.md).   
   
-Please note that we exported the `morpheus-4001` state at height `XXXXX`. 
-
-However, to allow all validators to have a chance of earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after XX June 2020 00:00 UTC**.  
+Even tho Phase 5 start is planned to be on 08 June 2020 11:00 UTC, to allow all validators to have a chance of earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after 09 June 2020 00:00 UTC**.  
 :::
 
 When a new version of Desmos is released, all validators need to update their node so that it can keep running properly. Following you will find the guide on how you can do this making sure everything is ready for when the new chain starts. 
