@@ -61,6 +61,17 @@ module.exports = {
                     ["/phase-4/update-node", "Update your validator node"],
                 ]
             },
+
+            {
+                title: "Phase 5",
+                path: "/phase-5/",
+                collapsable: true,
+                children: [
+                    ["/phase-5/report-post", "Report a post"],
+                    ["/phase-5/tag-person", "Tag a person"],
+                    ["/phase-5/update-node", "Update your validator node"],
+                ]
+            },
             {
                 title: "Scoreboard",
                 path: "/scoreboard/scoreboard"
