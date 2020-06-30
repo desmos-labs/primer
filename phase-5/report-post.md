@@ -7,8 +7,8 @@ Please note that in order to prevent spam, you will receive the reward just **fo
 
 With version `v0.6.0` we've implemented the ability for users to report abusive posts. 
 
-## Create your first tag
-Reporting a post inside a media is pretty simple; all you have to provide is:
+## Create your first report
+Reporting a post is pretty simple; all you have to provide is:
 
 1. the `id` of the post to be reported; 
 2. the `type` of the report to create;
@@ -62,7 +62,7 @@ desmoscli query tx <hash> --output json
 This will return you the JSON representation of the transaction itself.
 
 ## Getting the reward 
-After you've created the post, to make sure you receive your reward please following this procedure: 
+After you've created the post, to make sure you receive your reward please follow this procedure: 
 
 1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).

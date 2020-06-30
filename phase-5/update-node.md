@@ -4,7 +4,7 @@ Upon completing this challenge, you will be rewarded **50 Desmos Tokens**.
   
 Additionally, you will also earn more tokens the longer you keep the node running. To know more about this please reference the [Validators program](validators-program/overview.md).   
   
-Even tho Phase 5 start is planned to be on 08 June 2020 11:00 UTC, to allow all validators to have a chance of earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after 09 June 2020 00:00 UTC**.  
+To allow all validators to have a chance of earning all the tokens by completing this challenge, we will **start counting the precommits from the first block generated after 13 July 2020 00:00 UTC**.  
 :::
 
 When a new version of Desmos is released, all validators need to update their node so that it can keep running properly. Following you will find the guide on how you can do this making sure everything is ready for when the new chain starts. 
@@ -18,7 +18,7 @@ When a new version of Desmos is released, all validators need to update their no
    ```bash
    cd ~/desmos
    git fetch -a 
-   git checkout tags/v0.6.2
+   git checkout tags/v0.8.0
    make install
    ```
    

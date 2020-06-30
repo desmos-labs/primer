@@ -2,10 +2,10 @@
 :::tip Rewards  
 Upon completing this challenge, you will be rewarded **50 Desmos Tokens**. 
   
-Please note that in order to prevent spam, you will receive the reward just **for the first tagged post** you create. No tokens will be awarded for later posts.
+Please note that in order to prevent spam, you will receive the reward just **for the first tagged post** you create. No tokens will be awarded for later tags.
 :::
 
-With version `v0.6.0` we've implemented the function that allows users to tag other users inside the medias that they attach to a post. 
+With version `v0.6.0` we've implemented the function that allows you to tag other users inside the medias that you attach to a post. 
 
 ## Create your first tag
 Tagging a user inside a media is pretty simple; all you have to provide is:
@@ -58,7 +58,7 @@ desmoscli query tx <hash> --output json
 This will return you the JSON representation of the transaction itself.
 
 ## Getting the reward 
-After you've created the post, to make sure you receive your reward please following this procedure: 
+After you've created the tagged post, to make sure you receive your reward please follow this procedure: 
 
 1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
