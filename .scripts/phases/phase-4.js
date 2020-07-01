@@ -50,12 +50,15 @@ export class Phase4 {
             return new Map();
         }
 
-        const precommits = fileContents.get('precommits.csv');
-        const objects = csv.toObjects(precommits.join("\n"));
+        const morpheus4000Precommits = fileContents.get('precommits-morpheus-4000.csv');
+        const morpheus4001Precommits = fileContents.get('precommits-morpheus-4001.csv');
+        const objects = csv.toObjects(morpheus4000Precommits.join("\n") + morpheus4001Precommits.join("\n"));
 
         const map = new Map();
         for (const object of objects) {
-            map.set(object.operatorAddress, parseInt(object.precommitCount.replace(",", "")));
+            const existingPrecommitsCount = map.get(object.operatorAddress) ?? 0;
+            const currentPrecommitsCount = parseInt(object.precommitCount.replace(",", ""));
+            map.set(object.operatorAddress, existingPrecommitsCount + currentPrecommitsCount);
         }
 
         return map;

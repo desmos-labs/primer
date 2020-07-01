@@ -50,20 +50,19 @@ export class UserData {
             account: phase4Data.accounts.get(user),
             reaction: phase4Data.reactions.get(user),
             validator: phase4Data.validators.get(user),
-            precommits: phase4Data.precommits.get(phase3Data.validators.get(user)),
+            precommits: phase4Data.precommits.get(phase4Data.validators.get(user)),
 
-            // TODO: Define this
             precommitsRewards: new Map([
                 [1, 1],
                 [4, 2],
-                [18, 3],
-                [78, 7],
-                [331, 12],
-                [1416, 21],
-                [6044, 40],
-                [25796, 73],
-                [110097, 135],
-                [469894, 250],
+                [19, 3],
+                [80, 7],
+                [347, 12],
+                [1498, 21],
+                [6466, 40],
+                [27911, 73],
+                [120474, 135],
+                [520000, 250],
             ]),
         };
     }
@@ -154,9 +153,6 @@ export class UserData {
         // 50 tokens for a multimedia post
         tokens += this.phase3.multimedia ? 50 : 0;
 
-        // Get the tokens for the signed precommits
-        tokens += this._computePrecommitsReward(this.phase3.precommitsRewards, this.phase3.precommits);
-
         return tokens;
     }
 
@@ -173,9 +169,6 @@ export class UserData {
         // 50 tokens per reaction
         tokens += this.phase4.reaction ? 50 : 0;
 
-        // Get tokens for the signed precommits
-        tokens += this._computePrecommitsReward(this.phase4.precommitsRewards, this.phase4.precommits);
-
         return tokens;
     }
 
@@ -188,21 +181,14 @@ export class UserData {
         this.phase1Tokens = this._computePhase1Amount(usersData);
         this.phase2Tokens = this._computePhase2Amount();
         this.phase3Tokens = this._computePhase3Amount();
+        this.phase3ValidatorReward = this._computePrecommitsReward(this.phase3.precommitsRewards, this.phase3.precommits);
         this.phase4Tokens = this._computePhase4Amount();
+        this.phase4ValidatorReward = this._computePrecommitsReward(this.phase4.precommitsRewards, this.phase4.precommits);
 
-        this.totalTokens = this.phase1Tokens + this.phase2Tokens + this.phase3Tokens + this.phase4Tokens;
-    }
-
-    /**
-     *
-     * @return {string}
-     */
-    toCsv() {
-        return `${this.user},${this.phase1Tokens},${this.phase2Tokens},${this.phase3Tokens},${this.phase4Tokens},${this.totalTokens}\n`;
-    }
-
-    toMdTableRow() {
-        return `| ${this.user} | ${this.phase1Tokens} | ${this.phase2Tokens} | ${this.phase3Tokens} | ${this.phase4Tokens} | ${this.totalTokens} |\n`;
+        this.totalTokens = this.phase1Tokens +
+            this.phase2Tokens +
+            this.phase3Tokens + this.phase3ValidatorReward +
+            this.phase4Tokens + this.phase4ValidatorReward;
     }
 }
 
