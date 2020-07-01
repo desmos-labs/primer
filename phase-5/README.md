@@ -1,9 +1,9 @@
 # Phase 5
 :::tip Phase 5 starting soon  
-Phase 5 is planned to start on 08 June 2020 11:00 UTC. 
+Phase 5 is planned to start on 10 July 2020 11:00 UTC. 
 :::
 
-Thanks to the latest Morpheus testnet (`morpheus-5000`), we've implemented the possibility for users of doing two new things: 
+Thanks to the latest Morpheus testnet (`morpheus-7000`), we've implemented the possibility for users of doing two new things: 
 
 1. tagging a person inside a post with a multimedia file; 
 2. reporting a post.
