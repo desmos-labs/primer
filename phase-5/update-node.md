@@ -74,10 +74,10 @@ After you have updated your node, please follow the steps below to claim your re
 
 4. Create a file named after your GitHub username containing the public key of your validator:  
    ```bash
-   echo $(desmoscli keys show <your_key> --bech=val --address) >> ./phase-4/submissions/updates/<your-github-name>
+   echo $(desmoscli keys show <your_key> --bech=val --address) >> ./phase-5/submissions/updates/<your-github-name>
    
    # Example
-   # echo $(desmoscli keys show validator_key --bech=val --address) >> ./phase-4/submissions/updates/RiccardoM
+   # echo $(desmoscli keys show validator_key --bech=val --address) >> ./phase-5/submissions/updates/RiccardoM
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
