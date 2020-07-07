@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
 
-  Build:
+  Build-Docs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -21,7 +21,7 @@ jobs:
           npm run docs:build
           echo 'primer.desmos.network' > .vuepress/dist/CNAME
 
-  Deploy:
+  Deploy-Docs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
