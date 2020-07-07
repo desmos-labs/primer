@@ -66,6 +66,7 @@ module.exports = {
                 path: "/phase-5/",
                 collapsable: true,
                 children: [
+                    ["/phase-5/hashtag-post", "Create a post with an hashtag"],
                     ["/phase-5/create-update-profile", "Create or update your profile"],
                     ["/phase-5/report-post", "Report a post"],
                     ["/phase-5/tag-person", "Tag a person"],

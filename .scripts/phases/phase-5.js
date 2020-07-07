@@ -10,6 +10,16 @@ const PHASE_5_SUBMISSIONS = path.join(__dirname, `../../phase-5/submissions`);
 export class Phase5 {
 
     /**
+     * Gets all the hashtag posts created.
+     * @returns {Promise<Map<String, String>>} a map containing all the created posts.
+     * The keys represent the names of the user, while the values represent the hashes of the post creation
+     * transactions.
+     */
+    static async _getHashtags() {
+        return Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/hashtags`));
+    }
+
+    /**
      * Gets all the profiles.
      * @returns {Promise<Map<String, String>>} a map containing all the created or edited profiles.
      * The keys represent the names of the user, while the values represent the hashes of
@@ -21,7 +31,7 @@ export class Phase5 {
 
     /**
      * Gets all the posts in which a user is tagged.
-     * @returns {Promise<Map<String, String>>} a map containing all the registered reactions..
+     * @returns {Promise<Map<String, String>>} a map containing all the created posts.
      * The keys represent the names of the user, while the values represent the hashes of the post creation
      * transactions.
      */
@@ -31,7 +41,7 @@ export class Phase5 {
 
     /**
      * Gets all the created reports.
-     * @returns {Promise<Map<String, String>>} a map containing all the registered reactions..
+     * @returns {Promise<Map<String, String>>} a map containing all the created reports.
      * The keys represent the names of the user, while the values represent the hashes of the report creation
      * transactions.
      */
@@ -79,6 +89,7 @@ export class Phase5 {
      */
     static async getData() {
         return new Phase5Data(
+            await this._getHashtags(),
             await this._getProfiles(),
             await this._getReports(),
             await this._getTags(),
@@ -89,6 +100,7 @@ export class Phase5 {
 }
 
 /**
+ * @property {Map<String, String>} hashtags
  * @property {Map<String, String>} profiles
  * @property {Map<String, String>} reports
  * @property {Map<String, String>} tags
@@ -96,7 +108,10 @@ export class Phase5 {
  * @property {Map<String, int>} precommits
  */
 class Phase5Data {
-    constructor(profiles, reports, tags, validators, precommits) {
+    constructor(hashtags, profiles, reports, tags, validators, precommits) {
+        this.hashtags = hashtags;
+        console.log(`Hashtags created: ${this.hashtags.size}`);
+
         this.profiles = profiles;
         console.log(`Profiles created/edited: ${this.profiles.size}`);
 
@@ -117,6 +132,7 @@ class Phase5Data {
      */
     getUsers() {
         return [
+            ...this.hashtags.keys(),
             ...this.profiles.keys(),
             ...this.reports.keys(),
             ...this.tags.keys(),

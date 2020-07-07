@@ -68,6 +68,7 @@ export class UserData {
         };
 
         this.phase5 = {
+            hashtag: phase5Data.hashtags.get(user),
             profile: phase5Data.profiles.get(user),
             report: phase5Data.reports.get(user),
             tag: phase5Data.tags.get(user),
@@ -203,6 +204,9 @@ export class UserData {
      */
     _computePhase5Amount() {
         let tokens = 0;
+
+        // 25 tokens per hashtag
+        tokens += this.phase5.hashtag ? 25 : 0;
 
         // 50 tokens per account
         tokens += this.phase5.profile ? 50 : 0;
