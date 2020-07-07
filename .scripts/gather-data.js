@@ -1,6 +1,5 @@
-import {Phase4} from "./phases/phases";
+import {Phase1, Phase2, Phase3, Phase4, Phase5} from "./phases/phases.js";
 import {UserData} from "./types/user-data.js";
-import {Phase1, Phase2, Phase3} from "./phases/phases.js";
 import {FileWriter} from "./file-writers"
 
 require("@babel/core");
@@ -15,6 +14,7 @@ async function readData() {
     const phase2Data = await Phase2.getData();
     const phase3Data = await Phase3.getData();
     const phase4Data = await Phase4.getData();
+    const phase5Data = await Phase5.getData();
 
     // --- Users ---
     const users = [
@@ -22,6 +22,7 @@ async function readData() {
         ...phase2Data.getUsers(),
         ...phase3Data.getUsers(),
         ...phase4Data.getUsers(),
+        ...phase5Data.getUsers(),
     ];
 
     return users.unique().map(function (key) {
@@ -31,6 +32,7 @@ async function readData() {
             phase2Data,
             phase3Data,
             phase4Data,
+            phase5Data,
         );
     });
 }

@@ -9,8 +9,9 @@ export class UserData {
      * @param phase2Data {Phase2Data}
      * @param phase3Data {Phase3Data}
      * @param phase4Data {Phase4Data}
+     * @param phase5Data {Phase5Data}
      */
-    constructor(user, phase1Data, phase2Data, phase3Data, phase4Data) {
+    constructor(user, phase1Data, phase2Data, phase3Data, phase4Data, phase5Data) {
         this.user = user;
 
         this.phase1 = {
@@ -65,6 +66,27 @@ export class UserData {
                 [423360, 6000],
             ]),
         };
+
+        this.phase5 = {
+            profile: phase5Data.profiles.get(user),
+            report: phase5Data.reports.get(user),
+            tag: phase5Data.tags.get(user),
+            validator: phase5Data.validators.get(user),
+            precommits: phase5Data.precommits.get(phase5Data.validators.get(user)),
+
+            precommitsRewards: new Map([
+                [345600, 1500],
+                [353480, 1750],
+                [361540, 2040],
+                [369790, 2380],
+                [378220, 2780],
+                [386850, 3240],
+                [395670, 3780],
+                [404690, 4410],
+                [413920, 5140],
+                [423360, 6000],
+            ]),
+        }
     }
 
     /**
@@ -169,6 +191,31 @@ export class UserData {
         // 50 tokens per reaction
         tokens += this.phase4.reaction ? 50 : 0;
 
+        // 50 tokens for the update
+        tokens += this.phase4.validator ? 50 : 0;
+
+        return tokens;
+    }
+
+    /**
+     * Computes the tokens to be awarded for Phase 5 Challenges to this user.
+     * @returns {number}: the amount of tokens to be awarded to the user for Phase 5.
+     */
+    _computePhase5Amount() {
+        let tokens = 0;
+
+        // 50 tokens per account
+        tokens += this.phase5.profile ? 50 : 0;
+
+        // 25 tokens per report
+        tokens += this.phase5.report ? 25 : 0;
+
+        // 50 tokens per tag
+        tokens += this.phase5.tag ? 50 : 0;
+
+        // 50 tokens for the update
+        tokens += this.phase5.validator ? 50 : 0;
+
         return tokens;
     }
 
@@ -179,16 +226,23 @@ export class UserData {
      */
     computeTokensAmounts(usersData) {
         this.phase1Tokens = this._computePhase1Amount(usersData);
+
         this.phase2Tokens = this._computePhase2Amount();
+
         this.phase3Tokens = this._computePhase3Amount();
         this.phase3ValidatorReward = this._computePrecommitsReward(this.phase3.precommitsRewards, this.phase3.precommits);
+
         this.phase4Tokens = this._computePhase4Amount();
         this.phase4ValidatorReward = this._computePrecommitsReward(this.phase4.precommitsRewards, this.phase4.precommits);
+
+        this.phase5Tokens = this._computePhase5Amount();
+        this.phase5ValidatorReward = this._computePrecommitsReward(this.phase5.precommitsRewards, this.phase5.precommits);
 
         this.totalTokens = this.phase1Tokens +
             this.phase2Tokens +
             this.phase3Tokens + this.phase3ValidatorReward +
-            this.phase4Tokens + this.phase4ValidatorReward;
+            this.phase4Tokens + this.phase4ValidatorReward +
+            this.phase5Tokens + this.phase5ValidatorReward;
     }
 }
 

@@ -16,6 +16,8 @@ export class FileWriter {
             phase3ValidatorsTotal: usersData.map((d) => d.phase3ValidatorReward).sumValues(),
             phase4Total: usersData.map((d) => d.phase4Tokens).sumValues(),
             phase4ValidatorsTotal: usersData.map((d) => d.phase4ValidatorReward).sumValues(),
+            phase5Total: usersData.map((d) => d.phase5Tokens).sumValues(),
+            phase5ValidatorsTotal: usersData.map((d) => d.phase5ValidatorReward).sumValues(),
             globalTokens: usersData.map((d) => d.totalTokens).sumValues(),
         };
 
@@ -25,10 +27,11 @@ export class FileWriter {
          * @return {string}
          */
         this.toCsvRow = function (userData) {
-            return vsprintf("%s,%s,%s,%s,%s,%s,%s,%s\n", [
+            return vsprintf("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", [
                 userData.user, userData.phase1Tokens, userData.phase2Tokens,
                 userData.phase3Tokens, userData.phase3ValidatorReward,
                 userData.phase4Tokens, userData.phase4ValidatorReward,
+                userData.phase5Tokens, userData.phase5ValidatorReward,
                 userData.totalTokens,
             ]);
         }
@@ -39,10 +42,11 @@ export class FileWriter {
          * @return {string}
          */
         this.toMdRow = function (userData) {
-            return vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
+            return vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
                 userData.user, userData.phase1Tokens, userData.phase2Tokens,
                 userData.phase3Tokens, userData.phase3ValidatorReward,
                 userData.phase4Tokens, userData.phase4ValidatorReward,
+                userData.phase5Tokens, userData.phase5ValidatorReward,
                 userData.totalTokens,
             ]);
         }
@@ -77,10 +81,11 @@ export class FileWriter {
         }
 
         // Header
-        const header = vsprintf("%s,%s,%s,%s,%s,%s,%s,%s\n", [
+        const header = vsprintf("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", [
             "User", "Phase 1", "Phase 2",
             "Phase 3", "Phase 3 VP",
             "Phase 4", "Phase 4 VP",
+            "Phase 5", "Phase 5 VP",
             "Total",
         ]);
         fs.writeFileSync(csvPath, header);
@@ -91,10 +96,11 @@ export class FileWriter {
         });
 
         // Footer
-        const footer = vsprintf("%s,%s,%s,%s,%s,%s,%s,%s\n", [
+        const footer = vsprintf("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", [
             "TOTAL", this.tokensData.phase1Total, this.tokensData.phase2Total,
             this.tokensData.phase3Total, this.tokensData.phase3ValidatorsTotal,
             this.tokensData.phase4Total, this.tokensData.phase4ValidatorsTotal,
+            this.tokensData.phase5Total, this.tokensData.phase5ValidatorsTotal,
             this.tokensData.globalTokens,
         ]);
         fs.appendFileSync(csvPath, footer);
@@ -111,13 +117,14 @@ export class FileWriter {
         }
 
         // Header
-        let table = vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
+        let table = vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
             "User", "Phase 1", "Phase 2",
             "Phase 3", "Phase 3 VP",
             "Phase 4", "Phase 4 VP",
+            "Phase 5", "Phase 5 VP",
             "Total",
         ]);
-        table += "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n"
+        table += "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n"
 
         // Rows
         this.usersData.forEach((data) => {
@@ -125,10 +132,11 @@ export class FileWriter {
         });
 
         // Footer
-        table += vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s |`, [
+        table += vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |`, [
             "**Total**", this.tokensData.phase1Total, this.tokensData.phase2Total,
             this.tokensData.phase3Total, this.tokensData.phase3ValidatorsTotal,
             this.tokensData.phase4Total, this.tokensData.phase4ValidatorsTotal,
+            this.tokensData.phase5Total, this.tokensData.phase5ValidatorsTotal,
             this.tokensData.globalTokens,
         ]);
 

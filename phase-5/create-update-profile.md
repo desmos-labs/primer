@@ -86,10 +86,10 @@ After you've created a multimedia post, to make sure you receive your reward ple
 
 4. Create a file named after your GitHub username containing the post creation transaction hash:  
    ```bash
-   echo "<tx-hash>" >> ./phase-5/submissions/accounts/<your-github-name>
+   echo "<tx-hash>" >> ./phase-5/submissions/profiles/<your-github-name>
    
    # Example
-   # echo "82DC880CA8FF1054B4CDC2443D83C460A4F99BAD94E5C63C45F5D57445ADFE49" >> ./phase-5/submissions/accounts/RiccardoM
+   # echo "82DC880CA8FF1054B4CDC2443D83C460A4F99BAD94E5C63C45F5D57445ADFE49" >> ./phase-5/submissions/profiles/RiccardoM
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
