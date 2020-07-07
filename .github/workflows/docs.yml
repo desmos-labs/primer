@@ -1,8 +1,5 @@
 name: Docs
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
 
@@ -24,6 +21,10 @@ jobs:
           npm run docs:build
           echo 'primer.desmos.network' > .vuepress/dist/CNAME
 
+  Deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
