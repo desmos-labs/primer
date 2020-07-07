@@ -93,5 +93,3 @@ After you have updated your node, please follow the steps below to claim your re
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
-
-In order to know more about the validators program for Phase 4 you can reference the following [Medium article](https://medium.com/desmosnetwork/invest-in-desmos-invest-by-validating-e70907be87db).

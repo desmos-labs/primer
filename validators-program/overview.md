@@ -75,12 +75,14 @@ Such Phase has been running for 31 days. Considering an average block time of 5.
 | 469,894 | 250 |
 
 ### Phase 4
-During Phase 4, our validators have signed `563,623` blocks:  
+Inside Phase 4, we've decided to **increment** the reward that each validator can obtain to a **maximum of 6,000 DSM** per validator. 
+
+During this phase, our validators have signed `563,623` blocks:  
 
 - 380,000 of which have been part of `morpheus-4000` (last block considered: 380,000 - export height)
 - 183,623 of which have been part of `morpheus-4001` (last block considered: 183,623 - 31 May 2020, 11:59:57)
 
-During this time, there were two particular things we considered when deciding the blocks number that a validator should have signed in order to get the maximum reward possible: 
+Also, when deciding the blocks number that a validator should have signed in order to get the maximum reward possible we considered two particular things: 
 
 1. Chain start vs Reward counting start.    
    In order to be ready to accept other validators, we started the chain beforehand.  
@@ -89,23 +91,22 @@ During this time, there were two particular things we considered when deciding t
 2. Upgrade time.  
    Since there was an upgrade to be done in the middle of the Phase running time, validators needed to be shut off and restarted as the new chain was started. As we stated in [our Tweet](https://twitter.com/DesmosNetwork/status/1263052394134491142), we are considering this as well. 
     
+For these reasons we have decided to lower the required amount of precommitted blocks by `140,263`. 
 
-For these reasons we have decided to lower the required amount of precommitted blocks by `43,623`. 
+This leads to validators having signed at least `423,360` precommits to be eligible for the maximum validators program reward amount (`6,000 DSM`).
 
-This leads to validators having signed at least `520,000` precommits to be elegible for the maxium validators program reward amount (`250 DSM`).
-
-That being said, the amount of Phase 4 rewards for the validators programm will be: 
+That being said, the amount of Phase 4 rewards for the validators program will be: 
 
 | Pre-commits signed | Tokens rewarded | 
 | :----------------: | :-------------: |
-| 1 | 1 |
-| 4 | 2 |
-| 19 | 3 |
-| 82 | 7 |
-| 347 | 12 |
-| 1,498 | 21 |
-| 6,466 | 40 |
-| 27,911 | 73 |
-| 120,474 | 135 |
-| 520,000 | 250 |
+| 345,600 | 1,500 |
+| 353,480 | 1,750 |
+| 361,540 | 2,040 |
+| 369,790 | 2,380 |
+| 378,220 | 2,780 |
+| 386,850 | 3,240 |
+| 395,670 | 3,780 |
+| 404,690 | 4,410 |
+| 413,920 | 5,140 |
+| 423,360 | 6,000 |
 
