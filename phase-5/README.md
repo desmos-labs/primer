@@ -11,6 +11,7 @@ Thanks to the latest Morpheus testnet (`morpheus-7000`), we've implemented the p
 
 Inside Phase 5 you will be able to play with those features and earn some DSM by completing the following challenges:
 
+- [Crete a post with an hashtag (25 Desmos Tokens)](hashtag-post.md)
 - [Tag a person inside a post (50 Desmos Tokens)](tag-person.md)
 - [Report a post (25 Desmos Tokens)](report-post.md)
 - [Created or edit your profile (50 Desmos Tokens)](create-update-profile.md)
