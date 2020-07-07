@@ -1,22 +1,32 @@
-name: Node CI
-
-on: [push]
+name: Docs
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  build:
+
+  Build-and-Deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        npm ci
-        npm run docs:build
-      env:
-        CI: true
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Build 🔧
+        run: |
+          npm install
+          npm ci
+          npm run build-scripts
+          npm run gather-data -- --csv-file-path=output.csv --scoreboard-file-path=scoreboard/scoreboard.md
+          npm run upload-data -- --csv-file-path=output.csv
+          npm run docs:build
+          echo 'primer.desmos.network' > .vuepress/dist/CNAME
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: .vuepress/dist
