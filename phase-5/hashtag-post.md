@@ -1,31 +1,28 @@
-# Tag a user inside a post
+# Create a post with an hashtag
 :::tip Rewards  
-Upon completing this challenge, you will be rewarded **50 Desmos Tokens**. 
+Upon completing this challenge, you will be rewarded **25 Desmos Tokens**. 
   
-Please note that in order to prevent spam, you will receive the reward just **for the first tagged post** you create. No tokens will be awarded for later tags.
+Please note that in order to prevent spam, you will receive the reward just **for the first post** you create. No tokens will be awarded for later posts.
 :::
 
-With version `v0.6.0` we've implemented the function that allows you to tag other users inside the medias that you attach to a post. 
+With version `v0.6.0` we've implemented the ability for users to create posts containing hashtags. 
 
-## Create your first tag
-Tagging a user inside a media is pretty simple; all you have to provide is:
+## Create your first hashtag post
+Creating a post with a hashtag is immediate: simply create a post and include one or more hashtag(s) inside the message field. All you need to specify is the `subspace` of the post. If you do not know what a subspace here, please read the [related docs](http://docs.desmos.network/types/post.html#subspace). 
 
-1. a `media` representing the multimedia file that you want to attach to the file;
-2. the `address` of the user you want to tag. 
-
-To tag a user, all you have to do is execute the following command:
+The command will then look like this: 
 
 ```bash
-desmoscli tx posts create <subspace> \
-  --media "<your-media-url>,<your-media-mimetype>,<user-address-to-tag>" \
-  --from <your-key-name> --yes
+desmoscli tx posts create "<Subspace>" "<Message with hashtags>" \
+  --from <your-key-name> --yes 
 ```
 
 Here's an example of such command: 
 
 ```bash
-desmoscli tx posts create 4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cccb81494b36e \
-  --media "https://example.com/media1,text/plain,desmos1ulmv2dyc8zjmhk9zlsq4ajpudwc8zjfm82aysr" \
+desmoscli tx posts create \
+  4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cccb81494b36e \
+  "Hi! This is a post containing an #hashtag!" \
   --from jack --yes
 ```
 
@@ -33,7 +30,7 @@ Once you've run that command you will be asked to type the password you've chose
 
 ```yml
 height: 0
-txhash: 7169B8C88150090BF972F865876B3AA8A37DDD01ED4D8320B0FC680877444549
+txhash: E4920B61BFCFB935124FFC22BC04C1D5619943B138C87913E6EBCF2B5E892290
 codespace: ""
 code: 0
 data: ""
@@ -52,13 +49,13 @@ To make sure the transaction has been processed successfully, you can query it u
 desmoscli query tx <hash> --output json
 
 # Example
-# desmoscli query tx 7169B8C88150090BF972F865876B3AA8A37DDD01ED4D8320B0FC680877444549 --output json
+# desmoscli query tx C43F94C2CF53473BD50F5B525CEABB4A3A20B7427E63207DDAF253A951444EFB --output json
 ``` 
 
 This will return you the JSON representation of the transaction itself.
 
 ## Getting the reward 
-After you've created the tagged post, to make sure you receive your reward please follow this procedure: 
+After you've created the post, to make sure you receive your reward please follow this procedure: 
 
 1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
@@ -78,10 +75,10 @@ After you've created the tagged post, to make sure you receive your reward pleas
 
 4. Create a file named after your GitHub username containing the post creation transaction hash:  
    ```bash
-   echo "<tx-hash>" >> ./phase-5/submissions/tags/<your-github-name>
+   echo "<tx-hash>" >> ./phase-5/submissions/hashtags/<your-github-name>
    
    # Example
-   # echo "7169B8C88150090BF972F865876B3AA8A37DDD01ED4D8320B0FC680877444549" >> ./phase-5/submissions/tags/RiccardoM
+   # echo "E4920B61BFCFB935124FFC22BC04C1D5619943B138C87913E6EBCF2B5E892290" >> ./phase-5/submissions/hashtags/RiccardoM
    ```
 
 5. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).

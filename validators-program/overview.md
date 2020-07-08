@@ -110,3 +110,20 @@ That being said, the amount of Phase 4 rewards for the validators program will b
 | 413,920 | 5,140 |
 | 423,360 | 6,000 |
 
+### Phase 5
+During Phase 5, we've decided to keep the same required amount of blocks as well as the same rewards as Phase 4.
+
+This means that the amount of Phase 4 rewards for the validators program will be: 
+
+| Pre-commits signed | Tokens rewarded | 
+| :----------------: | :-------------: |
+| 345,600 | 1,500 |
+| 353,480 | 1,750 |
+| 361,540 | 2,040 |
+| 369,790 | 2,380 |
+| 378,220 | 2,780 |
+| 386,850 | 3,240 |
+| 395,670 | 3,780 |
+| 404,690 | 4,410 |
+| 413,920 | 5,140 |
+| 423,360 | 6,000 |

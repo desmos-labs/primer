@@ -5,7 +5,7 @@ const csv = require('jquery-csv');
 const PHASE_4_SUBMISSIONS = path.join(__dirname, `../../phase-4/submissions`);
 
 /**
- * Allows to easily get the data from the Phase 2 of the Primer program.
+ * Allows to easily get the data from the Phase 4 of the Primer program.
  */
 export class Phase4 {
 
@@ -66,7 +66,7 @@ export class Phase4 {
 
     /**
      * Gathers all the data.
-     * @returns {Promise<Phase4Data>} containing all the Phase 2 data.
+     * @returns {Promise<Phase4Data>} containing all the Phase 4 data.
      */
     static async getData() {
         return new Phase4Data(
