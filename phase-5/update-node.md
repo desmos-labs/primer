@@ -34,7 +34,7 @@ When a new version of Desmos is released, all validators need to update their no
    ```
    The output should be  
    ```
-   79ead694413f6cffe359cb7909d74273c141da84ad6cf9d50bfbe43024771d15  -
+   d58db84eb3978e1c290a0fbd4a0606e5d7249fa9543e0643313b86c694cd02f6  -
    ```
    
 5. Reset your node to make sure everything is ready:  
