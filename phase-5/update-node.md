@@ -18,7 +18,7 @@ When a new version of Desmos is released, all validators need to update their no
    ```bash
    cd ~/desmos
    git fetch -a 
-   git checkout tags/v0.8.1
+   git checkout tags/v0.8.2
    make install
    ```
    
