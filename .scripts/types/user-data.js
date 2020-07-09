@@ -8,8 +8,10 @@ export class UserData {
      * @param phase1Data {Phase1Data}
      * @param phase2Data {Phase2Data}
      * @param phase3Data {Phase3Data}
+     * @param phase4Data {Phase4Data}
+     * @param phase5Data {Phase5Data}
      */
-    constructor(user, phase1Data, phase2Data, phase3Data) {
+    constructor(user, phase1Data, phase2Data, phase3Data, phase4Data, phase5Data) {
         this.user = user;
 
         this.phase1 = {
@@ -44,6 +46,68 @@ export class UserData {
                 [469894, 250],
             ]),
         }
+
+        this.phase4 = {
+            account: phase4Data.accounts.get(user),
+            reaction: phase4Data.reactions.get(user),
+            validator: phase4Data.validators.get(user),
+            precommits: phase4Data.precommits.get(phase4Data.validators.get(user)),
+
+            precommitsRewards: new Map([
+                [345600, 1500],
+                [353480, 1750],
+                [361540, 2040],
+                [369790, 2380],
+                [378220, 2780],
+                [386850, 3240],
+                [395670, 3780],
+                [404690, 4410],
+                [413920, 5140],
+                [423360, 6000],
+            ]),
+        };
+
+        this.phase5 = {
+            hashtag: phase5Data.hashtags.get(user),
+            profile: phase5Data.profiles.get(user),
+            report: phase5Data.reports.get(user),
+            tag: phase5Data.tags.get(user),
+            validator: phase5Data.validators.get(user),
+            precommits: phase5Data.precommits.get(phase5Data.validators.get(user)),
+
+            precommitsRewards: new Map([
+                [345600, 1500],
+                [353480, 1750],
+                [361540, 2040],
+                [369790, 2380],
+                [378220, 2780],
+                [386850, 3240],
+                [395670, 3780],
+                [404690, 4410],
+                [413920, 5140],
+                [423360, 6000],
+            ]),
+        }
+    }
+
+    /**
+     * Computes the number of tokens that should be rewarded based on the number of precommits signed.
+     * @param rewards {Map<int, int>} Map containing the precommits rewards. The keys should represent the number of
+     * precommits and the values the number of tokens to distribute.
+     * @param precommits {int} Number of precommits signed.
+     * @return {int} The number of tokens that should be returned.
+     * @private
+     */
+    _computePrecommitsReward(rewards, precommits) {
+        if (!precommits) return 0;
+
+        let commitsToken = 0;
+        for (const entry of rewards.entries()) {
+            if (precommits >= entry[0]) {
+                commitsToken = entry[1];
+            }
+        }
+        return commitsToken;
     }
 
     /**
@@ -112,30 +176,51 @@ export class UserData {
         // 50 tokens for a multimedia post
         tokens += this.phase3.multimedia ? 50 : 0;
 
-        // Get the tokens for the signed precommits
-        tokens += this._computePrecommitsReward(this.phase3.precommitsRewards, this.phase3.precommits);
+        return tokens;
+    }
+
+    /**
+     * Computes the tokens to be awarded for Phase 4 Challenges to this user.
+     * @returns {number}: the amount of tokens to be awarded to the user for Phase 4.
+     */
+    _computePhase4Amount() {
+        let tokens = 0;
+
+        // 50 tokens per account
+        tokens += this.phase4.account ? 50 : 0;
+
+        // 50 tokens per reaction
+        tokens += this.phase4.reaction ? 50 : 0;
+
+        // 50 tokens for the update
+        tokens += this.phase4.validator ? 50 : 0;
 
         return tokens;
     }
 
     /**
-     * Computes the number of tokens that should be rewarded based on the number of precommits signed.
-     * @param rewards {Map<int, int>} Map containing the precommits rewards. The keys should represent the number of
-     * precommits and the values the number of tokens to distribute.
-     * @param precommits {int} Number of precommits signed.
-     * @return {int} The number of tokens that should be returned.
-     * @private
+     * Computes the tokens to be awarded for Phase 5 Challenges to this user.
+     * @returns {number}: the amount of tokens to be awarded to the user for Phase 5.
      */
-    _computePrecommitsReward(rewards, precommits) {
-        if (!precommits) return 0;
+    _computePhase5Amount() {
+        let tokens = 0;
 
-        let commitsToken = 0;
-        for (const entry of rewards.entries()) {
-            if (precommits >= entry[0]) {
-                commitsToken = entry[1];
-            }
-        }
-        return commitsToken;
+        // 25 tokens per hashtag
+        tokens += this.phase5.hashtag ? 25 : 0;
+
+        // 50 tokens per account
+        tokens += this.phase5.profile ? 50 : 0;
+
+        // 25 tokens per report
+        tokens += this.phase5.report ? 25 : 0;
+
+        // 50 tokens per tag
+        tokens += this.phase5.tag ? 50 : 0;
+
+        // 50 tokens for the update
+        tokens += this.phase5.validator ? 50 : 0;
+
+        return tokens;
     }
 
     /**
@@ -145,22 +230,23 @@ export class UserData {
      */
     computeTokensAmounts(usersData) {
         this.phase1Tokens = this._computePhase1Amount(usersData);
+
         this.phase2Tokens = this._computePhase2Amount();
+
         this.phase3Tokens = this._computePhase3Amount();
+        this.phase3ValidatorReward = this._computePrecommitsReward(this.phase3.precommitsRewards, this.phase3.precommits);
 
-        this.totalTokens = this.phase1Tokens + this.phase2Tokens + this.phase3Tokens;
-    }
+        this.phase4Tokens = this._computePhase4Amount();
+        this.phase4ValidatorReward = this._computePrecommitsReward(this.phase4.precommitsRewards, this.phase4.precommits);
 
-    /**
-     *
-     * @return {string}
-     */
-    toCsv() {
-        return `${this.user},${this.phase1Tokens},${this.phase2Tokens},${this.phase3Tokens},${this.totalTokens}\n`;
-    }
+        this.phase5Tokens = this._computePhase5Amount();
+        this.phase5ValidatorReward = this._computePrecommitsReward(this.phase5.precommitsRewards, this.phase5.precommits);
 
-    toMdTableRow() {
-        return `| ${this.user} | ${this.phase1Tokens} | ${this.phase2Tokens} | ${this.phase3Tokens} | ${this.totalTokens} |\n`;
+        this.totalTokens = this.phase1Tokens +
+            this.phase2Tokens +
+            this.phase3Tokens + this.phase3ValidatorReward +
+            this.phase4Tokens + this.phase4ValidatorReward +
+            this.phase5Tokens + this.phase5ValidatorReward;
     }
 }
 
