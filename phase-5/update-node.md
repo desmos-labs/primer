@@ -18,7 +18,7 @@ When a new version of Desmos is released, all validators need to update their no
    ```bash
    cd ~/desmos
    git fetch -a 
-   git checkout tags/v0.8.0
+   git checkout tags/v0.8.1
    make install
    ```
    
@@ -34,7 +34,7 @@ When a new version of Desmos is released, all validators need to update their no
    ```
    The output should be  
    ```
-   dc6bcadf360f037450066bfad89bc54c467810240ac93a317bf5f26cab80079f  -
+   79ead694413f6cffe359cb7909d74273c141da84ad6cf9d50bfbe43024771d15  -
    ```
    
 5. Reset your node to make sure everything is ready:  
