@@ -17,4 +17,4 @@ Inside Phase 5 you will be able to play with those features and earn some DSM by
 - [Created or edit your profile (50 Desmos Tokens)](create-update-profile.md)
 
 Also, if you're a Desmos validator, you can earn other Desmos Tokens by completing the following challenge as well:
-- [Undergo an update procedure (50 Desmos Tokens + Periodic rewards)](update-node.md)
+- [Undergo an update procedure (50 Desmos Tokens + max. 6000 Desmos Tokens Periodic rewards)](update-node.md)

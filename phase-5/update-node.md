@@ -53,6 +53,26 @@ Now you should be able to see your node properly syncing with the other ones by 
 journalctl -n100 -f -u desmosd.service
 ```
 
+## Uptime Rewards
+
+During Phase 5, validators will enjoy the uptime rewards similar to Phase 4. The following is an example.
+
+| Pre-commits signed | Tokens rewarded | 
+| :----------------: | :-------------: |
+| 345,600 | 1,500 |
+| 353,480 | 1,750 |
+| 361,540 | 2,040 |
+| 369,790 | 2,380 |
+| 378,220 | 2,780 |
+| 386,850 | 3,240 |
+| 395,670 | 3,780 |
+| 404,690 | 4,410 |
+| 413,920 | 5,140 |
+| 423,360 | 6,000 |
+
+**Total number of pre-commits will be refined after the end of Phase 5.**
+
+
 ## Getting the reward 
 After you have updated your node, please follow the steps below to claim your reward: 
 
