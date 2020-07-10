@@ -23,6 +23,7 @@ desmoscli tx profiles save "<DTag>" \
   --bio "<Bio>" \
   --profile-pic "<Profile pic URI>" \
   --cover-pic "<Cover pic URI>" \
+  --chain-id morpheus-7001 \
   --from <your-key-name> --yes 
 ``` 
 
@@ -34,6 +35,7 @@ desmoscli tx profiles save "rmontagnin" \
   --bio "Desmos developer" \
   --profile-pic "https://example.com/profile.jpg" \
   --cover-pic "https://example.com/cover.jpg" \
+  --chain-id morpheus-7001 \
   --from jack --yes
 ```
 
@@ -60,10 +62,33 @@ To make sure the transaction has been processed successfully, you can query it u
 desmoscli query tx <hash> --trust-node --output json
 
 # Example
-# desmoscli query tx 82DC880CA8FF1054B4CDC2443D83C460A4F99BAD94E5C63C45F5D57445ADFE49 --trust-node --output json
+# desmoscli query tx 82DC880CA8FF1054B4CDC2443D83C460A4F99BAD94E5C63C45F5D57445ADFE49 \
+  --trust-node --output json
 ``` 
 
 This will return you the JSON representation of the transaction itself.
+
+### Error: Wrong dtag provided
+If you're seeing such message when performing the transaction: 
+
+```shell
+sdk: invalid request: wrong dtag provided. Make sure to use the current one: failed to execute message; message index: 0
+```
+
+It means that you already created a profile. To solve this problem, what you need to do is:
+
+1. Query the current profile details. 
+   You can do so by running:  
+   ```shell
+   desmoscli query profiles profile $(desmoscli keys show <your-key-name>)
+   ```
+   
+2. From the result, get the value of the `dtag` that is shown to you.
+3. Use that value when saving the profile: 
+   ```shell
+   desmoscli tx profiles save <dtag> ...
+   ```
+  
 
 ## Getting the reward 
 After you've created a multimedia post, to make sure you receive your reward please following this procedure: 
