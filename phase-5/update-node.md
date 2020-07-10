@@ -53,7 +53,7 @@ Now you should be able to see your node properly syncing with the other ones by 
 journalctl -n100 -f -u desmosd.service
 ```
 
-## Uptime Rewards
+## Periodic Uptime Rewards
 
 During Phase 5, validators will enjoy the uptime rewards similar to Phase 4. The following is an example.
 
