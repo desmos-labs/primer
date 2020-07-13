@@ -14,6 +14,7 @@ The command will then look like this:
 
 ```bash
 desmoscli tx posts create "<Subspace>" "<Message with hashtags>" \
+  --chain-id morpheus-7001 \
   --from <your-key-name> --yes 
 ```
 
@@ -23,6 +24,7 @@ Here's an example of such command:
 desmoscli tx posts create \
   4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cccb81494b36e \
   "Hi! This is a post containing an #hashtag!" \
+  --chain-id morpheus-7001 \
   --from jack --yes
 ```
 
@@ -46,10 +48,11 @@ timestamp: ""
 To make sure the transaction has been processed successfully, you can query it using the following command: 
 
 ```bash
-desmoscli query tx <hash> --output json
+desmoscli query tx <hash> --trust-node --output json
 
 # Example
-# desmoscli query tx C43F94C2CF53473BD50F5B525CEABB4A3A20B7427E63207DDAF253A951444EFB --output json
+# desmoscli query tx C43F94C2CF53473BD50F5B525CEABB4A3A20B7427E63207DDAF253A951444EFB \
+  --trust-node --output json
 ``` 
 
 This will return you the JSON representation of the transaction itself.

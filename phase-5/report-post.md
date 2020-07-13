@@ -23,6 +23,7 @@ To report a post, all you have to do is execute the following command:
 
 ```bash
 desmoscli tx reports create <post-id> <report-type> <report-message> \
+  --chain-id morpheus-7001 \
   --from <your-key-name> --yes
 ```
 
@@ -30,6 +31,7 @@ Here's an example of such command:
 
 ```bash
 desmoscli tx reports create dc09b4e6fa1303ce484eed24a09d9d5758a6b1708bc9b3ffeb37f5e747d0e348 scam "this post is a scam" \
+  --chain-id morpheus-7001 \
   --from jack --yes
 ```
 
@@ -53,10 +55,11 @@ timestamp: ""
 To make sure the transaction has been processed successfully, you can query it using the following command: 
 
 ```bash
-desmoscli query tx <hash> --output json
+desmoscli query tx <hash> --trust-node --output json
 
 # Example
-# desmoscli query tx C43F94C2CF53473BD50F5B525CEABB4A3A20B7427E63207DDAF253A951444EFB --output json
+# desmoscli query tx C43F94C2CF53473BD50F5B525CEABB4A3A20B7427E63207DDAF253A951444EFB \
+  --trust-node --output json
 ``` 
 
 This will return you the JSON representation of the transaction itself.
