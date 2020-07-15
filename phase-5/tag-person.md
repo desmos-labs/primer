@@ -18,6 +18,7 @@ To tag a user, all you have to do is execute the following command:
 ```bash
 desmoscli tx posts create <subspace> \
   --media "<your-media-url>,<your-media-mimetype>,<user-address-to-tag>" \
+  --chain-id morpheus-7001 \
   --from <your-key-name> --yes
 ```
 
@@ -26,6 +27,7 @@ Here's an example of such command:
 ```bash
 desmoscli tx posts create 4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cccb81494b36e \
   --media "https://example.com/media1,text/plain,desmos1ulmv2dyc8zjmhk9zlsq4ajpudwc8zjfm82aysr" \
+  --chain-id morpheus-7001 \
   --from jack --yes
 ```
 
@@ -49,10 +51,11 @@ timestamp: ""
 To make sure the transaction has been processed successfully, you can query it using the following command: 
 
 ```bash
-desmoscli query tx <hash> --output json
+desmoscli query tx <hash> --trust-node --output json
 
 # Example
-# desmoscli query tx 7169B8C88150090BF972F865876B3AA8A37DDD01ED4D8320B0FC680877444549 --output json
+# desmoscli query tx 7169B8C88150090BF972F865876B3AA8A37DDD01ED4D8320B0FC680877444549 \
+  --trust-node --output json
 ``` 
 
 This will return you the JSON representation of the transaction itself.
