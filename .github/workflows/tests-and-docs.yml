@@ -1,5 +1,10 @@
-name: Docs
-on: [push, pull_request]
+name: Tests & Docs
+on:
+  push:
+    branches:
+      - master
+
+  pull_request:
 
 jobs:
 
@@ -11,11 +16,17 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Build 🔧
+      - name: Build scripts ⚙️
         run: |
           npm install
           npm ci
           npm run build-scripts
+
+      - name: Check transactions
+        run: npm run check-txs
+
+      - name: Build docs 📃
+        run: |
           npm run gather-data -- --csv-file-path=output.csv --scoreboard-file-path=scoreboard/scoreboard.md
           npm run upload-data -- --csv-file-path=output.csv
           npm run docs:build

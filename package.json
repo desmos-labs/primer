@@ -7,6 +7,7 @@
     "docs:serve": "vuepress dev",
     "docs:build": "vuepress build",
     "build-scripts": "babel .scripts -s -d dist",
+    "check-txs": "node dist/check-txs.js",
     "gather-data": "node dist/gather-data.js",
     "upload-data": "node dist/upload-data.js"
   },
@@ -19,14 +20,14 @@
     "@babel/polyfill": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
     "@vuepress/plugin-google-analytics": "^1.2.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "markdown-it": "^8.4.2",
     "markdown-it-meta": "0.0.1",
     "vuepress": "^1.2.0"
   },
   "dependencies": {
     "@babel/register": "^7.9.0",
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "jquery-csv": "^1.0.11",
     "node-fetch": "^2.6.0",
     "sprintf-js": "^1.1.2",
