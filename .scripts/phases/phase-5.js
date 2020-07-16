@@ -109,6 +109,8 @@ export class Phase5 {
  */
 class Phase5Data {
     constructor(hashtags, profiles, reports, tags, validators, precommits) {
+        console.log("Phase 5")
+
         this.hashtags = hashtags;
         console.log(`Hashtags created: ${this.hashtags.size}`);
 
