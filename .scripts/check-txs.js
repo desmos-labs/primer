@@ -23,7 +23,10 @@ Phase5.getData().then((data) => {
 
     // Check for multiple users for the same hash
     txs.forEach((value, key) => {
-        if (value.length > 1) throw `Transaction with hash ${key} has been used by multiple users`
+        if (value.length > 1) {
+            console.error(`Transaction with hash ${key} has been used by multiple users`)
+            process.exit(1)
+        }
     })
 
     console.log("--- No transactions conflicts found ---")
