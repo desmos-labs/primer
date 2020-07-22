@@ -1,7 +1,7 @@
 const axios = require("axios");
 import {Phase5} from "./phases/phase-5";
 
-const lcdUrl = "http://lcd.morpheus.desmos.network:1317/";
+const LCD_URL = "http://lcd.morpheus.desmos.network:1317/";
 
 /**
  * @type {Map<String, Array<String>>} Map containing the list of transaction hashes
@@ -10,6 +10,11 @@ const lcdUrl = "http://lcd.morpheus.desmos.network:1317/";
 const txs = new Map();
 
 Phase5.getData().then((data) => {
+    data.hashtags.forEach(async (value) => checkHashtagTx(value))
+    data.profiles.forEach(async (value) => checkProfileTx(value))
+    data.reports.forEach(async (value) => checkReportTx(value))
+    data.tags.forEach(async (value) => checkTagTx(value))
+
     // Add all the transactions
     addTxs(txs, data.hashtags);
     addTxs(txs, data.profiles);
@@ -23,6 +28,10 @@ Phase5.getData().then((data) => {
 
     console.log("--- No transactions conflicts found ---")
 })
+
+// --------------------------------------------------
+// Utils
+// --------------------------------------------------
 
 /**
  * Takes the given transactions map and adds the transactions that
@@ -43,6 +52,55 @@ function addTxs(txs, data) {
     })
 }
 
+function assert(condition, message) {
+    if (!condition) {
+        console.error(message)
+    }
+}
 
+function getMessage(txHash) {
+    return new Promise((resolve, reject) => {
+        axios.get(`${LCD_URL}/txs/${txHash}`).then((response) => {
+            const json = response.data;
+            if (json.logs === undefined) {
+                return reject(`Tx with hash ${txHash} failed`)
+            }
 
+            const message = json.tx.value.msg[0];
+            return resolve(message);
+        });
+    })
+}
+
+// --------------------------------------------------
+// Checks
+// --------------------------------------------------
+
+async function checkHashtagTx(txHash) {
+    const message = await getMessage(txHash)
+    assert(message.type === "desmos/MsgCreatePost", `Tx with hash ${txHash} is not post creation`)
+    assert(message.value.message.includes("#"), `Tx with hash ${txHash} does not include a #`)
+}
+
+async function checkProfileTx(txHash) {
+    try {
+        const message = await getMessage(txHash)
+        assert(message.type === "desmos/MsgSaveProfile", `Tx with hash ${txHash} is not profile saving`)
+    } catch (e) {
+        return console.log(e)
+    }
+}
+
+async function checkReportTx(txHash) {
+    const message = await getMessage(txHash);
+    assert(message.type === "desmos/MsgReportPost", `Tx with hash ${txHash} is not post report`)
+}
+
+async function checkTagTx(txHash) {
+    const message = await getMessage(txHash);
+    assert(message.type === "desmos/MsgCreatePost", `Tx with hash ${txHash} is not a tag`)
+
+    const media = message.value.medias[0]
+    assert(!media.tags.isEmpty, `Tx with hash ${txHash} has no tags inside media`)
+}
 
