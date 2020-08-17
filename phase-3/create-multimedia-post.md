@@ -8,7 +8,7 @@ Please note that in order to prevent spam, you will receive the reward just **fo
 With version `v0.3.0` along with poll, we've also implemented the possibility of creating posts containing multimedia files. Such files can be images, GIFs or even other file types.  
 
 ## Creating your first multimedia post
-Creating a multimedia post is very similar to [creating a plain text post](phase-1/create-post.md). The only difference is that you need to perform an additional step: uploading the multimedia file you want to attach to the post to IPFS. 
+Creating a multimedia post is very similar to [creating a plain text post](../phase-1/create-post.md). The only difference is that you need to perform an additional step: uploading the multimedia file you want to attach to the post to IPFS. 
 
 To do so, you can use our [IPFS Web UI](https://put.ipfs.desmos.network/ipfs/Qmexhq2sBHnXQbvyP2GfUdbnY7HCagH2Mw5vUNSBn2nxip/#/files). Uploading a multimedia file with it it's pretty straightforward: 
 

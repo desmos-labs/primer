@@ -3,7 +3,7 @@
 You will only be eligible for reward in this challenge if you met **all** the below conditions:
 
 1. you have not yet made your first post, and
-2. you have been referred by another user via the [Referral challenge](phase-1/refer.md) of which the PR has been accepted.
+2. you have been referred by another user via the [Referral challenge](refer.md) of which the PR has been accepted.
 
 Upon completion of this challenge, you will get **50 Desmos Tokens**. Each user (verified with an account on GitHub) can only be rewarded once for this challenge.
 :::
