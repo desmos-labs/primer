@@ -7,6 +7,13 @@ on:
   pull_request:
 
 jobs:
+  Markdown-Link-Check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: "yes"
 
   Build-and-Deploy:
     runs-on: ubuntu-latest
@@ -27,7 +34,7 @@ jobs:
 
       - name: Build docs 📃
         run: |
-          npm run gather-data -- --csv-file-path=output.csv --scoreboard-file-path=scoreboard/scoreboard.md
+          npm run gather-data -- --csv-file-path=output.csv --scoreboard-file-path=scoreboard.md
           npm run upload-data -- --csv-file-path=output.csv
           npm run docs:build
           echo 'primer.desmos.network' > .vuepress/dist/CNAME

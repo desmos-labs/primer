@@ -21,7 +21,11 @@ module.exports = {
             },
             {
                 title: "Validators program",
-                path: "/validators-program/overview"
+                path: "/validators-program"
+            },
+            {
+                title: "Validating summer",
+                path: "/validating-summer"
             },
             {
                 title: "Phase 1",
@@ -75,7 +79,7 @@ module.exports = {
             },
             {
                 title: "Scoreboard",
-                path: "/scoreboard/scoreboard"
+                path: "/scoreboard"
             },
         ]
     }

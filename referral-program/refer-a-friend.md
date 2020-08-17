@@ -3,7 +3,7 @@
 The referral program allows you to refer one or more friend(s). A referral is deemed correctly if the below conditions have **all** been met: 
    
 1. your referred friend has not joined Desmos Primer before your referral and 
-2. (s)he has successfully created a post after your referral (a post creation guide can be found [here](phase-1/create-post.md)).
+2. (s)he has successfully created a post after your referral (a post creation guide can be found [here](../phase-1/create-post.md)).
 
 :::
 
@@ -38,7 +38,7 @@ The referral program is a great way for us to go viral with more co-builders lik
 
 
 :::tip  
-Please note that you will only get the Desmos Tokens reward for a successful referral. This means you need to make sure the person you have referred sees your invitation and [creates a post](phase-1/create-post.md) accordingly.
+Please note that you will only get the Desmos Tokens reward for a successful referral. This means you need to make sure the person you have referred sees your invitation and [creates a post](../phase-1/create-post.md) accordingly.
 
 Beside calling them, you may notify them by tagging them inside the pull request message when creating it. This can be done by including `@<your-friend-github-name>` inside the description, e.g. `@kwunyeung`.
 :::
