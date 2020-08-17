@@ -16,7 +16,7 @@ If you want to know more about posts and how they are composed of, including the
 :::
 
 ## Creating your first post
-After you've followed the [setup](setup/README.md) and you've created your Desmos account using the `desmoscli keys` command, you are ready to create your first post. To do so, run the following command: 
+After you've followed the [setup](../setup/README.md) and you've created your Desmos account using the `desmoscli keys` command, you are ready to create your first post. To do so, run the following command: 
 
 ```bash
 desmoscli tx posts create "<Subspace>" "<Message>" true --from <your-key-name> --yes 
