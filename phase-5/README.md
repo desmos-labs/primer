@@ -1,6 +1,7 @@
 # Phase 5
-:::tip Phase 5 starting soon  
-Phase 5 is planned to start on 10 July 2020 11:00 UTC. 
+:::danger Phase 5 is closed  
+Phase 5 is closed since Saturday 15 August 2020 23:59:59 UTC.  
+No more submissions are accepted.    
 :::
 
 Thanks to the latest Morpheus testnet (`morpheus-7001`), we've implemented the possibility for users of doing three new things: 
