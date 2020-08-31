@@ -8,8 +8,7 @@
     "docs:build": "vuepress build",
     "build-scripts": "babel .scripts -s -d dist",
     "check-txs": "node dist/check-txs.js",
-    "gather-data": "node dist/gather-data.js",
-    "upload-data": "node dist/upload-data.js"
+    "gather-data": "node dist/gather-data.js"
   },
   "author": "",
   "license": "MIT",
