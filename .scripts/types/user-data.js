@@ -1,3 +1,5 @@
+import {Phase3, Phase4, Phase5} from '../phases/phases.js';
+
 /**
  * Contains all the data related to a specific user for all the phases.
  */
@@ -32,19 +34,7 @@ export class UserData {
             answer: phase3Data.answers.get(user),
             validator: phase3Data.validators.get(user),
             precommits: phase3Data.precommits.get(phase3Data.validators.get(user)),
-
-            precommitsRewards: new Map([
-                [1, 1],
-                [4, 2],
-                [18, 3],
-                [78, 7],
-                [331, 12],
-                [1416, 21],
-                [6044, 40],
-                [25796, 73],
-                [110097, 135],
-                [469894, 250],
-            ]),
+            precommitsRewards: Phase3.PRECOMMITS_REWARDS,
         }
 
         this.phase4 = {
@@ -52,19 +42,7 @@ export class UserData {
             reaction: phase4Data.reactions.get(user),
             validator: phase4Data.validators.get(user),
             precommits: phase4Data.precommits.get(phase4Data.validators.get(user)),
-
-            precommitsRewards: new Map([
-                [345600, 1500],
-                [353480, 1750],
-                [361540, 2040],
-                [369790, 2380],
-                [378220, 2780],
-                [386850, 3240],
-                [395670, 3780],
-                [404690, 4410],
-                [413920, 5140],
-                [423360, 6000],
-            ]),
+            precommitsRewards: Phase4.PRECOMMITS_REWARDS,
         };
 
         this.phase5 = {
@@ -74,19 +52,7 @@ export class UserData {
             tag: phase5Data.tags.get(user),
             validator: phase5Data.validators.get(user),
             precommits: phase5Data.precommits.get(phase5Data.validators.get(user)),
-
-            precommitsRewards: new Map([
-                [345600, 1500],
-                [353480, 1750],
-                [361540, 2040],
-                [369790, 2380],
-                [378220, 2780],
-                [386850, 3240],
-                [395670, 3780],
-                [404690, 4410],
-                [413920, 5140],
-                [423360, 6000],
-            ]),
+            precommitsRewards: Phase5.PRECOMMITS_REWARDS,
         }
     }
 

@@ -39,6 +39,19 @@ export class Phase4 {
         return Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/updates`));
     }
 
+    static PRECOMMITS_REWARDS = new Map([
+        [345600, 1500],
+        [353480, 1750],
+        [361540, 2040],
+        [369790, 2380],
+        [378220, 2780],
+        [386850, 3240],
+        [395670, 3780],
+        [404690, 4410],
+        [413920, 5140],
+        [423360, 6000],
+    ]);
+
     /**
      * Gets all the number of precommits that all the validators have signed.
      * @return {Promise<Map<String, int>>} Map containing the number of precommits that the validators have signed.
@@ -86,6 +99,8 @@ export class Phase4 {
  */
 class Phase4Data {
     constructor(accounts, reactions, validators, precommits) {
+        console.log("\n--- Phase 4 ---");
+
         this.accounts = accounts;
         console.log(`Accounts created: ${this.accounts.size}`);
 

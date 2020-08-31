@@ -1,4 +1,4 @@
-![](.vuepress/public/assets/cover.jpg)
+![](./.vuepress/public/assets/cover.jpg)
 
 ## Introduction
 Community participation is crucial to the success of a new project. This is why we are launching *Desmos Primer* ("*Primer*"), a simple cookbook that will help you to get started with Desmos and enjoy a brand new social networking experience. 

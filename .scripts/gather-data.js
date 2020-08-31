@@ -44,7 +44,7 @@ readData().then((usersData) => {
     usersData.sort((first, second) => second.totalTokens - first.totalTokens);
 
     const total = usersData.map((userData) => userData.totalTokens).reduce(((a, c) => a + c), 0);
-    console.log(`Total tokens allocated: ${total}`);
+    console.log(`\n--- Total tokens allocated --- \n${total}`);
 
     const fileWriter = new FileWriter(usersData);
     fileWriter.writeJsonFile();

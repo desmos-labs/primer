@@ -66,6 +66,8 @@ export class Phase1 {
  */
 export class Phase1Data {
     constructor(referrals, acceptedReferrals, posts, likes) {
+        console.log("\n--- Phase 1 ---");
+
         this.referrals = referrals;
         console.log(`Referring users: ${this.referrals.size}`);
         console.log(`Referred users: ${this.referrals.sumValues()}`);

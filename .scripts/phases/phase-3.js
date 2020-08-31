@@ -48,6 +48,19 @@ export class Phase3 {
         return Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/updates`));
     }
 
+    static PRECOMMITS_REWARDS = new Map([
+        [1, 1],
+        [4, 2],
+        [18, 3],
+        [78, 7],
+        [331, 12],
+        [1416, 21],
+        [6044, 40],
+        [25796, 73],
+        [110097, 135],
+        [469894, 250],
+    ]);
+
     /**
      * Gets all the number of precommits that all the validators have signed.
      * @return {Promise<Map<String, int>>} Map containing the number of precommits that the validators have signed.
@@ -90,6 +103,8 @@ export class Phase3 {
  */
 class Phase3Data {
     constructor(polls, multimedia, answers, validators, precommits) {
+        console.log("\n--- Phase 3 ---");
+
         this.polls = polls;
         console.log(`Polls created: ${this.polls.size}`);
 

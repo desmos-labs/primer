@@ -59,6 +59,19 @@ export class Phase5 {
         return Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/updates`));
     }
 
+    static PRECOMMITS_REWARDS = new Map([
+        [477608, 1500],
+        [489598, 1750],
+        [501888, 2040],
+        [514487, 2380],
+        [527403, 2780],
+        [540643, 3240],
+        [554215, 3780],
+        [568128, 4410],
+        [582390, 5140],
+        [597010, 6000],
+    ]);
+
     /**
      * Gets all the number of precommits that all the validators have signed.
      * @return {Promise<Map<String, int>>} Map containing the number of precommits that the validators have signed.
@@ -70,8 +83,8 @@ export class Phase5 {
             return new Map();
         }
 
-        const morpheus4000Precommits = fileContents.get('precommits-morpheus-5000.csv');
-        const objects = csv.toObjects(morpheus4000Precommits.join("\n"));
+        const precommits = fileContents.get('precommits-morpheus-7001.csv');
+        const objects = csv.toObjects(precommits.join("\n"));
 
         const map = new Map();
         for (const object of objects) {
@@ -109,7 +122,7 @@ export class Phase5 {
  */
 class Phase5Data {
     constructor(hashtags, profiles, reports, tags, validators, precommits) {
-        console.log("Phase 5")
+        console.log("\n--- Phase 5 ---");
 
         this.hashtags = hashtags;
         console.log(`Hashtags created: ${this.hashtags.size}`);
