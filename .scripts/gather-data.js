@@ -2,6 +2,8 @@ import {Phase1, Phase2, Phase3, Phase4, Phase5} from "./phases/phases.js";
 import {UserData} from "./types/user-data.js";
 import {FileWriter} from "./file-writers"
 
+import {PsqlWriter} from "./psql-writer";
+
 require("@babel/core");
 require("@babel/polyfill");
 
@@ -48,4 +50,9 @@ readData().then((usersData) => {
 
     const fileWriter = new FileWriter(usersData);
     fileWriter.writeScoreboardFile();
+
+    const psqlWriter = new PsqlWriter();
+    usersData.forEach(async (userData) => {
+        await psqlWriter.writeUserData(userData);
+    });
 });
