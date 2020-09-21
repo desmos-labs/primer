@@ -84,17 +84,22 @@ That being said, the amount of Phase 4 rewards for the validators program will b
 ### Phase 5
 During Phase 5, we've decided to keep the same required amount of blocks as well as the same rewards as Phase 4.
 
+Phase 5 started on July 10 at 11:00 UTC. The first block produced after that time was at height `16,650`.  
+Phase 5 ended on August 15 at 23:59 UTC. The last block produced before that date was block `629,598`.  
+This means that during Phase 5 the overall number of produced blocks that should have been signed was `612,948`.  
+In order to allow all validators to update properly their node, we decided to give a slack of `17,280` blocks (~ 24 hours), reducing the amount of signed blocks required to get the full reward to `595,668` blocks.
+
 This means that the amount of Phase 4 rewards for the validators program will be: 
 
 | Pre-commits signed | Tokens rewarded | 
 | :----------------: | :-------------: |
-| 345,600 | 1,500 |
-| 353,480 | 1,750 |
-| 361,540 | 2,040 |
-| 369,790 | 2,380 |
-| 378,220 | 2,780 |
-| 386,850 | 3,240 |
-| 395,670 | 3,780 |
-| 404,690 | 4,410 |
-| 413,920 | 5,140 |
-| 423,360 | 6,000 |
+| 476,534 | 1,500 |
+| 488,497 | 1,750 |
+| 500,760 | 2,040 |
+| 513,331 | 2,380 |
+| 526,217 | 2,780 |
+| 539,427 | 3,240 |
+| 552,969 | 3,780 |
+| 566,851 | 4,410 |
+| 581,081 | 5,140 |
+| 595,668 | 6,000 |   

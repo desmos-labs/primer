@@ -45,6 +45,8 @@ export class Phase2 {
  */
 class Phase2Data {
     constructor(reactions, validators) {
+        console.log("\n--- Phase 2 ---");
+
         this.reactions = reactions;
         console.log(`Reactions added: ${this.reactions.size}`);
 

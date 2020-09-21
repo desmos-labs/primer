@@ -27,21 +27,6 @@ export class FileWriter {
          * @param userData {UserData}
          * @return {string}
          */
-        this.toCsvRow = function (userData) {
-            return vsprintf("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", [
-                userData.user, userData.phase1Tokens, userData.phase2Tokens,
-                userData.phase3Tokens, userData.phase3ValidatorReward,
-                userData.phase4Tokens, userData.phase4ValidatorReward,
-                userData.phase5Tokens, userData.phase5ValidatorReward,
-                userData.totalTokens,
-            ]);
-        }
-
-        /**
-         *
-         * @param userData {UserData}
-         * @return {string}
-         */
         this.toMdRow = function (userData) {
             return vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
                 userData.user, userData.phase1Tokens, userData.phase2Tokens,
@@ -53,61 +38,6 @@ export class FileWriter {
             ]);
         }
     }
-
-    /**
-     * Writes the JSON file containing the users data.
-     */
-    writeJsonFile() {
-        const jsonPath = argv["json-file-path"];
-        if (!jsonPath) {
-            return;
-        }
-
-        fs.writeFileSync(jsonPath, JSON.stringify(usersData));
-    }
-
-    /**
-     *
-     * @param userData {UserData}
-     * @return string
-     */
-
-
-    /**
-     * Writes the CSV file containing the users data.
-     */
-    writeCsvFile() {
-        const csvPath = argv["csv-file-path"];
-        if (!csvPath) {
-            return;
-        }
-
-        // Header
-        const header = vsprintf("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", [
-            "User", "Phase 1", "Phase 2",
-            "Phase 3", "Phase 3 VP",
-            "Phase 4", "Phase 4 VP",
-            "Phase 5", "Phase 5 VP",
-            "Total",
-        ]);
-        fs.writeFileSync(csvPath, header);
-
-        // Rows
-        this.usersData.forEach((data) => {
-            fs.appendFileSync(csvPath, this.toCsvRow(data));
-        });
-
-        // Footer
-        const footer = vsprintf("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", [
-            "TOTAL", this.tokensData.phase1Total, this.tokensData.phase2Total,
-            this.tokensData.phase3Total, this.tokensData.phase3ValidatorsTotal,
-            this.tokensData.phase4Total, this.tokensData.phase4ValidatorsTotal,
-            this.tokensData.phase5Total, this.tokensData.phase5ValidatorsTotal,
-            this.tokensData.globalTokens,
-        ]);
-        fs.appendFileSync(csvPath, footer);
-    }
-
 
     /**
      * Writes the scoreboard MarkDown file containing the given data.
