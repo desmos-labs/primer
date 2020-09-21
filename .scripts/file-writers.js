@@ -18,6 +18,7 @@ export class FileWriter {
             phase4ValidatorsTotal: usersData.map((d) => d.phase4ValidatorReward).sumValues(),
             phase5Total: usersData.map((d) => d.phase5Tokens).sumValues(),
             phase5ValidatorsTotal: usersData.map((d) => d.phase5ValidatorReward).sumValues(),
+            validatingSummerTotal: usersData.map((d) => d.validatingSummerReward),
             globalTokens: usersData.map((d) => d.totalTokens).sumValues(),
         };
 
@@ -27,11 +28,12 @@ export class FileWriter {
          * @return {string}
          */
         this.toMdRow = function (userData) {
-            return vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
+            return vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
                 userData.user, userData.phase1Tokens, userData.phase2Tokens,
                 userData.phase3Tokens, userData.phase3ValidatorReward,
                 userData.phase4Tokens, userData.phase4ValidatorReward,
                 userData.phase5Tokens, userData.phase5ValidatorReward,
+                userData.validatingSummerReward,
                 userData.totalTokens,
             ]);
         }
@@ -47,11 +49,12 @@ export class FileWriter {
         }
 
         // Header
-        let table = vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
+        let table = vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |\n`, [
             "User", "Phase 1", "Phase 2",
             "Phase 3", "Phase 3 VP",
             "Phase 4", "Phase 4 VP",
             "Phase 5", "Phase 5 VP",
+            "Validating Summer",
             "Total",
         ]);
         table += "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n"
@@ -62,11 +65,12 @@ export class FileWriter {
         });
 
         // Footer
-        table += vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |`, [
+        table += vsprintf(`| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |`, [
             "**Total**", this.tokensData.phase1Total, this.tokensData.phase2Total,
             this.tokensData.phase3Total, this.tokensData.phase3ValidatorsTotal,
             this.tokensData.phase4Total, this.tokensData.phase4ValidatorsTotal,
             this.tokensData.phase5Total, this.tokensData.phase5ValidatorsTotal,
+            this.tokensData.validatingSummerTotal,
             this.tokensData.globalTokens,
         ]);
 

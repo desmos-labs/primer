@@ -52,7 +52,7 @@ desmoscli tx posts create "4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cc
 ```
 
 :::tip Know more about posts  
-If you want to know more about posts and how they are composed of, including the medias, please refer to the [official Desmos documentation](https://docs.desmos.network/types/post.html)  
+If you want to know more about posts and how they are composed of, including the medias, please refer to the [official Desmos documentation](https://docs.desmos.network/types/posts/post.html). 
 :::
 
 Once you've run that command you will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 
