@@ -1,3 +1,5 @@
+import {ValidatingSummer} from '../phases/phases.js';
+
 /**
  * Contains all the data related to a specific user for all the phases.
  */
@@ -10,8 +12,13 @@ export class UserData {
      * @param phase3Data {Phase3Data}
      * @param phase4Data {Phase4Data}
      * @param phase5Data {Phase5Data}
+     * @param validatingSummerData {ValidatingSummerData}
      */
-    constructor(user, phase1Data, phase2Data, phase3Data, phase4Data, phase5Data) {
+    constructor(user,
+                phase1Data, phase2Data, phase3Data,
+                phase4Data, phase5Data,
+                validatingSummerData,
+    ) {
         this.user = user;
 
         this.phase1 = {
@@ -87,6 +94,11 @@ export class UserData {
                 [413920, 5140],
                 [423360, 6000],
             ]),
+        }
+
+        this.validatingSummer = {
+            precommits: validatingSummerData.precommits.get(user),
+            precommitsRewards: ValidatingSummer.PRECOMMITS_REWARDS,
         }
     }
 
@@ -242,11 +254,14 @@ export class UserData {
         this.phase5Tokens = this._computePhase5Amount();
         this.phase5ValidatorReward = this._computePrecommitsReward(this.phase5.precommitsRewards, this.phase5.precommits);
 
+        this.validatingSummerReward = this._computePrecommitsReward(this.validatingSummer.precommitsRewards, this.validatingSummer.precommits);
+
         this.totalTokens = this.phase1Tokens +
             this.phase2Tokens +
             this.phase3Tokens + this.phase3ValidatorReward +
             this.phase4Tokens + this.phase4ValidatorReward +
-            this.phase5Tokens + this.phase5ValidatorReward;
+            this.phase5Tokens + this.phase5ValidatorReward +
+            this.validatingSummerReward;
     }
 }
 

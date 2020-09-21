@@ -1,4 +1,4 @@
-import {Phase1, Phase2, Phase3, Phase4, Phase5} from "./phases/phases.js";
+import {Phase1, Phase2, Phase3, Phase4, Phase5, ValidatingSummer} from "./phases/phases.js";
 import {UserData} from "./types/user-data.js";
 import {FileWriter} from "./file-writers"
 
@@ -15,6 +15,7 @@ async function readData() {
     const phase3Data = await Phase3.getData();
     const phase4Data = await Phase4.getData();
     const phase5Data = await Phase5.getData();
+    const validatingSummerData = await ValidatingSummer.getData();
 
     // --- Users ---
     const users = [
@@ -23,6 +24,7 @@ async function readData() {
         ...phase3Data.getUsers(),
         ...phase4Data.getUsers(),
         ...phase5Data.getUsers(),
+        ...validatingSummerData.getUsers(),
     ];
 
     return users.unique().map(function (key) {
@@ -33,6 +35,7 @@ async function readData() {
             phase3Data,
             phase4Data,
             phase5Data,
+            validatingSummerData,
         );
     });
 }
