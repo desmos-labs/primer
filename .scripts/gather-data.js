@@ -50,7 +50,5 @@ readData().then((usersData) => {
     console.log(`Total tokens allocated: ${total}`);
 
     const fileWriter = new FileWriter(usersData);
-    fileWriter.writeJsonFile();
-    fileWriter.writeCsvFile();
     fileWriter.writeScoreboardFile();
 });

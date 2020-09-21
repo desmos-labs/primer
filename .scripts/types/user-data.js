@@ -1,5 +1,3 @@
-import {ValidatingSummer} from '../phases/phases.js';
-
 /**
  * Contains all the data related to a specific user for all the phases.
  */
@@ -98,7 +96,9 @@ export class UserData {
 
         this.validatingSummer = {
             precommits: validatingSummerData.precommits.get(user),
-            precommitsRewards: ValidatingSummer.PRECOMMITS_REWARDS,
+            precommitsRewards: new Map([
+                [462631, 6000],
+            ]),
         }
     }
 

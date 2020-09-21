@@ -9,10 +9,6 @@ const SUBMISSIONS = path.join(__dirname, `../../validating-summer`);
  */
 export class ValidatingSummer {
 
-    static PRECOMMITS_REWARDS = new Map([
-        [462631, 6000],
-    ]);
-
     /**
      * Gets all the number of precommits that all the validators have signed.
      * @return {Promise<Map<String, int>>} Map containing the number of precommits that the validators have signed.
@@ -57,7 +53,7 @@ class ValidatingSummerData {
         console.log("\n--- Validating summer ---");
 
         this.precommits = precommits;
-        console.log(`Participating validators: ${precommits.size}`)
+        console.log(`Participating validators: ${precommits.size}\n`)
     }
 
     /**
