@@ -18,7 +18,7 @@ export class FileWriter {
             phase4ValidatorsTotal: usersData.map((d) => d.phase4ValidatorReward).sumValues(),
             phase5Total: usersData.map((d) => d.phase5Tokens).sumValues(),
             phase5ValidatorsTotal: usersData.map((d) => d.phase5ValidatorReward).sumValues(),
-            validatingSummerTotal: usersData.map((d) => d.validatingSummerReward),
+            validatingSummerTotal: usersData.map((d) => d.validatingSummerReward).sumValues(),
             globalTokens: usersData.map((d) => d.totalTokens).sumValues(),
         };
 
@@ -57,7 +57,7 @@ export class FileWriter {
             "Validating Summer",
             "Total",
         ]);
-        table += "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n"
+        table += "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n"
 
         // Rows
         this.usersData.forEach((data) => {
