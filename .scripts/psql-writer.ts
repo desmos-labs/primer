@@ -1,4 +1,4 @@
-import {Pool} from "node-postgres";
+import {Pool} from "pg";
 import {Phase1Data} from "./phases/phase-1";
 import {Phase2Data} from "./phases/phase-2";
 import {Phase3Data} from "./phases/phase-3";
@@ -18,10 +18,13 @@ async function asyncForEach(array, callback) {
  * Allows to write a user's data into a PSQL database.
  */
 export class PsqlWriter {
-    private pool: Pool;
+    private pool = new Pool();
 
     constructor() {
-        this.pool = new Pool();
+        this.pool.on('error', (err, _) => {
+            console.error('Unexpected error on idle client', err)
+            process.exit(-1)
+        })
     }
 
     /**
@@ -38,15 +41,27 @@ export class PsqlWriter {
      * Inserts the validator having the given data if it does not exist yet.
      */
     private async insertValidatorIfNotExistent(user: String, operatorAddress: String, moniker: String = null) {
-        const userQuery = `INSERT INTO users (username, validator_address)
-                           VALUES ($1, $2)
-                           ON CONFLICT (username) DO UPDATE SET validator_address = excluded.validator_address`
-        await this.pool.query(userQuery, [user, operatorAddress]);
-
         const query = `INSERT INTO validators (operator_address, moniker)
                        VALUES ($1, $2)
-                       ON CONFLICT DO NOTHING `
+                       ON CONFLICT DO NOTHING`
         await this.pool.query(query, [operatorAddress, moniker]);
+
+        if (user != null) {
+            const userQuery = `INSERT INTO users (username, validator_address)
+                               VALUES ($1, $2)
+                               ON CONFLICT (username) DO UPDATE SET validator_address = excluded.validator_address`
+            await this.pool.query(userQuery, [user, operatorAddress]);
+        }
+    }
+
+    private async insertReferral(referringUser: String, referredUser: String, accepted: Boolean = false) {
+        await this.insertUserIfNotExistent(referringUser);
+        await this.insertUserIfNotExistent(referredUser);
+
+        const referralQuery = `INSERT INTO referrals (referring_user, referred_user, accepted)
+                               VALUES ($1, $2, $3)
+                               ON CONFLICT (referring_user, referred_user) DO UPDATE SET accepted = (excluded.accepted OR referrals.accepted)`;
+        await this.pool.query(referralQuery, [referringUser, referredUser, accepted]);
     }
 
     /**
@@ -56,38 +71,20 @@ export class PsqlWriter {
         await this.insertUserIfNotExistent(data.user);
 
         // Insert the user data
-        const query = `INSERT INTO primer_phase_1 (username, accepted_referral, created_post, liked_post)
-                       VALUES ($1, $2, $3, $4)
-                       ON CONFLICT (username) DO UPDATE SET accepted_referral = excluded.accepted_referral,
-                                                            created_post      = excluded.created_post,
-                                                            liked_post        = excluded.liked_post`;
+        const query = `INSERT INTO primer_phase_1 (username, created_post, liked_post)
+                       VALUES ($1, $2, $3)
+                       ON CONFLICT (username) DO UPDATE SET created_post = excluded.created_post,
+                                                            liked_post   = excluded.liked_post`;
+        await this.pool.query(query, [data.user, data.post != null, data.like != null,]);
 
-        await this.pool.query(query, [
-            data.user,
-            data.acceptedReferral != null,
-            data.post != null,
-            data.like != null,
-        ]);
+        // Update the referral if existing
+        if (data.acceptedReferral != null) {
+            await this.insertReferral(data.acceptedReferral, data.user, true);
+        }
 
         // Insert the referrals data
         await asyncForEach(data.referrals, async (referral) => {
-            const userQuery = `INSERT INTO primer_phase_1 (username, accepted_referral, created_post, liked_post)
-                               VALUES ($1, $2, $3, $4)
-                               ON CONFLICT DO NOTHING`
-            await this.pool.query(userQuery, [
-                referral,
-                false,
-                false,
-                false,
-            ]);
-
-            const referralQuery = `INSERT INTO referrals (referring_user, referred_user)
-                                   VALUES ($1, $2)
-                                   ON CONFLICT DO NOTHING`;
-            await this.pool.query(referralQuery, [
-                data.user,
-                referral,
-            ]);
+            await this.insertReferral(data.user, referral);
         });
     }
 
@@ -133,7 +130,7 @@ export class PsqlWriter {
             data.multimediaPost != null,
             data.pollAnswer != null,
             data.precommitData?.operatorAddress,
-            data.precommitData?.precommitsSigned,
+            data.precommitData?.precommitsSigned ?? 0,
         ]);
     }
 
@@ -158,6 +155,8 @@ export class PsqlWriter {
             data.user,
             data.reaction != null,
             data.account != null,
+            data.precommitData?.operatorAddress,
+            data.precommitData?.precommitsSigned ?? 0,
         ]);
     }
 
@@ -186,7 +185,7 @@ export class PsqlWriter {
             data.tag != null,
             data.report != null,
             data.precommitData?.operatorAddress,
-            data.precommitData?.precommitsSigned,
+            data.precommitData?.precommitsSigned ?? 0,
         ]);
     }
 
@@ -194,7 +193,7 @@ export class PsqlWriter {
      * Inserts the Validating Summer data inside the proper tables.
      */
     public async insertValidatingSummerData(data: PrecommitData) {
-        await this.insertValidatorIfNotExistent(data.operatorAddress, data.moniker);
+        await this.insertValidatorIfNotExistent(null, data.operatorAddress, data.moniker);
 
         const userQuery = `INSERT INTO validating_summer (validator_address, precommits_signed)
                            VALUES ($1, $2)

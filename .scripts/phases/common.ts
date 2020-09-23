@@ -7,14 +7,14 @@ export class Utils {
      * Allows to read the given directory contents returning them as a map.
      * @param {String} dir: path to the directory to read.
      */
-    static async getFilesContents(dir): Promise<Map<String, Array<String>>> {
+    static async getFilesContents(dir: String): Promise<Map<String, Array<String>>> {
         if (!fs.existsSync(dir)) {
             return new Map();
         }
 
         const files = fs.readdirSync(dir).filter((file) => file !== ".gitkeep");
 
-        let contents = new Map();
+        let contents = new Map<String, Array<String>>();
         for (const file of files) {
             const filePath = path.join(dir, file);
             const userName = filePath.split("/").pop().toString();

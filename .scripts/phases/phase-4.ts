@@ -25,11 +25,11 @@ export async function getPhase4Data(): Promise<Array<Phase4Data>> {
     const accounts = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/accounts`));
     const reactions = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/reactions`));
     const validatorsOperatorAddresses = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/updates`));
-    const users = new Set<String>(
+    const users = new Set<String>([
         ...accounts.keys(),
         ...reactions.keys(),
         ...validatorsOperatorAddresses.keys(),
-    );
+    ]);
 
     // --- Precommits ---
     const fileContents = await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/precommits`);
@@ -70,12 +70,14 @@ export async function getPhase4Data(): Promise<Array<Phase4Data>> {
  */
 export class Phase4Data {
     public user: String;
+
     public reaction: String;
     public account: String;
     public precommitData: PrecommitData;
 
     constructor(user: String, reaction: String, account: String, precommitData: PrecommitData) {
         this.user = user;
+
         this.reaction = reaction;
         this.account = account;
         this.precommitData = precommitData;

@@ -10,10 +10,10 @@ export async function getPhase2Data(): Promise<Array<Phase2Data>> {
     const reactions = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/reactions`));
     const validators = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/validators`));
 
-    const users = new Set<String>(
+    const users = new Set<String>([
         ...reactions.keys(),
         ...validators.keys(),
-    )
+    ]);
 
     return Array.from(users).map((user) => new Phase2Data(
         user,
@@ -32,6 +32,8 @@ export class Phase2Data {
     public validatorOperatorAddress: String;
 
     constructor(user: String, reaction: String, validatorOperatorAddress: String) {
+        this.user = user;
+
         this.reaction = reaction;
         this.validatorOperatorAddress = validatorOperatorAddress;
     }

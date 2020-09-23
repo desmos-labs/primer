@@ -27,13 +27,13 @@ export async function getPhase5Data(): Promise<Array<Phase5Data>> {
     const tags = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/tags`));
     const reports = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/reports`));
     const validatorsOperatorAddresses = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/updates`));
-    const users = new Set<String>(
+    const users = new Set<String>([
         ...hashtags.keys(),
         ...profiles.keys(),
         ...tags.keys(),
         ...reports.keys(),
         ...validatorsOperatorAddresses.keys(),
-    )
+    ]);
 
     // --- Precommits ---
     const fileContents = await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/precommits`);

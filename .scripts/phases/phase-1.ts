@@ -11,12 +11,12 @@ export async function getPhase1Data(): Promise<Array<Phase1Data>> {
     let acceptedReferrals = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/referred`));
     let posts = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/posts`));
     let likes = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/likes`));
-    let users = new Set<String>(
-        ...this.referrals.keys(),
-        ...this.acceptedReferrals.keys(),
-        ...this.posts.keys(),
-        ...this.likes.keys(),
-    );
+    let users = new Set<String>([
+        ...referrals.keys(),
+        ...acceptedReferrals.keys(),
+        ...posts.keys(),
+        ...likes.keys(),
+    ]);
 
     return Array.from(users).map((user) => new Phase1Data(
         user,

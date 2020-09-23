@@ -26,12 +26,12 @@ export async function getPhase3Data(): Promise<Array<Phase3Data>> {
     const multimediaPosts = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/multimedia`));
     const pollAnswers = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/answers`));
     const validatorOperatorAddresses = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/updates`));
-    const users = new Set<String>(
+    const users = new Set<String>([
         ...polls.keys(),
         ...multimediaPosts.keys(),
         ...pollAnswers.keys(),
         ...validatorOperatorAddresses.keys(),
-    );
+    ]);
 
     // --- Precommits ---
     const fileContents = await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/precommits`);
@@ -77,6 +77,7 @@ export class Phase3Data {
 
     constructor(user: String, poll: String, multimediaPost: String, pollAnswer: String, precommitData: PrecommitData) {
         this.user = user;
+
         this.poll = poll;
         this.multimediaPost = multimediaPost;
         this.pollAnswer = pollAnswer;

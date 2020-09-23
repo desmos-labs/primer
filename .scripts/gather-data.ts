@@ -49,4 +49,6 @@ async function storeData() {
 // Main function. Reads the data, computes the tokens and prints to stdOut
 storeData().then(() => {
     console.log("Storing completed");
+}).catch((error) => {
+    console.log(error);
 });
