@@ -17,6 +17,7 @@ jobs:
 
   Build-and-Deploy:
     runs-on: ubuntu-latest
+    needs: [Markdown-Link-Check]
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
