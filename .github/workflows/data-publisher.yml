@@ -13,15 +13,18 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Build scripts ⚙️
+      - Build
+        name: Build scripts ⚙️
         run: |
           npm install
           npm run build-scripts
 
-      - name: Check transactions 🔍
+      - Check-txs
+        name: Check transactions 🔍
         run: npm run check-txs
 
       - name: Publish 🚀
+        needs: [Build, Check-txs]
         run: npm run publish-data
         env:
           PGHOST: ${{ secrets.PGHOST }}
