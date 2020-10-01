@@ -1,11 +1,11 @@
 # This workflow allows to publish the data from this repo to the proper PostgreSQL database on which all the data
 # is hosted. This will later be used to fetch the public data and show them inside our custom website.
-name: Data publisher
+name: Data
 on:
   pull_request:
 
 jobs:
-  Publish-data:
+  Publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
