@@ -147,7 +147,7 @@ After you've created the post, to make sure you receive your reward please follo
    git rebase upstream/master
    ```
 
-4. Create a file named after your GitHub username containing the post creation transaction hash:  
+4. Create a file named after your GitHub username containing the transaction hash:  
    ```bash
    echo "<tx-hash>" >> ./phase-6/submissions/edit-post/<your-github-name>
    
