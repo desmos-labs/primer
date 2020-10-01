@@ -23,7 +23,7 @@ jobs:
 
       - name: Publish 🚀
         run: npm run publish-data
-        with:
+        env:
           PGHOST: ${{ secrets.PGHOST }}
           PGPORT: ${{ secrets.PGPORT }}
           PGUSER: ${{ secrets.PGUSER }}
