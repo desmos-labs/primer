@@ -1,5 +1,4 @@
 const axios = require("axios");
-import {Phase5} from "./phases/phase-5";
 
 const LCD_URL = "http://lcd.morpheus.desmos.network:1317/";
 
@@ -9,28 +8,28 @@ const LCD_URL = "http://lcd.morpheus.desmos.network:1317/";
  */
 const txs = new Map();
 
-Phase5.getData().then((data) => {
-    data.hashtags.forEach(async (value) => checkHashtagTx(value))
-    data.profiles.forEach(async (value) => checkProfileTx(value))
-    data.reports.forEach(async (value) => checkReportTx(value))
-    data.tags.forEach(async (value) => checkTagTx(value))
-
-    // Add all the transactions
-    addTxs(txs, data.hashtags);
-    addTxs(txs, data.profiles);
-    addTxs(txs, data.reports);
-    addTxs(txs, data.tags);
-
-    // Check for multiple users for the same hash
-    txs.forEach((value, key) => {
-        if (value.length > 1) {
-            console.error(`Transaction with hash ${key} has been used by multiple users`)
-            process.exit(1)
-        }
-    })
-
-    console.log("--- No transactions conflicts found ---")
-})
+// Phase5.getData().then((data) => {
+//     data.hashtags.forEach(async (value) => checkHashtagTx(value))
+//     data.profiles.forEach(async (value) => checkProfileTx(value))
+//     data.reports.forEach(async (value) => checkReportTx(value))
+//     data.tags.forEach(async (value) => checkTagTx(value))
+//
+//     // Add all the transactions
+//     addTxs(txs, data.hashtags);
+//     addTxs(txs, data.profiles);
+//     addTxs(txs, data.reports);
+//     addTxs(txs, data.tags);
+//
+//     // Check for multiple users for the same hash
+//     txs.forEach((value, key) => {
+//         if (value.length > 1) {
+//             console.error(`Transaction with hash ${key} has been used by multiple users`)
+//             process.exit(1)
+//         }
+//     })
+//
+//     console.log("--- No transactions conflicts found ---")
+// })
 
 // --------------------------------------------------
 // Utils

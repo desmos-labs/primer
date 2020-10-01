@@ -6,9 +6,9 @@
   "scripts": {
     "docs:serve": "vuepress dev",
     "docs:build": "vuepress build",
-    "build-scripts": "babel .scripts -s -d dist",
+    "build-scripts": "npx tsc",
     "check-txs": "node dist/check-txs.js",
-    "gather-data": "node dist/gather-data.js"
+    "publish-data": "node dist/publish-data.js"
   },
   "author": "",
   "license": "MIT",
@@ -24,6 +24,7 @@
     "lodash": "^4.17.20",
     "markdown-it": "^8.4.2",
     "markdown-it-meta": "0.0.1",
+    "typescript": "^4.0.3",
     "vuepress": "^1.5.4"
   },
   "dependencies": {

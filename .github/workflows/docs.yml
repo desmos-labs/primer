@@ -23,15 +23,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Build scripts ⚙️
-        run: |
-          npm install
-          npm ci
-          npm run build-scripts
-
-      - name: Check transactions
-        run: npm run check-txs
-
       - name: Build docs 📃
         run: |
           npm run gather-data -- --scoreboard-file-path=scoreboard.md
