@@ -7,7 +7,7 @@ Please note that in order to prevent spam, you will receive the reward just **fo
 
 With version `v0.12.0` we've implemented the function that allows you to create a relationship with other users in order to represent a "follow" of such user. 
 
-## Create your first relationship
+## Creating your first relationship
 :::tip Requirements  
 To create a relationship with a user, you will need their address.  
 :::
@@ -60,7 +60,7 @@ desmoscli query tx <hash> --trust-node --output json
 This will return you the JSON representation of the transaction itself.
 
 ## Getting the reward 
-After you've created the post, to make sure you receive your reward please follow this procedure: 
+After you've created the relationship, to make sure you receive your reward please follow this procedure: 
 
 1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).

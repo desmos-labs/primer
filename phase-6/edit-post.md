@@ -7,7 +7,7 @@ Please note that in order to prevent spam, you will receive the reward just **fo
 
 With version `v0.12.0` we've implemented the ability for users to edit posts' attachments and polls. 
 
-## Editing your first attachment post
+## Editing your first post with some attachments and a poll
 ### Creating the post
 Before editing a post and its attachments and poll data, we need to create one. You can do so by running the following command:
 
@@ -129,7 +129,7 @@ timestamp: ""
 ```
 
 ## Getting the reward 
-After you've created the post, to make sure you receive your reward please follow this procedure: 
+After you've edited a post, to make sure you receive your reward please follow this procedure: 
 
 1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).

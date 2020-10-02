@@ -21,3 +21,4 @@ If you're feeling ready to take part to the Primer, here are all the phases curr
 - [Phase 3](phase-3/README.md)
 - [Phase 4](phase-4/README.md)
 - [Phase 5](phase-5/README.md)
+- [Phase 6](phase-6/README.md)

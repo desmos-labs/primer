@@ -7,7 +7,7 @@ Please note that in order to prevent spam, you will receive the reward just **fo
 
 Starting from version `v0.12.0`, you can now block and unblock users.
 
-## Block and unblock your first user
+## Blocking and unblocking your first user
 :::tip Requirements  
 To block or unblock a user, you will need their address.  
 :::
@@ -115,7 +115,7 @@ To get this challenge's reward, you need to submit **two** transaction hashes, a
 Failing to provide either one of the two will result in **no rewards** given.  
 :::
 
-After you've created the post, to make sure you receive your reward please follow this procedure: 
+After you've blocked and unblocked a user, to make sure you receive your reward please follow this procedure: 
 
 1. Create a fork of this repo inside your private GitHub profile.  
    If you do not know how to do it, follow the [GitHub fork guide](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
