@@ -82,15 +82,10 @@ This will return you the JSON representation of the transaction itself.
 Once that you started the DTag transferring, the receiving user needs to accept it. To do so, they can use the following command:
 
 ```bash
-desmoscli tx profiles accept-dtag-transfer.md <New DTag> <Sender address> \
+desmoscli tx profiles accept-dtag-transfer <New DTag> <Sender address> \
   --from <their-key-name> --yes \
   --chain-id <chain-id>
 ```
-
-:::warning Note  
-As you might see, the command ends with `.md`. This is **not** an error in the documentation. This is a bug that is currently present inside `desmoscli`.  
-In the future that `.md` suffix will be removed, but for now you need to use it unless specified differently.  
-:::
 
 The `<New DTag>` will be the new DTag that is going to be associated to them once they gave you their current DTag.  
 The `<Sender address>` must be the same address of the user that has started the DTag transferring. 
@@ -98,7 +93,7 @@ The `<Sender address>` must be the same address of the user that has started the
 Here's an example of such command: 
 
 ```shell
-desmoscli tx profiles accept-dtag-transfer.md \
+desmoscli tx profiles accept-dtag-transfer \
   "Alice_New" $(desmoscli keys show jack -a) \
   --from alice --yes \
   --chain-id morpheus-10000
