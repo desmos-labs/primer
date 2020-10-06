@@ -18,7 +18,7 @@ To block a user, you have to use the following command:
 ```shell
 desmoscli tx relationships block <User address> <Subspace> <(Optional) Reason> \
   --from <your-key-name> --yes \
-  --chain-id moprheus-8000
+  --chain-id <chain-id>
 ```
 
 Here's an example of such command: 
@@ -150,4 +150,3 @@ After you've blocked and unblocked a user, to make sure you receive your reward 
    ```
 
 6. Commit the changes, push them to your forked repo and create a pull request. If you do not know how to create one, refer to the [GitHub Pull Requests guide](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
-
