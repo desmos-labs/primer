@@ -67,7 +67,7 @@ To unblock a user, you have to use the following command:
 ```shell
 desmoscli tx relationships unblock <User address> <Subspace> \
   --from <your-key-name> --yes \
-  --chain-id moprheus-8000
+  --chain-id <chain-id>
 ```
 
 Here's an example of such command: 
