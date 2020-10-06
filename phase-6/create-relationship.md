@@ -27,7 +27,7 @@ desmoscli tx relationships create \
   desmos1j2hyp3mzrxfhdkxzyvyqw9atu2s3smt89mklxs \
   4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530cccb81494b36e \
   --from jack --yes \
-  --chain-id morpheus-8000
+  --chain-id morpheus-10000
 ```
 
 Once you run that command you will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 

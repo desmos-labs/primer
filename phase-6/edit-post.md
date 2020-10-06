@@ -36,7 +36,7 @@ desmoscli tx posts create 4e188d9c17150037d5199bbdb91ae1eb2a78a15aca04cb35530ccc
   --poll-answer "German Sheperd" \
   --attachment "https://www.w3schools.com/w3css/img_lights.jpg,image/jpeg" \
   --from jack --yes \
-  --chain-id morpheus-8000
+  --chain-id morpheus-10000
 ```
 
 Once you've run that command you will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 
@@ -96,7 +96,7 @@ desmoscli tx posts edit 19de02e105c68a60e45c289bff19fde745bca9c63c38f2095b59e8e8
   --poll-answer "Poodle" \
   --attachment "https://www.w3schools.com/w3css/img_forest.jpg,image/jpeg" \
   --from jack --yes \
-  --chain-id morpheus-8000
+  --chain-id morpheus-10000
 ```
 
 :::tip Getting your post ID  

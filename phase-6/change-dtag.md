@@ -25,7 +25,7 @@ Here's an example of such command:
 ```shell
 desmoscli tx profiles save MyNewDTag \
   --from jack --yes \
-  --chain-id morpheus-8000
+  --chain-id morpheus-10000
 ```
 
 Once you run that command you will be asked to type the password you've chosen during the setup and after having inserted it properly you should see something like this: 
