@@ -7,8 +7,6 @@ Please note that in order to prevent spam, you will receive the reward just **fo
 
 With version `v0.12.0` we've implemented the ability for users to exchange between them their DTags.
 
-
-
 ## Exchanging your DTag
 :::warning Requirements  
 In order to be able to complete this challenge you will need: 
