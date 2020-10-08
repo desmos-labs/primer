@@ -5,7 +5,7 @@ module.exports = {
     title: "Desmos Primer Program",
     description: "An introduction on the Desmos world and how you can start playing with it",
     head: [
-        ['link', {rel: 'icon', href: '/assets/logo.svg'}],
+        ['link', {rel: 'icon', href: '/assets/logo.png'}],
         ['link', {rel: "apple-touch-icon", sizes: "57x57", href: "/assets/pwa/apple-icon-57x57.png"}],
         ['link', {rel: "apple-touch-icon", sizes: "60x60", href: "/assets/pwa/apple-icon-60x60.png"}],
         ['link', {rel: "apple-touch-icon", sizes: "72x72", href: "/assets/pwa/apple-icon-72x72.png"}],
@@ -52,7 +52,7 @@ module.exports = {
         docsDir: ".",
         docsBranch: "master",
         lastUpdated: true,
-        logo: "/assets/logo.svg",
+        logo: "/assets/logo.png",
         nav: [
             {text: "Desmos website", link: "https://desmos.network"},
         ],
