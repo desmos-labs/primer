@@ -2,7 +2,7 @@
 :::tip Rewards  
 Upon completing this challenge, you will be rewarded **50 Desmos Tokens**. 
   
-Additionally, you will also earn more tokens the longer you keep the node running. To know more about this please reference the [Validators program](../validators-program/overview.md).   
+Additionally, you will also earn more tokens the longer you keep the node running. To know more about this please reference the [Validators program](../validators-program.md).   
   
 Please note that we exported the `morpheus-3000` state at height `845,600`. 
 

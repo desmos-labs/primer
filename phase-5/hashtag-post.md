@@ -8,7 +8,7 @@ Please note that in order to prevent spam, you will receive the reward just **fo
 With version `v0.6.0` we've implemented the ability for users to create posts containing hashtags. 
 
 ## Create your first hashtag post
-Creating a post with a hashtag is immediate: simply create a post and include one or more hashtag(s) inside the message field. All you need to specify is the `subspace` of the post. If you do not know what a subspace here, please read the [related docs](http://docs.desmos.network/types/post.html#subspace). 
+Creating a post with a hashtag is immediate: simply create a post and include one or more hashtag(s) inside the message field. All you need to specify is the `subspace` of the post. If you do not know what a subspace here, please read the [related docs](https://docs.desmos.network/types/posts/post.html#subspace). 
 
 The command will then look like this: 
 

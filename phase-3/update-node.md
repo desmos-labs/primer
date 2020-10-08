@@ -2,7 +2,7 @@
 :::tip Rewards  
 Upon completing this challenge, you will be rewarded **50 Desmos Tokens**. 
   
-Additionally, you will also earn more tokens the longer you keep the node running. To know more about this please reference the [Validators program](validators-program/overview.md).   
+Additionally, you will also earn more tokens the longer you keep the node running. To know more about this please reference the [Validators program](../validators-program.md).   
 :::
 
 When a new version of Desmos is released, all validators need to update their node so that it can keep running properly. Following you will find the guide on how you can do this making sure everything is ready for when the new chain is started. 
@@ -48,7 +48,7 @@ tail -100f /var/log/syslog
 ```
 
 ## Manual update
-If you feel more comfortable into performing a manual update of your node, you can follow the [updating guide on the Desmos Docs website](https://docs.desmos.network/validators/update.html).
+If you feel more comfortable into performing a manual update of your node, you can follow the [updating guide on the Desmos Docs website](https://docs.desmos.network/validators/upgrades/manual.html).
 
 :::warning Required state change  
 After you have exported the chain state, you are required to perform a small state change.  
@@ -84,7 +84,7 @@ After doing so, you can proceed with the migration command.
 If you do not want to export and migrate the chain state by yourself, you can download and use the [genesis file](https://raw.githubusercontent.com/desmos-labs/morpheus/master/genesis.json) of `morpheus-3000` directly. Details of the genesis file can be found at the [Morpheus Testnet repository](https://github.com/desmos-labs/morpheus).
 
 ## Keys migration required
-When migrating from `v0.2.0` to `v0.3.0`, you need to also migrate your keys to the new keystore system. In order to do so, please follow the [detailed guide](https://docs.desmos.network/migrations/v0.3.0.html#users).
+When migrating from `v0.2.0` to `v0.3.0`, you need to also migrate your keys to the new keystore system.
 
 After you've updated your keys, restart your validator node by running 
 
