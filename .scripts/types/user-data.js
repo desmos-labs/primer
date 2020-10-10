@@ -1,3 +1,5 @@
+import {Phase3, Phase4, Phase5} from '../phases/phases.js';
+
 /**
  * Contains all the data related to a specific user for all the phases.
  */
@@ -10,8 +12,13 @@ export class UserData {
      * @param phase3Data {Phase3Data}
      * @param phase4Data {Phase4Data}
      * @param phase5Data {Phase5Data}
+     * @param validatingSummerData {ValidatingSummerData}
      */
-    constructor(user, phase1Data, phase2Data, phase3Data, phase4Data, phase5Data) {
+    constructor(user,
+                phase1Data, phase2Data, phase3Data,
+                phase4Data, phase5Data,
+                validatingSummerData,
+    ) {
         this.user = user;
 
         this.phase1 = {
@@ -32,19 +39,7 @@ export class UserData {
             answer: phase3Data.answers.get(user),
             validator: phase3Data.validators.get(user),
             precommits: phase3Data.precommits.get(phase3Data.validators.get(user)),
-
-            precommitsRewards: new Map([
-                [1, 1],
-                [4, 2],
-                [18, 3],
-                [78, 7],
-                [331, 12],
-                [1416, 21],
-                [6044, 40],
-                [25796, 73],
-                [110097, 135],
-                [469894, 250],
-            ]),
+            precommitsRewards: Phase3.PRECOMMITS_REWARDS,
         }
 
         this.phase4 = {
@@ -52,19 +47,7 @@ export class UserData {
             reaction: phase4Data.reactions.get(user),
             validator: phase4Data.validators.get(user),
             precommits: phase4Data.precommits.get(phase4Data.validators.get(user)),
-
-            precommitsRewards: new Map([
-                [345600, 1500],
-                [353480, 1750],
-                [361540, 2040],
-                [369790, 2380],
-                [378220, 2780],
-                [386850, 3240],
-                [395670, 3780],
-                [404690, 4410],
-                [413920, 5140],
-                [423360, 6000],
-            ]),
+            precommitsRewards: Phase4.PRECOMMITS_REWARDS,
         };
 
         this.phase5 = {
@@ -74,18 +57,13 @@ export class UserData {
             tag: phase5Data.tags.get(user),
             validator: phase5Data.validators.get(user),
             precommits: phase5Data.precommits.get(phase5Data.validators.get(user)),
+            precommitsRewards: Phase5.PRECOMMITS_REWARDS,
+        }
 
+        this.validatingSummer = {
+            precommits: validatingSummerData.precommits.get(user),
             precommitsRewards: new Map([
-                [345600, 1500],
-                [353480, 1750],
-                [361540, 2040],
-                [369790, 2380],
-                [378220, 2780],
-                [386850, 3240],
-                [395670, 3780],
-                [404690, 4410],
-                [413920, 5140],
-                [423360, 6000],
+                [462631, 6000],
             ]),
         }
     }
@@ -242,11 +220,14 @@ export class UserData {
         this.phase5Tokens = this._computePhase5Amount();
         this.phase5ValidatorReward = this._computePrecommitsReward(this.phase5.precommitsRewards, this.phase5.precommits);
 
+        this.validatingSummerReward = this._computePrecommitsReward(this.validatingSummer.precommitsRewards, this.validatingSummer.precommits);
+
         this.totalTokens = this.phase1Tokens +
             this.phase2Tokens +
             this.phase3Tokens + this.phase3ValidatorReward +
             this.phase4Tokens + this.phase4ValidatorReward +
-            this.phase5Tokens + this.phase5ValidatorReward;
+            this.phase5Tokens + this.phase5ValidatorReward +
+            this.validatingSummerReward;
     }
 }
 

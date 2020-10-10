@@ -8,30 +8,30 @@
     "docs:build": "vuepress build",
     "build-scripts": "babel .scripts -s -d dist",
     "check-txs": "node dist/check-txs.js",
-    "gather-data": "node dist/gather-data.js",
-    "upload-data": "node dist/upload-data.js"
+    "gather-data": "node dist/gather-data.js"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/polyfill": "^7.8.3",
-    "@babel/preset-env": "^7.9.0",
-    "@vuepress/plugin-google-analytics": "^1.2.0",
-    "lodash": "^4.17.19",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@vuepress/plugin-google-analytics": "^1.5.4",
+    "lodash": "^4.17.20",
     "markdown-it": "^8.4.2",
     "markdown-it-meta": "0.0.1",
-    "vuepress": "^1.2.0"
+    "vuepress": "^1.5.4"
   },
   "dependencies": {
-    "@babel/register": "^7.9.0",
+    "@babel/register": "^7.10.5",
     "axios": "^0.19.2",
     "jquery-csv": "^1.0.11",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "sprintf-js": "^1.1.2",
     "vuepress-plugin-latex": "^0.1.3",
-    "yargs": "^15.1.0"
+    "yargs": "^15.4.1"
   }
 }
