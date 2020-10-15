@@ -78,6 +78,18 @@ module.exports = {
                 ]
             },
             {
+                title: "Phase 6",
+                path: "/phase-6/",
+                collapsable: true,
+                children: [
+                    ["/phase-6/edit-post", "Edit a post's attachments and poll"],
+                    ["/phase-6/create-relationship", "Add a relationship towards a user"],
+                    ["/phase-6/block-unblock", "Block and unblock a user"],
+                    ["/phase-6/change-dtag", "Change your DTag"],
+                    ["/phase-6/transfer-dtag", "Transfer your DTag to a user"],
+                ]
+            },
+            {
                 title: "Scoreboard",
                 path: "/scoreboard"
             },
