@@ -6,11 +6,7 @@ If you feel ready to take the challenge and help us making the Desmos chain safe
 :::warning Validator rewards
 In order to get the validator program running longer and include a larger number of validators, we will periodically revisit the number of tokens that will be rewarded upon becoming a validator of our chains. 
 
-Also, we will reward tokens based on the activity of validators: more blocks you precommit and more reward you will get, so make sure your validator node is always active to get the larger amount of tokens possible.
-  
-Currently the reward for becoming a validator is set to be **50 Desmos Tokens + periodic rewards based on the availability of the node** (see below). 
-  
-Please note that in order to prevent scams, you will receive the initial reward just after your validator has **successfully proposed a block**.  
+Also, we will reward tokens based on the activity of validators: more blocks you precommit and more reward you will get, so make sure your validator node is always active to get the larger amount of tokens possible. 
 ::: 
 
 ## Procedure to become a validator
@@ -103,3 +99,6 @@ This means that the amount of Phase 4 rewards for the validators program will be
 | 566,851 | 4,410 |
 | 581,081 | 5,140 |
 | 595,668 | 6,000 |   
+
+### Current program
+After Phase 5, we decided to drop the Phase-based system. Instead, we designed a new Validation Program of which you can read more about on our [Medium blog](https://medium.com/desmosnetwork/introducing-the-new-desmos-validator-program-1782d3eaa98f). 

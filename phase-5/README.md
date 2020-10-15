@@ -4,13 +4,7 @@ Phase 5 is closed since Saturday 15 August 2020 23:59:59 UTC.
 No more submissions are accepted.    
 :::
 
-Thanks to the latest Morpheus testnet (`morpheus-7001`), we've implemented the possibility for users of doing three new things: 
-
-1. creating posts containing hashtags;
-2. tagging a person inside a post with a media file; 
-3. reporting a post.
-
-Inside Phase 5 you will be able to play with those features and earn some DSM by completing the following challenges:
+Even though Phase 5 is now closed, you can still try out the following challenges to learn a bit more about Desmos:
 
 - [Create a post with an hashtag (25 Desmos Tokens)](hashtag-post.md)
 - [Tag a person inside a post (50 Desmos Tokens)](tag-person.md)

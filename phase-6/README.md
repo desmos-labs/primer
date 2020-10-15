@@ -1,8 +1,4 @@
 # Phase 6
-:::danger Phase 6 starting soon
-Phase 6 is going to start on Wednesday 7 October 2020 at 00:00:00 UTC.  
-:::
-
 Thanks to the latest Desmos version (`v0.12.3`), we've implemented the possibility for users of doing some new things: 
 
 1. editing polls and attachments of a post;
