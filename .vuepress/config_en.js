@@ -91,7 +91,7 @@ module.exports = {
             },
             {
                 title: "Scoreboard",
-                path: "/scoreboard"
+                path: "https://rewards.desmos.network"
             },
         ]
     }
