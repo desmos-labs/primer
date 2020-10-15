@@ -12,7 +12,7 @@ During this period, validators who validate **more than 80%** of the blocks that
 
 One thing should be noted is that if you are planning to run a validator node: you need to make sure you are available if any update is required at any time. We might require you to perform an update procedure, and any failure in getting your node running again later will result in you loosing blocks and thus possible rewards.  
 
-All the rewards will be distributed **once all will end**, and they will be visible inside our [Scoreboard](https://rewards.desmos.network). 
+All the rewards will be distributed **once all will end**, and they will be visible inside our [Scoreboard](https://scoreboard.desmos.network). 
 
 **Note**  
 You should be a verified validator in order to be eligible to get the proper rewards. If you already completed one _Update your node_ challenge in previous Demos Primer phases, then you are good to go. If not, then you can contact us directly using our [Discord](https://discord.gg/yxPRGdq) 
