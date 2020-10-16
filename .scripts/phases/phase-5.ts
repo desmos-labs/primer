@@ -1,32 +1,19 @@
 import {Utils} from "./common";
-import {PrecommitData} from "../types/precommit-data";
+import {PrecommitData} from "../types";
 
 const path = require('path');
 const csv = require('jquery-csv');
 const PHASE_5_SUBMISSIONS = path.join(__dirname, `../../phase-5/submissions`);
 
-const PRECOMMITS_REWARDS = new Map([
-    [476534, 1500],
-    [488497, 1750],
-    [500760, 2040],
-    [513331, 2380],
-    [526217, 2780],
-    [539427, 3240],
-    [552969, 3780],
-    [566851, 4410],
-    [581081, 5140],
-    [595668, 6000],
-]);
-
 /**
  * Returns the list of all the Primer Phase 5 entries.
  */
 export async function getPhase5Data(): Promise<Array<Phase5Data>> {
-    const hashtags = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/hashtags`));
-    const profiles = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/profiles`));
-    const tags = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/tags`));
-    const reports = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/reports`));
-    const validatorsOperatorAddresses = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/updates`));
+    const hashtags = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/hashtags`));
+    const profiles = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/profiles`));
+    const tags = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/tags`));
+    const reports = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/reports`));
+    const validatorsOperatorAddresses = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_5_SUBMISSIONS}/updates`));
     const users = new Set<String>([
         ...hashtags.keys(),
         ...profiles.keys(),

@@ -8,9 +8,9 @@ const PHASE_1_SUBMISSIONS = path.join(__dirname, `../../phase-1/submissions`);
  */
 export async function getPhase1Data(): Promise<Array<Phase1Data>> {
     let referrals = await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/referral`);
-    let acceptedReferrals = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/referred`));
-    let posts = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/posts`));
-    let likes = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/likes`));
+    let acceptedReferrals = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/referred`));
+    let posts = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/posts`));
+    let likes = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_1_SUBMISSIONS}/likes`));
     let users = new Set<String>([
         ...referrals.keys(),
         ...acceptedReferrals.keys(),

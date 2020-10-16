@@ -1,30 +1,17 @@
 import {Utils} from "./common";
-import {PrecommitData} from "../types/precommit-data";
+import {PrecommitData} from "../types";
 
 const path = require('path');
 const csv = require('jquery-csv');
 const PHASE_4_SUBMISSIONS = path.join(__dirname, `../../phase-4/submissions`);
 
-const PRECOMMITS_REWARDS = new Map([
-    [345600, 1500],
-    [353480, 1750],
-    [361540, 2040],
-    [369790, 2380],
-    [378220, 2780],
-    [386850, 3240],
-    [395670, 3780],
-    [404690, 4410],
-    [413920, 5140],
-    [423360, 6000],
-]);
-
 /**
  * Returns the list of all the Primer Phase 4 entries.
  */
 export async function getPhase4Data(): Promise<Array<Phase4Data>> {
-    const accounts = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/accounts`));
-    const reactions = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/reactions`));
-    const validatorsOperatorAddresses = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/updates`));
+    const accounts = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/accounts`));
+    const reactions = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/reactions`));
+    const validatorsOperatorAddresses = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_4_SUBMISSIONS}/updates`));
     const users = new Set<String>([
         ...accounts.keys(),
         ...reactions.keys(),

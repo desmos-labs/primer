@@ -7,8 +7,8 @@ const PHASE_2_SUBMISSIONS = path.join(__dirname, `../../phase-2/submissions`);
  * Returns the list of all the Primer Phase 2 entries.
  */
 export async function getPhase2Data(): Promise<Array<Phase2Data>> {
-    const reactions = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/reactions`));
-    const validators = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/validators`));
+    const reactions = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/reactions`));
+    const validators = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_2_SUBMISSIONS}/validators`));
 
     const users = new Set<String>([
         ...reactions.keys(),

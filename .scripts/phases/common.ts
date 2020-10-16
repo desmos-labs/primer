@@ -28,11 +28,26 @@ export class Utils {
 
     /**
      * Iterates over all the keys present in the given map.
-     * For each entry, takes only the first item of the value. If the value is an empty array, skips the key.
-     * @param {Map<String, Array<String>>} map containing the original data as a list of string-to-[]string entries.
+     * For each entry, removes all the rows inside the value that are empty.
+     * If the value is an empty array, skips the key.
      */
-    static async removeEmptyValue(map): Promise<Map<String, String>> {
-        let newMap = new Map();
+    static async takeNonEmpty(map: Map<String, Array<String>>): Promise<Map<String, Array<String>>> {
+        let newMap = new Map<String, Array<String>>();
+        for (const k of map.keys()) {
+            const value = map.get(k);
+            if (value.length > 0) {
+                newMap.set(k, value.filter((value) => value.length > 0));
+            }
+        }
+        return newMap;
+    }
+
+    /**
+     * Iterates over all the keys present in the given map.
+     * For each entry, takes only the first item of the value. If the value is an empty array, skips the key.
+     */
+    static async takeFirstNonEmpty(map: Map<String, Array<String>>): Promise<Map<String, String>> {
+        let newMap = new Map<String, String>();
         for (const k of map.keys()) {
             const value = map.get(k);
             if (value.length > 0) {
