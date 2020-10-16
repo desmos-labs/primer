@@ -1,10 +1,11 @@
 import {Pool} from "pg";
+import {PrecommitData} from "./types";
+
 import {Phase1Data} from "./phases/phase-1";
 import {Phase2Data} from "./phases/phase-2";
 import {Phase3Data} from "./phases/phase-3";
 import {Phase4Data} from "./phases/phase-4";
 import {Phase5Data} from "./phases/phase-5";
-import {PrecommitData} from "./types/precommit-data";
 import {Phase6Data} from "./phases/phase-6";
 
 async function asyncForEach(array, callback) {
