@@ -5,6 +5,7 @@ import {getPhase3Data} from "./phases/phase-3";
 import {getPhase4Data} from "./phases/phase-4";
 import {getPhase5Data} from "./phases/phase-5";
 import {getValidatingSummerData} from "./phases/validating-summer";
+import {getPhase6Data} from "./phases/phase-6";
 
 require("@babel/core");
 require("@babel/polyfill");
@@ -38,6 +39,11 @@ async function storeData() {
     const phase5Data = await getPhase5Data();
     for (const data of phase5Data) {
         await psqlWriter.insertPhase5Data(data);
+    }
+
+    const phase6Data = await getPhase6Data();
+    for (const data of phase6Data) {
+        await psqlWriter.insertPhase6Data(data);
     }
 
     const validatingSummerData = await getValidatingSummerData();

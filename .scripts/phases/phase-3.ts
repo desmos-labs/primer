@@ -1,31 +1,18 @@
 import {Utils} from "./common";
-import {PrecommitData} from "../types/precommit-data";
+import {PrecommitData} from "../types";
 
 const path = require('path');
 const csv = require('jquery-csv');
 const PHASE_3_SUBMISSIONS = path.join(__dirname, `../../phase-3/submissions`);
 
-const PRECOMMITS_REWARDS = new Map([
-    [1, 1],
-    [4, 2],
-    [18, 3],
-    [78, 7],
-    [331, 12],
-    [1416, 21],
-    [6044, 40],
-    [25796, 73],
-    [110097, 135],
-    [469894, 250],
-]);
-
 /**
  * Returns the list of all the Primer Phase 3 entries.
  */
 export async function getPhase3Data(): Promise<Array<Phase3Data>> {
-    const polls = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/polls`));
-    const multimediaPosts = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/multimedia`));
-    const pollAnswers = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/answers`));
-    const validatorOperatorAddresses = await Utils.removeEmptyValue(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/updates`));
+    const polls = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/polls`));
+    const multimediaPosts = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/multimedia`));
+    const pollAnswers = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/answers`));
+    const validatorOperatorAddresses = await Utils.takeFirstNonEmpty(await Utils.getFilesContents(`${PHASE_3_SUBMISSIONS}/updates`));
     const users = new Set<String>([
         ...polls.keys(),
         ...multimediaPosts.keys(),

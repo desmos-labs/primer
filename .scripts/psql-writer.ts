@@ -1,10 +1,12 @@
 import {Pool} from "pg";
+import {PrecommitData} from "./types";
+
 import {Phase1Data} from "./phases/phase-1";
 import {Phase2Data} from "./phases/phase-2";
 import {Phase3Data} from "./phases/phase-3";
 import {Phase4Data} from "./phases/phase-4";
 import {Phase5Data} from "./phases/phase-5";
-import {PrecommitData} from "./types/precommit-data";
+import {Phase6Data} from "./phases/phase-6";
 
 async function asyncForEach(array, callback) {
     if (array == null) return;
@@ -186,6 +188,26 @@ export class PsqlWriter {
             data.report != null,
             data.precommitData?.operatorAddress,
             data.precommitData?.precommitsSigned ?? 0,
+        ]);
+    }
+
+    /**
+     * Inserts the Phase 6 data inside the proper tables.
+     */
+    public async insertPhase6Data(data: Phase6Data) {
+        await this.insertUserIfNotExistent(data.user);
+
+        const userQuery = `INSERT INTO primer_phase_6 (username, block_unblocked_user, changed_dtag,
+                                                       created_relationships, edited_post, transferred_dtag)
+                           VALUES ($1, $2, $3, $4, $5, $6)
+                           ON CONFLICT DO NOTHING`;
+        await this.pool.query(userQuery, [
+            data.user,
+            data.blockUser != null && data.unblockUser != null,
+            data.changeDTag != null,
+            data.createRelationship != null,
+            data.editPost != null,
+            data.transferDTag != null && data.transferDTag.length == 2,
         ]);
     }
 
