@@ -3,6 +3,9 @@
 name: Data
 on:
   pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
   Publish:
@@ -22,6 +25,7 @@ jobs:
         run: npm run check-txs
 
       - name: Publish 🚀
+        if: github.ref == 'refs/heads/master'
         run: npm run publish-data
         env:
           PGHOST: ${{ secrets.PGHOST }}
