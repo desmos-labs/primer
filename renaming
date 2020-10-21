@@ -1,0 +1,2 @@
+#!/bin/bash
+for filename in $(find -regex *SkyNet*); do echo mv \"$filename\" \"${filename//SkyNet/lightiv}\"; done | /bin/bash
