@@ -1,0 +1,35 @@
+# This workflow allows to publish the data from this repo to the proper PostgreSQL database on which all the data
+# is hosted. This will later be used to fetch the public data and show them inside our custom website.
+name: Data
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  Publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Build scripts ⚙️
+        run: |
+          npm install
+          npm run build-scripts
+
+      - name: Check transactions 🔍
+        run: npm run check-txs
+
+      - name: Publish 🚀
+        if: github.ref == 'refs/heads/master'
+        run: npm run publish-data
+        env:
+          PGHOST: ${{ secrets.PGHOST }}
+          PGPORT: ${{ secrets.PGPORT }}
+          PGUSER: ${{ secrets.PGUSER }}
+          PGPASSWORD: ${{ secrets.PGPASSWORD }}
+          PGDATABASE: ${{ secrets.PGDATABASE }}
