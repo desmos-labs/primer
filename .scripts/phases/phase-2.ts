@@ -18,7 +18,7 @@ export async function getPhase2Data(): Promise<Array<Phase2Data>> {
     return Array.from(users).map((user) => new Phase2Data(
         user,
         reactions.get(user),
-        validators.get(user),
+        validators.get(user) != null,
     ));
 }
 
@@ -29,12 +29,12 @@ export class Phase2Data {
     public user: String;
 
     public reaction: String;
-    public validatorOperatorAddress: String;
+    public createdValidator: boolean;
 
-    constructor(user: String, reaction: String, validatorOperatorAddress: String) {
+    constructor(user: String, reaction: String, createdValidator: boolean) {
         this.user = user;
 
         this.reaction = reaction;
-        this.validatorOperatorAddress = validatorOperatorAddress;
+        this.createdValidator = createdValidator;
     }
 }

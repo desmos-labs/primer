@@ -1,5 +1,4 @@
 import {Pool} from "pg";
-import {PrecommitData} from "./types";
 
 import {Phase1Data} from "./phases/phase-1";
 import {Phase2Data} from "./phases/phase-2";
@@ -95,17 +94,13 @@ export class PsqlWriter {
      */
     public async insertPhase2Data(data: Phase2Data) {
         await this.insertUserIfNotExistent(data.user);
-        if (data.validatorOperatorAddress != null) {
-            await this.insertValidatorIfNotExistent(data.user, data.validatorOperatorAddress)
-        }
-
         const query = `INSERT INTO primer_phase_2 (username, added_reaction, created_validator)
                        VALUES ($1, $2, $3)
                        ON CONFLICT DO NOTHING`;
         await this.pool.query(query, [
             data.user,
             data.reaction != null,
-            data.validatorOperatorAddress != null,
+            data.createdValidator,
         ]);
     }
 
@@ -208,21 +203,6 @@ export class PsqlWriter {
             data.createRelationship != null,
             data.editPost != null,
             data.transferDTag != null && data.transferDTag.length == 2,
-        ]);
-    }
-
-    /**
-     * Inserts the Validating Summer data inside the proper tables.
-     */
-    public async insertValidatingSummerData(data: PrecommitData) {
-        await this.insertValidatorIfNotExistent(null, data.operatorAddress, data.moniker);
-
-        const userQuery = `INSERT INTO validating_summer (validator_address, precommits_signed)
-                           VALUES ($1, $2)
-                           ON CONFLICT DO NOTHING`;
-        await this.pool.query(userQuery, [
-            data.operatorAddress,
-            data.precommitsSigned,
         ]);
     }
 }
