@@ -2,6 +2,9 @@
   "ignorePatterns": [
     {
       "pattern": "^/assets"
+    },
+    {
+      "pattern": "^https?://"
     }
   ]
 }
