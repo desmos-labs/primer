@@ -42,17 +42,10 @@ export class PsqlWriter {
      * Inserts the validator having the given data if it does not exist yet.
      */
     private async insertValidatorIfNotExistent(user: String, operatorAddress: String, moniker: String = null) {
-        const query = `INSERT INTO validators (operator_address, moniker)
-                       VALUES ($1, $2)
+        const query = `INSERT INTO validators (user_name, operator_address, moniker)
+                       VALUES ($1, $2, $3)
                        ON CONFLICT DO NOTHING`
-        await this.pool.query(query, [operatorAddress, moniker]);
-
-        if (user != null) {
-            const userQuery = `INSERT INTO users (username, validator_address)
-                               VALUES ($1, $2)
-                               ON CONFLICT (username) DO UPDATE SET validator_address = excluded.validator_address`
-            await this.pool.query(userQuery, [user, operatorAddress]);
-        }
+        await this.pool.query(query, [user, operatorAddress, moniker]);
     }
 
     private async insertReferral(referringUser: String, referredUser: String, accepted: Boolean = false) {
