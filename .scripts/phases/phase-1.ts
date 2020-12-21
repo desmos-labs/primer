@@ -35,8 +35,22 @@ export class Phase1Data {
 
     public referrals: Array<String>;
     public acceptedReferral: String;
+
     public post: String;
+    public get hasPost(): boolean {
+        return this.post != null;
+    }
+
     public like: String;
+    public get hasLike(): boolean {
+        return this.like != null;
+    }
+
+    public get reward(): number {
+        return (this.post != null ? 20 : 0) +
+            (this.like != null ? 10 : 0);
+    }
+
 
     constructor(user: String, referrals: Array<String>, acceptedReferral: String, post: String, like: String) {
         this.user = user;

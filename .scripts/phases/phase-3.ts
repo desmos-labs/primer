@@ -58,9 +58,31 @@ export class Phase3Data {
     public user: String;
 
     public poll: String;
+    public get hasPoll(): boolean {
+        return this.poll != null;
+    }
+
     public multimediaPost: String;
+    public get hasMultimediaPost(): boolean {
+        return this.multimediaPost != null;
+    }
+
     public pollAnswer: String;
+    public get hasPollAnswer(): boolean {
+        return this.pollAnswer != null;
+    }
+
     public precommitData: PrecommitData;
+    public get validatorAddress(): String {
+        return this.precommitData?.operatorAddress;
+    }
+
+    public get reward(): number {
+        return (this.hasPoll ? 100 : 0) +
+            (this.hasPollAnswer ? 10 : 0) +
+            (this.hasMultimediaPost ? 50 : 0) +
+            (this.validatorAddress != null ? 50 : 0)
+    }
 
     constructor(user: String, poll: String, multimediaPost: String, pollAnswer: String, precommitData: PrecommitData) {
         this.user = user;

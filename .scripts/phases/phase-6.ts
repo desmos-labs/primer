@@ -44,10 +44,37 @@ export class Phase6Data {
 
     public blockUser: String;
     public unblockUser: String;
+    public get hasBlockedUnblockedUser(): boolean {
+        return this.blockUser != null && this.unblockUser != null;
+    }
+
     public changeDTag: String;
+    public get hasChangedDTag(): boolean {
+        return this.changeDTag != null;
+    }
+
     public createRelationship: String;
+    public get hasCreatedRelationship(): boolean {
+        return this.createRelationship != null;
+    }
+
     public editPost: String;
+    public get hasEditedPost(): boolean {
+        return this.editPost != null;
+    }
+
     public transferDTag: Array<String>;
+    public get hasTransferredDTag(): boolean {
+        return this.transferDTag != null && this.transferDTag.length == 2;
+    }
+
+    public get reward(): number {
+        return (this.hasEditedPost ? 50 : 0) +
+            (this.hasCreatedRelationship ? 23 : 0) +
+            (this.hasBlockedUnblockedUser ? 50 : 0) +
+            (this.hasChangedDTag ? 25 : 0) +
+            (this.hasTransferredDTag ? 100 : 0);
+    }
 
     constructor(
         user: String, blockUser: String, unblockUser: String, changeDTag: String, createRelationship: String,

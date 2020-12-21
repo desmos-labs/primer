@@ -29,7 +29,16 @@ export class Phase2Data {
     public user: String;
 
     public reaction: String;
+    public get hasReaction(): boolean {
+        return this.reaction != null;
+    }
+
     public createdValidator: boolean;
+
+    public get reward(): number {
+        return (this.hasReaction ? 30 : 0) +
+            (this.createdValidator ? 300 : 0)
+    }
 
     constructor(user: String, reaction: String, createdValidator: boolean) {
         this.user = user;

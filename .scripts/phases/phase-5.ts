@@ -64,10 +64,36 @@ export class Phase5Data {
     public user: String;
 
     public hashtag: String;
+    public get hasHashtag(): boolean {
+        return this.hashtag != null;
+    }
+
     public profile: String;
+    public get hasProfile(): boolean {
+        return this.profile != null;
+    }
+
     public report: String;
+    public get hasReport(): boolean {
+        return this.report != null;
+    }
+
     public tag: String;
+    public get hasTag() : boolean {
+        return this.tag != null;
+    }
+
     public precommitData: PrecommitData;
+    public get validatorAddress(): String {
+        return this.precommitData?.operatorAddress;
+    }
+
+    public get reward() : number {
+        return (this.hasHashtag ? 25 : 0) +
+            (this.hasTag ? 50 : 0) +
+            (this.hasReport ? 25 : 0) +
+            (this.hasProfile ? 50 : 0);
+    }
 
     constructor(user: String, hashtag: String, profile: String, report: String, tag: String, precommitData: PrecommitData) {
         this.user = user;

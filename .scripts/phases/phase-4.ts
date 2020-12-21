@@ -59,8 +59,25 @@ export class Phase4Data {
     public user: String;
 
     public reaction: String;
+    public get hasReaction(): boolean {
+        return this.reaction != null;
+    }
+
     public account: String;
+    public get hasAccount(): boolean {
+        return this.account != null;
+    }
+
     public precommitData: PrecommitData;
+    public get validatorAddress(): String {
+        return this.precommitData?.operatorAddress;
+    }
+
+    public get reward() : number {
+        return (this.hasReaction ? 50 : 0) +
+            (this.hasAccount ? 50 : 0) +
+            (this.validatorAddress != null ? 50 : 0);
+    }
 
     constructor(user: String, reaction: String, account: String, precommitData: PrecommitData) {
         this.user = user;

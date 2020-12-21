@@ -54,7 +54,8 @@ export class PsqlWriter {
 
         const referralQuery = `INSERT INTO referrals (referring_user, referred_user, accepted)
                                VALUES ($1, $2, $3)
-                               ON CONFLICT (referring_user, referred_user) DO UPDATE SET accepted = (excluded.accepted OR referrals.accepted)`;
+                               ON CONFLICT (referring_user, referred_user) DO UPDATE
+                                   SET accepted = (excluded.accepted OR referrals.accepted)`;
         await this.pool.query(referralQuery, [referringUser, referredUser, accepted]);
     }
 
@@ -65,11 +66,17 @@ export class PsqlWriter {
         await this.insertUserIfNotExistent(data.user);
 
         // Insert the user data
-        const query = `INSERT INTO primer_phase_1 (username, created_post, liked_post)
-                       VALUES ($1, $2, $3)
+        const query = `INSERT INTO primer_phase_1 (username, created_post, liked_post, reward)
+                       VALUES ($1, $2, $3, $4)
                        ON CONFLICT (username) DO UPDATE SET created_post = excluded.created_post,
-                                                            liked_post   = excluded.liked_post`;
-        await this.pool.query(query, [data.user, data.post != null, data.like != null,]);
+                                                            liked_post   = excluded.liked_post,
+                                                            reward       = excluded.reward`;
+        await this.pool.query(query, [
+            data.user,
+            data.hasPost,
+            data.hasLike,
+            data.reward
+        ]);
 
         // Update the referral if existing
         if (data.acceptedReferral != null) {
@@ -87,13 +94,16 @@ export class PsqlWriter {
      */
     public async insertPhase2Data(data: Phase2Data) {
         await this.insertUserIfNotExistent(data.user);
-        const query = `INSERT INTO primer_phase_2 (username, added_reaction, created_validator)
-                       VALUES ($1, $2, $3)
-                       ON CONFLICT DO NOTHING`;
+        const query = `INSERT INTO primer_phase_2 (username, added_reaction, created_validator, reward)
+                       VALUES ($1, $2, $3, $4)
+                       ON CONFLICT DO UPDATE SET added_reaction    = excluded.added_reaction,
+                                                 created_validator = excluded.created_validator,
+                                                 reward            = excluded.reward`;
         await this.pool.query(query, [
             data.user,
-            data.reaction != null,
+            data.hasReaction,
             data.createdValidator,
+            data.reward,
         ]);
     }
 
@@ -111,17 +121,18 @@ export class PsqlWriter {
         }
 
         const userQuery = `INSERT INTO primer_phase_3 (username, created_poll, created_multimedia_post, answered_poll,
-                                                       validator_address, precommits_signed)
+                                                       validator_address, reward)
                            VALUES ($1, $2, $3, $4, $5, $6)
                            ON CONFLICT DO NOTHING`;
         await this.pool.query(userQuery, [
             data.user,
-            data.poll != null,
-            data.multimediaPost != null,
-            data.pollAnswer != null,
-            data.precommitData?.operatorAddress,
-            data.precommitData?.precommitsSigned ?? 0,
-        ]);
+            data.hasPoll,
+            data.hasMultimediaPost,
+            data.hasPollAnswer,
+            data.validatorAddress,
+            data.reward,
+        ])
+        ;
     }
 
     /**
@@ -138,15 +149,18 @@ export class PsqlWriter {
         }
 
         const userQuery = `INSERT INTO primer_phase_4 (username, registered_reaction, created_account,
-                                                       validator_address, precommits_signed)
+                                                       validator_address, reward)
                            VALUES ($1, $2, $3, $4, $5)
-                           ON CONFLICT DO NOTHING`;
+                           ON CONFLICT DO UPDATE SET registered_reaction = excluded.registered_reaction,
+                                                     created_account     = excluded.created_account,
+                                                     validator_address   = excluded.validator_address,
+                                                     reward              = excluded.reward`;
         await this.pool.query(userQuery, [
             data.user,
-            data.reaction != null,
-            data.account != null,
-            data.precommitData?.operatorAddress,
-            data.precommitData?.precommitsSigned ?? 0,
+            data.hasReaction,
+            data.hasAccount,
+            data.validatorAddress,
+            data.reward,
         ]);
     }
 
@@ -165,17 +179,22 @@ export class PsqlWriter {
 
         const userQuery = `INSERT INTO primer_phase_5 (username, created_or_updated_profile, created_post_with_hashtag,
                                                        created_post_with_tag, created_report, validator_address,
-                                                       precommits_signed)
+                                                       reward)
                            VALUES ($1, $2, $3, $4, $5, $6, $7)
-                           ON CONFLICT DO NOTHING`;
+                           ON CONFLICT DO UPDATE SET created_or_updated_profile = excluded.created_or_updated_profile,
+                                                     created_post_with_hashtag  = excluded.created_post_with_hashtag,
+                                                     created_post_with_tag      = excluded.created_post_with_tag,
+                                                     created_report             = excluded.created_report,
+                                                     validator_address          = excluded.validator_address,
+                                                     reward                     = excluded.reward`;
         await this.pool.query(userQuery, [
             data.user,
-            data.profile != null,
-            data.hashtag != null,
-            data.tag != null,
-            data.report != null,
-            data.precommitData?.operatorAddress,
-            data.precommitData?.precommitsSigned ?? 0,
+            data.hasProfile,
+            data.hasHashtag,
+            data.hasTag,
+            data.hasReport,
+            data.validatorAddress,
+            data.reward,
         ]);
     }
 
@@ -186,16 +205,17 @@ export class PsqlWriter {
         await this.insertUserIfNotExistent(data.user);
 
         const userQuery = `INSERT INTO primer_phase_6 (username, block_unblocked_user, changed_dtag,
-                                                       created_relationships, edited_post, transferred_dtag)
-                           VALUES ($1, $2, $3, $4, $5, $6)
+                                                       created_relationships, edited_post, transferred_dtag, reward)
+                           VALUES ($1, $2, $3, $4, $5, $6, $7)
                            ON CONFLICT DO NOTHING`;
         await this.pool.query(userQuery, [
             data.user,
-            data.blockUser != null && data.unblockUser != null,
-            data.changeDTag != null,
-            data.createRelationship != null,
-            data.editPost != null,
-            data.transferDTag != null && data.transferDTag.length == 2,
+            data.hasBlockedUnblockedUser,
+            data.hasChangedDTag,
+            data.hasCreatedRelationship,
+            data.hasEditedPost,
+            data.hasTransferredDTag,
+            data.reward,
         ]);
     }
 }
